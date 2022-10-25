@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Request>
+  <auftraggeber/>
+  <kundennummer/>
+  <vorgangsnummer>546340000000000F7C</vorgangsnummer>
+  <dateiname/>
+  <claimsGuard>
+    <anwendbar>true</anwendbar>
+    <einzelpruefbericht>true</einzelpruefbericht>
+  </claimsGuard>
+  <schadennummer/>
+</Request>

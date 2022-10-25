@@ -1,0 +1,364 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using ReklaTool.Models;
+@using ReklaTool.Models.ViewModels
+@using ReklaTool.Services
+@{
+    ViewData["Titel"] = "Vorgang";
+}
+
+
+<pre>
+@ViewBag.a
+</pre>
+
+
+<h6 align="center">546340000000000F7C</h6>
+<table width="100%">
+    <tr>
+        <td>
+            @Html.Kendo().Button().Name("btn_submit").Content("Suchen").Events(e => e.Click("loadAuswahl")).Enable(false)
+        </td>
+        <td>
+            @(Html.Kendo().DropDownList().Name("dropDownAktenzeichen")
+                .BindTo(new List<string>()
+                {
+                    "Vorgangsnummer",
+                    "Auftragsnummer",
+                    "Schadennummer",
+                    "Dateiname"
+                })
+                )
+        </td>
+        <td width="100%">
+            <div class="suche">
+                @(Html.Kendo().TextBox()
+                    .Name("txtbox_Suchfeld")
+                    .FillMode(FillMode.None)
+                    .HtmlAttributes(new {@class = "suchfeld"})
+                    .Placeholder("Suchbegriff: Auftragsnummer, Schadennummer, Filename oder Vorgangsnummer")
+                    )
+            </div>
+        </td>
+    </tr>
+</table>
+@Html.Kendo().CheckBox().Name("checkbox_Schnellsuche").Checked(true).Label("Schnellsuche")
+<br/>
+<div class="vorgangListe">
+    <hr/>
+    @(Html.Kendo().Grid<VorgangInfoModel>()
+        .Name("vorgangAuswahl")
+        .AutoBind(false)
+        .NoRecords(true)
+        .Sortable()
+        .Columns(columns =>
+        {
+            columns.Bound(e => e.Aktenzeichen);
+            columns.Bound(e => e.Kalkulationsdatum);
+            columns.Bound(e => e.Kalkulationssystem);
+        })
+        .DataSource(dataSource => dataSource
+            .WebApi()
+            .ServerOperation(false)
+            .PageSize(5)
+            .Read(read => read
+                .Data("getSearchParametersFast")
+                .Action("VorgangAuswahl_Read", "Vorgang")
+            )
+            .Sort(c=>c.Add("Kalkulationsdatum").Descending())
+            .Events(ev=>ev.Error("vorgangNotFound"))
+        )
+        .Pageable()
+        .Selectable(sel => sel.Mode(GridSelectionMode.Single))
+        .Events(ev => ev.Change("VorgangSelected").DataBound("VorgangAuswahlGeladen")
+        ))
+</div>
+<div class="vorgangEinzeln">
+    <br/>
+    <br/>
+    <h2 id="aktuellerVorgang">Aktueller Vorgang</h2>
+    @(Html.Kendo().TabStrip()
+        .Name("tabstrip")
+        .HtmlAttributes(new {@class = "tabs"})
+        .Animation(animation =>
+            animation.Open(effect =>
+                effect.Fade(FadeDirection.In)))
+        .Items(tabstrip =>
+        {
+            tabstrip.Add().Text("Fahrzeugdaten")
+                .Content(@<text>
+                                @(Html.Kendo().Grid<FahrzeugdatenViewModel>().Name("FahrzeugdatenGrid")
+                                 .AutoBind(false)
+                                 .NoRecords(true)
+                                 .Columns(columns =>
+                                 {
+                                     columns.Bound(e => e.HerstellerID);
+                                     columns.Bound(e => e.HerstellerBezeichnung);
+                                     columns.Bound(e => e.HaupttypID);
+                                     columns.Bound(e => e.HaupttypBezeichnung);
+                                     columns.Bound(e => e.UntertypID);
+                                     columns.Bound(e => e.UntertypBezeichnung);
+                                 })
+                                 .DataSource(dataSource => dataSource
+                                     .WebApi()
+                                     .ServerOperation(false)
+                                     .Read(read => read
+                                         .Data("getSearchParametersFast")
+                                         .Action("FahrzeugDaten_Read", "Vorgang")
+                                     )
+                                 ))
+                        </text>);
+            tabstrip.Add().Text("Kosten")
+                .Content(@<text>
+                                @(Html.Kendo().ListView<KostenViewModel>().Name("KostenList")
+                                 .TagName("div")
+                                 .AutoBind(false)
+                                 .ClientTemplateId("kostenListTemplate")
+                                 .DataSource(dataSource => dataSource
+                                     .WebApi()
+                                     .Read(read=>read
+                                        .Data("getSearchParametersFast")
+                                        .Action("Kosten_Read", "Vorgang")
+                                     )
+                                 ))
+                        </text>);
+            tabstrip.Add().Text("Ausstattung")
+                .Content(@<text>
+                                @(Html.Kendo().Grid<AusstattungViewModel>().Name("AustattungGrid")
+                                 .AutoBind(false)
+                                 .NoRecords(true)
+                                 .Columns(columns =>
+                                 {
+                                     columns.Bound(e => e.Code);
+                                     columns.Bound(e => e.Bezeichnung);
+                                 })
+                                 .Sortable()
+                                 .DataSource(dataSource => dataSource
+                                     .WebApi()
+                                     .ServerOperation(false)
+                                     .Read(read => read
+                                         .Data("getSearchParametersFast")
+                                         .Action("Ausstattung_Read", "Vorgang")
+                                     )
+                                 ))
+                        </text>);
+            tabstrip.Add().Text("Kalkulierte Positionen")
+                .Content(@<text>
+                                @(Html.Kendo().Grid<PositionViewModel>()
+                                 .Name("PositionenGrid")
+                                 .AutoBind(false)
+                                 .NoRecords(true)
+                                 .Columns(columns =>
+                                 {
+                                     columns.Bound(e => e.Kategorie);
+                                     columns.Bound(e => e.Leitnummer).Title("Leitnummer").MinResizableWidth(100).Width(100);
+                                     columns.Bound(e => e.Bauart).MinResizableWidth(100).Width(100);
+                                     columns.Bound(e => e.Bezeichnung).Width(200);
+                                     columns.Bound(e => e.Betrag).HeaderHtmlAttributes(new {style = "text-align: center; justify-content: center"});
+                                     columns.Bound(e => e.Materialeigenschaft);
+                                     columns.Bound(e => e.Platzhalter).Title("Platzhalter");
+                                     columns.Bound(e => e.Repart);
+                                     columns.Bound(e => e.Teilenummer);
+                                     columns.Bound(e => e.Stern).Width(50);
+                                 })
+                                 .Resizable(r => r.Columns(true))
+                                 .Sortable()
+                                 .Groupable()
+                                 .DataSource(dataSource => dataSource
+                                     .WebApi()
+                                     .ServerOperation(false)
+                                     .Read(read => read
+                                         .Data("getSearchParametersFast")
+                                         .Action("Positionen_Read", "Vorgang") 
+                                     )
+                                 ))
+                        </text>);
+            tabstrip.Add().Text("ClaimsGuard")
+                .Content(@<text>
+                             @(Html.Kendo().Grid<RegelViewModel>().Name("RegelnGrid")
+                                 .AutoBind(false)
+                                 .NoRecords(true)
+                                 .Columns(columns =>
+                                 {
+                                     columns.Bound(e => e.RegelID);
+                                     columns.Bound(e => e.Name);
+                                     columns.Bound(e => e.Text);
+                                 })
+                                 .Sortable()
+                                 .DataSource(dataSource => dataSource
+                                     .WebApi()
+                                     .ServerOperation(false)
+                                     .Read(read => read
+                                         .Data("getSearchParametersSlow")
+                                         .Action("Regeln_Read", "Vorgang") 
+                                     )
+                                 ))
+                        </text>);
+            tabstrip.Add().Text("PDF")
+                .Content(@<text>
+                             @(Html.Kendo().PDFViewer().Name("PdfViewer"))
+                          </text>);
+            tabstrip.Add().Text("Download")
+                .Content(@<text>
+
+                          </text>);
+        })
+        )
+</div>
+<style>
+    .suche {
+        position: relative;
+        width: 100%;
+        height: 38px;
+    }
+    .suchfeld {
+        position: absolute;
+        height: 100%;
+        text-align: left;
+    }
+    .hidden {
+        display: none
+    }
+    .tabs {
+        font-size: 150%
+    }
+    .kostenTable {
+        width: 100%;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    body {
+        /*width: 1920px;*/
+        max-width: 2030px;
+        height: 2160px;
+    }
+</style>
+
+<script src="https://kendo.cdn.telerik.com/2022.1.119/js/cultures/kendo.culture.de-DE.min.js"></script>
+
+<!--KostenListTemplate-->
+<script type="text/x-kendo-tmpl" id="kostenListTemplate">
+        <div>
+            <table class="kostenTable">
+                <tr>
+                    <td>
+                        <h3 >Reparaturkosten</h3>
+                        <dl>
+                            
+                            <dt>GesamtMitMwST</dt>
+                            <dd>#=GesamtMitMwST# €</dd>
+
+                            <dt>Gesamt ohne MwSt</dt>
+                            <dd>#=GesamtOhneMwST# €</dd>
+
+                            <dt>Lackierung</dt>
+                            <dd>#=Lackierung# €</dd>
+
+                            <dt>Arbeitslohn</dt>
+                            <dd>#=Arbeitslohn# €</dd>
+
+                            <dt>Ersatzteile</dt>
+                            <dd>#=Ersatzteile# €</dd>
+
+                            <dt>Nebenkosten</dt>
+                            <dd>#=Nebenkosten# €</dd>
+                        </dl>
+                    </td>
+                    <td>
+                        <h3>Lohnklassen</h3>
+                        <dl>
+                            
+                            <dt>Lohnklasse1</dt>
+                            <dd>#=Lohnklasse1# €</dd>
+
+                            <dt>Lohnklasse2</dt>
+                            <dd>#=Lohnklasse1# €</dd>
+
+                            <dt>Lohnklasse3</dt>
+                            <dd>#=Lohnklasse1# €</dd>
+
+                            <dt>Lohnklasse5</dt>
+                            <dd>#=Lohnklasse1# €</dd>
+
+                            <dt>Lackierung</dt>
+                            <dd>#=LackierungKlasse# €</dd>
+                        </dl>
+                    </td>
+                </tr>
+            </table>            
+        </div>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.js"></script>
+<script>
+    window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.worker.js';
+</script>
+
+<script>
+    $(document).ready(function() {
+        window.scrollTo(0,0);
+        document.querySelector(".vorgangListe").classList.add("hidden");
+        document.querySelector(".vorgangEinzeln").classList.add("hidden");
+    });
+    $("#txtbox_Suchfeld")[0].oninput = function(ev) {
+        $("#btn_submit").data("kendoButton").enable(true);
+    }
+    function VorgangAuswahlGeladen() {
+        document.querySelector(".vorgangListe").classList.remove("hidden");
+    }
+    function VorgangSelected() {
+        $("#FahrzeugdatenGrid").data("kendoGrid").dataSource.read();
+        $("#KostenList").data("kendoListView").dataSource.read();
+        $("#AustattungGrid").data("kendoGrid").dataSource.read();
+        $("#PositionenGrid").data("kendoGrid").dataSource.read();
+        $("#RegelnGrid").data("kendoGrid").dataSource.read();
+        var filterModel = getSearchParametersSlow();
+        $("#PdfViewer").data("kendoPDFViewer").fromFile("/Vorgang/Pdf_Read?" 
+            + "aktenzeichen_typ=" + filterModel.aktenzeichen_typ 
+            + "&aktenzeichen=" + filterModel.aktenzeichen 
+            + "&isSchnellsuche=" + filterModel.isSchnellsuche
+            + "&vorgangIndex=" + filterModel.vorgangIndex);
+    
+        var tabStrip = $("#tabstrip").data("kendoTabStrip");
+        document.querySelector(".vorgangEinzeln").classList.remove("hidden");
+        if ($("#checkbox_Schnellsuche").data("kendoCheckBox").value()) {
+            tabStrip.disable(tabStrip.tabGroup.children().slice(4));
+        }
+        if (!$("#checkbox_Schnellsuche").data("kendoCheckBox").value()) {
+            tabStrip.enable(tabStrip.tabGroup.children().slice(4));
+        }
+        tabStrip.select(0);
+        let rect = document.querySelector(".vorgangEinzeln").getBoundingClientRect();
+        window.scrollTo(0,rect.top);
+    }
+    function getSearchParametersFast() {
+        return {
+            "aktenzeichen_typ": $("#dropDownAktenzeichen").data("kendoDropDownList").value(),
+            "aktenzeichen": $("#txtbox_Suchfeld").data("kendoTextBox").value(),
+            "isSchnellsuche": "true",
+            "vorgangIndex": $("#vorgangAuswahl").data("kendoGrid").select().index()
+        };
+    }
+    function getSearchParametersSlow() {
+        var result = {
+            "aktenzeichen_typ": $("#dropDownAktenzeichen").data("kendoDropDownList").value(),
+            "aktenzeichen": $("#txtbox_Suchfeld").data("kendoTextBox").value(),
+            "isSchnellsuche": $("#checkbox_Schnellsuche").data("kendoCheckBox").value(),
+            "vorgangIndex": $("#vorgangAuswahl").data("kendoGrid").select().index()
+        };
+        return result;
+    }
+    function loadAuswahl() {
+        document.querySelector(".vorgangEinzeln").classList.add("hidden");
+        $("#vorgangAuswahl").data("kendoGrid").dataSource.read();
+    }
+    function auswahlReady() {
+        document.querySelector(".vorgangEinzeln").classList.remove("hidden");
+    }
+    function vorgangNotFound() {
+        document.querySelector(".vorgangListe").classList.add("hidden");
+        alert("Falsches Aktenzeicehn oder Kriterium. Vorgang nicht gefunden.");
+    }
+</script>

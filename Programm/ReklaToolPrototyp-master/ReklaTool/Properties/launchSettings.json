@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "ReklaTool": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "http://localhost:5051/Pages/Vorgang",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5050;http://localhost:5051"
+    }
+  }
+}

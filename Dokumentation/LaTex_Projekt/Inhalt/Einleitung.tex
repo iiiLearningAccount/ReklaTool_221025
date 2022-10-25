@@ -1,0 +1,120 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Einleitung}
+\label{sec:Einleitung}
+
+
+\subsection{Projektumfeld} 
+\label{sec:Projektumfeld}
+%\begin{itemize}
+%	\item Kurze Vorstellung des Ausbildungsbetriebs (Geschäftsfeld, Mitarbeiterzahl \usw)\\
+%	\item Wer ist Auftraggeber/Kunde des Projekts?
+%\end{itemize}
+Die IcamSystems GmbH bietet Softwarelösungen im Bereich der Kfz-Schadensregulierung an.
+Sie ist Teil eines Firmenverbundes mit ca. 160 Mitarbeitern. Zu den Kunden zählen unter
+anderem Versicherungsunternehmen, Sachverständigenorganisationen, Prüfdienstleister und
+Schadensteuerungsgesellschaften.\\
+Zum Leistungsspektrum gehört die automatisierte Prüfung von Gutachten und
+Kostenvoranschlägen, welche durch Gutachter oder Partnerwerkstätten erstellt wurden.\\
+Das Projekt wurde intern durch das Team Reklamationsbearbeitung aus der Abteilung Prozessautomatisierung
+in Auftrag gegeben. Die Fachabteilung setzt unternehmensspezifische Prozesse \ua mittels
+\ac{BPMS} um.	
+
+
+\subsection{Projektziel} 
+\label{sec:Projektziel}
+%\begin{itemize}
+%	\item Worum geht es eigentlich?
+%	\item Was soll erreicht werden?
+%\end{itemize}	
+Ziel ist eine Webanwendung mit einer funktionalen Benutzeroberfläche, welche Daten von
+einem Backend-Service abfragt, um diese strukturiert und übersichtlich darzustellen.
+Reklamationen sollen so schneller bearbeitet werden können und die händische Suche nach
+allen Teilinformationen überflüssig machen.
+
+% Projektanforderungen
+% \begin{itemize}
+% \item Eingabe von vorgangsspezifischen Aktenzeichen als Suchwörter
+% \item Möglichkeit einer Schnellsuche ohne Einzelprüfbericht und Regelauslösungen
+% \item Abfrage von externen Datenbanken und Aufbereitung der Daten zum Vorgang
+% \item Auswahl eines Vorgangs zum gesuchten Aktenzeichen
+% \item Aufbereitung und Anzeige des ausgewählten Vorgangs in folgende Bereiche:
+% 	\begin{itemize}
+% 		\item Allgemeine Übersicht zur Kalkulation
+% 		\item Übersicht der kalkulierten Positionen
+% 		\item Informationen aus der Fahrzeugdatenbank VID
+% 		\item Ausgelöste Regeln für den Vorgang
+% 	\end{itemize}
+% \end{itemize}
+% \begin{itemize}
+% \item Download des Einzelprüfberichts zum Vorgang
+% \item Download der Kalkulation als strukturierte Datei
+% \item Authentifizierung per Identity Server mittels OAuth2
+% \item Suche darf nicht länger als 7 Sekunden ohne Reaktion bleiben
+% 	\begin{itemize}
+% 		\item Abfrage aller Daten dauert in der Regel über 30 Sekunden
+% 		\item Lösungsansatz: Bereitstellen von Teilergebnissen
+% 	\end{itemize}
+% \end{itemize}
+
+	
+
+
+
+\subsection{Projektbegründung} 
+\label{sec:Projektbegruendung}
+%\begin{itemize}
+%	\item Warum ist das Projekt sinnvoll (\zB Kosten- oder Zeitersparnis, weniger Fehler)?
+%	\item Was ist die Motivation hinter dem Projekt?
+%\end{itemize}	
+Die Vorgangsprüfung erfolgt über das automatisierte Prüfregelwerk \ac{CG}.
+Darin prüft ein individuell erstelltes Regelwerk die, z.B. von Werkstätten, erstellten
+Kostenvoranschläge und Gutachten. Für die individuellen Parameter jedes Fahrzeugtyps greift
+der \acs{CG} auf die recherchierten Fahrzeugdaten der \ac{VID} zurück. 
+Die \acs{VID} bietet für jedes Kfz-Bauteil Informationen zur Beschaffenheit und Verarbeitung.\\
+Bei der Plausibilitätsprüfung durch den \acs{CG} entsteht ein detaillierter Prüfbericht, in dem die
+angewendeten Prüfregeln gelistet sind und ggf. Diskrepanzen aufgeführt werden.\\
+Sollte der Kunde das Prüfergebnis beanstanden, so hat er die Möglichkeit eine Reklamation an
+die IcamSystems GmbH zu senden.\\
+Aktuell können nur die Projektverantwortlichen selbst, mittels des jeweiligen Aktenzeichens der
+Reklamation, eine händische Suche in mehreren Datenbanken und dem Regelwerk des \acs{CG}
+durchführen, um den Vorgang nachzuvollziehen. Es soll für die Bewertung des Vorgangs
+ersichtlich sein, welche Regeln ausgelöst wurden.\\
+Dieser Prozess ist aufgrund des hohen Anteils manueller Arbeit zeitaufwändig und fehleranfällig.
+Weiterhin kann dieser, wegen der Komplexität der Datenbanksysteme, nur von Experten durchgeführt werden.
+Durch das ReklaTool sollen die Suchanfragen vereinfacht und standardisiert werden, was wiederum 
+eine Erweiterung des Nutzerkreises möglich macht.
+
+\subsection{Projektschnittstellen} 
+\label{sec:Projektschnittstellen}
+%\begin{itemize}
+%	\item Mit welchen anderen Systemen interagiert die Anwendung (technische Schnittstellen)?
+%	\item Wer genehmigt das Projekt \bzw stellt Mittel zur Verfügung? 
+%	\item Wer sind die Benutzer der Anwendung?
+%	\item Wem muss das Ergebnis präsentiert werden?
+%\end{itemize}
+\textbf{Technische Schnittstellen}\\
+In der Abteilung Prozessautomatisierung wurde mittels \acs{BPMS} ein Webservice erstellt.
+Dieser trägt Daten aus Produktiv-, Archiv- und Testdatenbanken zusammen.
+Die Daten werden mit den fahrzeugspezifischen Daten aus der \acs{VID} ergänzt.
+Hinzu kommen die im Vorgang ausgelösten Regeln des \acs{CG}.
+Dieses Datenpaket wird der Webanwendung in strukturierter Form zur Verfügung gestellt.
+
+\textbf{Verantwortlichkeit}\\
+Das Projekt wird durch die Abteilung Projektmanagement begleitet.
+
+\textbf{Benutzer der Anwendung}\\
+Anwender sind zum jetzigen Stand die Projektverantwortlichen des \acs{CG}.
+Aufgrund der bisherigen Komplexität der Datenbankabfragen waren bisher nur \ac{SME}
+für die Abfragen zuständig. Durch die Vereinfachung dieses Vorgangs, ist eine Erweiterung des Nutzerkreises denkbar.
+
+\textbf{Endabnahme}\\
+Das Ergebnis des Projekts wird in der IT-Abteilung und von den \acs{SME} getestet und abgenommen.
+Die Dokumentation wird der Projektmanagementabteilung übergeben.
+
+\subsection{Projektabgrenzung} 
+\label{sec:Projektabgrenzung}
+%\begin{itemize}
+%	\item Was ist explizit nicht Teil des Projekts (\insb bei Teilprojekten)?
+%\end{itemize}
+Der Webservice für den Datenbankzugriff wurde via \acs{BPMS} in der Abteilung Prozessautomatisierung realisiert und bereitgestellt. 
+Er existiert unabhängig vom ReklaTool.

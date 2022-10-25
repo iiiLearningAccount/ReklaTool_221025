@@ -1,0 +1,54 @@
+@startuml Test101
+skinparam SequenceGroupBodyBackgroundColor lightblue
+skinparam SequenceGroupBorderThickness 5
+skinparam SequenceMessageAlignment center
+
+
+
+participant User
+box "ReklaTool" #LightCoral
+
+User -> Browser ++: submit "Suchparameter"
+
+Browser -> ViewController ++: send "Suchanfrage"-content 
+
+ViewController -> X4_MsgService ++: send request
+
+participant Cache
+participant Queue
+control RequestJob
+end box
+
+X4_MsgService -> Cache ++: check for\ncached ResponseModel
+
+alt Model is in Cache 
+
+Cache --> X4_MsgService --: return ResponseModel
+
+else Model not cached
+
+X4_MsgService -> Queue ++: register POST-request
+deactivate Queue
+
+RequestJob -\ Queue ++: periodically check\nfor requests
+activate RequestJob
+Queue --> RequestJob --: return request FIFO
+RequestJob -> X4 --: send http-request
+
+X4 --> X4_MsgService: http-response
+X4_MsgService -\ Cache ++: cache Response
+deactivate Cache
+end
+
+X4_MsgService --> ViewController: return ResponseModel
+
+deactivate X4_MsgService
+
+ViewController --> Browser: return List<Vorgang>
+User -> Browser: select Vorgang
+
+ViewController --> Browser --: return ViewModel
+
+User -> Browser --: close
+
+@enduml

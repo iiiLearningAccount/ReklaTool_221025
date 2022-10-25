@@ -1,0 +1,177 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaToolPrototyp_TestProject\\ReklaToolPrototyp_TestProject.csproj": {}
+  },
+  "projects": {
+    "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaToolPrototyp_TestProject\\ReklaToolPrototyp_TestProject.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaToolPrototyp_TestProject\\ReklaToolPrototyp_TestProject.csproj",
+        "projectName": "ReklaToolPrototyp_TestProject",
+        "projectPath": "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaToolPrototyp_TestProject\\ReklaToolPrototyp_TestProject.csproj",
+        "packagesPath": "C:\\Users\\ingol\\.nuget\\packages\\",
+        "outputPath": "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaToolPrototyp_TestProject\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ingol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj": {
+                "projectPath": "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FakeItEasy": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            },
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.2.10, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.2.10, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.3.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
+        "projectName": "ReklaTool",
+        "projectPath": "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
+        "packagesPath": "C:\\Users\\ingol\\.nuget\\packages\\",
+        "outputPath": "D:\\00_Onedrive\\OneDrive\\Documents\\_08_Umschulung\\06_Projektarbeit\\Projekt\\ReklaToolPrototyp-master\\ReklaTool\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ingol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.11.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "Telerik.UI.for.AspNet.Core": {
+              "target": "Package",
+              "version": "[2022.3.913, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
