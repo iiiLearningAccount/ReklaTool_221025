@@ -65,50 +65,43 @@ Aus diesen Gründen ist von dem Beziehen von Software von Dritten abzusehen und 
 % \begin{itemize}
 % 	\item Welche Kosten fallen bei der Umsetzung des Projekts im Detail an (\zB Entwicklung, Einführung/Schulung, Wartung)?
 % \end{itemize}
-
-Dieser Abschnitt betrachtet die Kosten, die für die Umsetzung des Projekts entstehen.\\ 
-Diese setzen sich sowohl aus Personalkosten, als auch aus Kosten für verwendete Ressourcen
-(siehe Kapitel~\ref{sec:Ressourcenplanung}: \nameref{sec:Ressourcenplanung}) zusammen.\\
-Die brutto Personalkosten je Projektmitarbeiter wurden durch die Personalabteilung vorgegeben. 
-Für einen Mitarbeiter der IT-Abteilung wurde ein Stundensatz in Höhe von \eur{50,00} angenommen. Mitarbeiter
-der Fachabteilung gehen mit \eur{70,00} pro Stunde in die Berechnung ein. Da der Autor aufgrund seiner Umschulung
-nicht direkt von der Praktikumsfirma bezahlt wird, wird für diesen das Azubigehalt des dritten Lehrjahrs,
-mit \eur{10,00} pro Stunde angenommen.\\
-Die Betriebskosten für die Webanwendung werden mit jährlich \eur{100,00} beziffert und für die Nutzung der Ressourcen 
-gilt ein Pauschalbetrag von \eur{20,00}. \\
-Die Gesamtkosten des Projekts betragen somit \eur{}. Die genaue Berechnung kann der Tabelle~\ref{tab:Kostenaufstellung}
-entnommen werden.
-
 % \paragraph{Beispielrechnung (verkürzt)}
 % Die Kosten für die Durchführung des Projekts setzen sich sowohl aus Personal-, als auch aus Ressourcenkosten zusammen.
 % Laut Tarifvertrag verdient ein Auszubildender im dritten Lehrjahr pro Monat \eur{1000} Brutto. 
-
 % \begin{eqnarray}
 % 8 \mbox{ h/Tag} \cdot 220 \mbox{ Tage/Jahr} = 1760 \mbox{ h/Jahr}\\
 % \eur{1000}\mbox{/Monat} \cdot 13,3 \mbox{ Monate/Jahr} = \eur{13300} \mbox{/Jahr}\\
 % \frac{\eur{13300} \mbox{/Jahr}}{1760 \mbox{ h/Jahr}} \approx \eur{7,56}\mbox{/h}
 % \end{eqnarray}
-
 % Es ergibt sich also ein Stundenlohn von \eur{7,56}. 
 % Die Durchführungszeit des Projekts beträgt 70 Stunden. Für die Nutzung von Ressourcen\footnote{Räumlichkeiten, Arbeitsplatzrechner etc.} wird 
 % ein pauschaler Stundensatz von \eur{15} angenommen. Für die anderen Mitarbeiter wird pauschal ein Stundenlohn von \eur{25} angenommen. 
-Eine Aufstellung der Kosten befindet sich in Tabelle~\ref{tab:Kostenaufstellung} und sie betragen insgesamt \eur{2739,20}.
+Dieser Abschnitt betrachtet die Kosten, die für die Umsetzung des Projekts entstehen.\\ 
+Diese setzen sich sowohl aus Personalkosten, als auch aus Kosten für verwendete Ressourcen
+(siehe Kapitel~\ref{sec:Ressourcenplanung}: \nameref{sec:Ressourcenplanung}) zusammen und 
+können der Tabelle~\ref{tab:Kostenaufstellung} entnommen werden.\\
+Die brutto Personalkosten je Projektmitarbeiter wurden durch die Personalabteilung vorgegeben. 
+Für einen Mitarbeiter der IT-Abteilung wurde ein Stundensatz in Höhe von \eur{30,00} angenommen. Mitarbeiter
+der Fachabteilung gehen mit \eur{35,00} pro Stunde in die Berechnung ein. Da der Autor aufgrund seiner Umschulung
+nicht direkt von der Praktikumsfirma bezahlt wird, wird für diesen das Azubigehalt des dritten Lehrjahrs,
+mit \eur{7,50} pro Stunde angenommen.\\
+Die Betriebskosten für die Webanwendung werden mit jährlich \eur{110,00} beziffert und für die Nutzung der Ressourcen 
+gilt ein Pauschalbetrag von \eur{20,00} pro Stunde. \\
+Die Gesamtkosten des Projekts betragen somit \eur{2575,00}. 
+
 \tabelle{Kostenaufstellung}{tab:Kostenaufstellung}{Kostenaufstellung.tex}
 
 
-\subsubsection{Amortisationsdauer}
-\label{sec:Amortisationsdauer}
+\subsubsection{Amortisation}
+\label{sec:Amortisations}
 % \begin{itemize}
 % 	\item Welche monetären Vorteile bietet das Projekt (\zB Einsparung von Lizenzkosten, Arbeitszeitersparnis, bessere Usability, Korrektheit)?
 % 	\item Wann hat sich das Projekt amortisiert?
 % \end{itemize}
 Der Wegfall der in Abschnitt \ref{sec:IstAnalyse}~\nameref{sec:IstAnalyse} beschriebenen Recherchearbeit in mehreren Datenbanken schlägt sich
 in einer Zeitersparnis nieder, welche sich \ua über die Lohnkosten als finanzieller Vorteil beziffern lässt.\\
-Die Ermittlung der Amortisationsdauer soll dabei helfen, die Wirtschaftlichkeit des Projekts zu beurteilen.
-Für die Berechnung wird die vorher im Abschnitt  \ref{sec:Projektkosten}~\nameref{sec:Projektkosten} kalkulierte Gesamtsumme mit den Einsparungen
-verglichen. An der Stelle, wo sich Projektkosten und Einsparung nach einer bestimmten Zeit treffen, lässt sich der
-Break-Even Point ablesen. Durch diesen hat man eine Aussage darüber, ab welchem Zeitpunkt sich das Projekt amortisiert hat.
 
+\tabelle{Zeitersparnis}{tab:Zeitersparnis}{Zeitersparnis.tex}
 % \paragraph{Beispielrechnung (verkürzt)}
 % Bei einer Zeiteinsparung von 10 Minuten am Tag für jeden der 25 Anwender und 220 Arbeitstagen im Jahr ergibt sich eine gesamte Zeiteinsparung von 
 % \begin{eqnarray}
@@ -119,8 +112,6 @@ Break-Even Point ablesen. Durch diesen hat man eine Aussage darüber, ab welchem
 % 	917 \mbox{h} \cdot \eur{(25 + 15)}{\mbox{/h}} = \eur{36680}
 % \end{eqnarray}
 % Die Amortisationszeit beträgt also $\frac{\eur{2739,20}}{\eur{36680}\mbox{/Jahr}} \approx 0,07 \mbox{ Jahre} \approx 4 \mbox{ Wochen}$.
-
-
 % \subsection{Nutzwertanalyse}
 % \label{sec:Nutzwertanalyse}
 % \begin{itemize}
@@ -128,6 +119,27 @@ Break-Even Point ablesen. Durch diesen hat man eine Aussage darüber, ab welchem
 % \end{itemize}
 % \paragraph{Beispiel}
 % Ein Beispiel für eine Entscheidungsmatrix findet sich in Kapitel~\ref{sec:Architekturdesign}: \nameref{sec:Architekturdesign}.
+
+\subsection*{Berechnung der Amortisationsdauer}
+Die Ermittlung der Amortisationsdauer soll dabei helfen, die Wirtschaftlichkeit des Projekts zu beurteilen.
+Für die Berechnung wird die vorher im Abschnitt  \ref{sec:Projektkosten}~\nameref{sec:Projektkosten} kalkulierte Gesamtsumme 
+mit den Einsparungen verglichen. 
+Zur Ermittlung der finanziellen Ersparnis wird die jedes Jahr gewonnene Zeit mit dem Stundensatz, plus der Ressourcenpauschale,
+multipliziert. Es ergeben sich somit:
+\begin{eqnarray}
+    \frac{1540 \mbox{ min/Jahr}}{60} \cdot \eur{(35 + 20)}\mbox{/h} \approx \eur{1411,67}\mbox{/Jahr}. 
+\end{eqnarray}
+Um nun die Amortisationsdauer zu berechnen, werden die Projektkosten mit den jährlichen Ersparnissen ins Verhältnis gesetzt.
+Dabei werden auch die Betriebskosten des ReklaTool von \eur{110,00} pro Jahr mit beachtet.
+\begin{eqnarray}
+    \frac{\eur{2575,00}}{\eur{(1411,67 - 110,00)}\mbox{/Jahr}} \approx 1,98 \mbox{ Jahre}.	
+\end{eqnarray}
+In der Abbildung \Anhang{app:BreakEvenPoint} ist die Amortisierung grafisch dargestellt.
+An der Stelle, wo sich Projektkosten und Einsparung nach einer bestimmten Zeit treffen, lässt sich der
+Break-Even-Point ablesen. Durch diesen hat man eine Aussage darüber, ab welchem Zeitpunkt sich das Projekt amortisiert hat.\\
+Da sich der Arbeitsablauf der Fachabteilung auf absehbare Zeit wenig verändern wird, ist die Amortisierung nach knapp zwei
+Jahren als wirtschaftlich zu betrachten. Hinzu kommen die im folgenden Kapitel beschriebenen Aspekte.
+
 \subsection{Nicht-monetärer Nutzen}
 \label{sec:nichtMonetaererNutzen}
 Der alte Reklamationsprozess (\Vgl Kapitel \ref{sec:IstAnalyse} \nameref{sec:IstAnalyse}) wurde aufgrund seiner Komplexität

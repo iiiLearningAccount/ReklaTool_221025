@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.11)  24 OCT 2022 16:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.11)  25 OCT 2022 15:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**u:/Praktikum/01_AbschlussProjekt/LaTex/reklaToolLatexProjekt/LaTex/reklaTool_LaTex_Projekt/Projektdokumentation.tex
-(u:/Praktikum/01_AbschlussProjekt/LaTex/reklaToolLatexProjekt/LaTex/reklaTool_LaTex_Projekt/Projektdokumentation.tex
+**u:/Praktikum/AbschlussprojektMASTER/Dokumentation/LaTex_Projekt/Projektdokumentation.tex
+(u:/Praktikum/AbschlussprojektMASTER/Dokumentation/LaTex_Projekt/Projektdokumentation.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-09-28> (D:\00_apps\LaTex\MiKTeX\app\tex/latex/koma-script\scrartcl.cls
 Document Class: scrartcl 2022/07/04 v3.37 KOMA-Script document class (article)
@@ -1145,7 +1145,12 @@ Class scrartcl Warning: \float@listhead detected!
 (scrartcl)              a package that still implements the
 (scrartcl)              deprecated \float@listhead interface on input line 66.
 
-(Projektdokumentation.lol)
+(Projektdokumentation.lol
+Overfull \hbox (0.66957pt too wide) detected at line 2
+ [][][]\T1/lmr/m/n/10.95 xvii[][]
+ []
+
+)
 \tf@lol=\write8
 \openout8 = `Projektdokumentation.lol'.
 
@@ -1257,35 +1262,49 @@ File: Bilder//ICAM-logo.png Graphic file (type png)
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 52.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
  [4]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 73.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 84.
  (D:\00_apps\LaTex\MiKTeX\app\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (Tabellen/Kostenaufstellung.tex)
+Overfull \hbox (21.06123pt too wide) in paragraph at lines 2--92
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
+
+ []
+
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 111.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 103.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [5]) (Inhalt/Entwurfsphase.tex
+[5] (Tabellen/Zeitersparnis.tex)
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 2.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 152.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [6]
+ [6]) (Inhalt/Entwurfsphase.tex
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 53.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 27.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
  [7]
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 129.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 73.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [8]) (Inhalt/Implementierungsphase.tex
+ [8]
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 28.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 129.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [9]
+ [9]) (Inhalt/Implementierungsphase.tex
+File: Bilder//ICAM-logo.png Graphic file (type png)
+<use Bilder//ICAM-logo.png>
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 29.
+(pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
+ [10]
 Package acronym Info: Label `acro:MVC' newly defined as it shall be overridden
 although it is yet undefined on input line 40.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 62.
@@ -1301,22 +1320,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--68
 
  []
 
-) (Inhalt/Abnahmephase.tex) (Inhalt/Einfuehrungsphase.tex
+) (Inhalt/Abnahmephase.tex) (Inhalt/Einfuehrungsphase.tex) (Inhalt/Dokumentation.tex
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 2.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [10]) (Inhalt/Dokumentation.tex) (Inhalt/Fazit.tex (Tabellen/Zeitnachher.tex)
+ [11]) (Inhalt/Fazit.tex (Tabellen/Zeitnachher.tex)
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 23.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 28.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [11]))
+ [12]))
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 82.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [12] (Projektdokumentation.bbl
+ [13] (Projektdokumentation.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 15.
 
@@ -1325,7 +1344,7 @@ File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 2.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [13
+ [14
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 12--15
@@ -1337,7 +1356,7 @@ File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 89.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [14
+ [15
 
 ] (Anhang.tex (Tabellen/ZeitplanungKomplett.tex)
 File: Bilder//ICAM-logo.png Graphic file (type png)
@@ -1358,42 +1377,53 @@ Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 11.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
  [2
 
-] (Anhang/AnhangLastenheft.tex)
+]
+<Bilder//BreakEvenPoint.png, id=523, 979.86075pt x 351.11176pt>
+File: Bilder//BreakEvenPoint.png Graphic file (type png)
+<use Bilder//BreakEvenPoint.png>
+Package pdftex.def Info: Bilder//BreakEvenPoint.png  used on input line 17.
+(pdftex.def)             Requested size: 455.2418pt x 163.12598pt.
+ (Anhang/AnhangLastenheft.tex
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 14.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 25.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
  [3
 
-]
-<Bilder//Aktivitaetsdiagramm.png, id=526, 832.10875pt x 920.43875pt>
+ <./Bilder//BreakEvenPoint.png>])
+File: Bilder//ICAM-logo.png Graphic file (type png)
+<use Bilder//ICAM-logo.png>
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 22.
+(pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
+ [4]
+<Bilder//Aktivitaetsdiagramm.png, id=552, 832.10875pt x 920.43875pt>
 File: Bilder//Aktivitaetsdiagramm.png Graphic file (type png)
 <use Bilder//Aktivitaetsdiagramm.png>
-Package pdftex.def Info: Bilder//Aktivitaetsdiagramm.png  used on input line 20.
+Package pdftex.def Info: Bilder//Aktivitaetsdiagramm.png  used on input line 28.
 (pdftex.def)             Requested size: 409.71758pt x 453.20992pt.
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 23.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 31.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [4
+ [5
 
  <./Bilder//Aktivitaetsdiagramm.png>]
-<Bilder//UseCaseDiagram.png, id=532, 726.715pt x 483.8075pt>
+<Bilder//UseCaseDiagram.png, id=558, 726.715pt x 483.8075pt>
 File: Bilder//UseCaseDiagram.png Graphic file (type png)
 <use Bilder//UseCaseDiagram.png>
-Package pdftex.def Info: Bilder//UseCaseDiagram.png  used on input line 29.
+Package pdftex.def Info: Bilder//UseCaseDiagram.png  used on input line 37.
 (pdftex.def)             Requested size: 318.67996pt x 212.15987pt.
-<Bilder//Sequenzdiagramm.png, id=533, 1438.37375pt x 1085.05376pt>
+<Bilder//Sequenzdiagramm.png, id=559, 1438.37375pt x 1085.05376pt>
 File: Bilder//Sequenzdiagramm.png Graphic file (type png)
 <use Bilder//Sequenzdiagramm.png>
-Package pdftex.def Info: Bilder//Sequenzdiagramm.png  used on input line 37.
+Package pdftex.def Info: Bilder//Sequenzdiagramm.png  used on input line 45.
 (pdftex.def)             Requested size: 364.2016pt x 274.73964pt.
  (Anhang/AnhangPflichtenheft.tex
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 9.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [5
+ [6
 
  <./Bilder//UseCaseDiagram.png> <./Bilder//Sequenzdiagramm.png>]
 Package acronym Info: Label `acro:SVN' newly defined as it shall be overridden
@@ -1402,40 +1432,40 @@ File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 29.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [6])
+ [7])
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 42.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 50.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [7]
-<Bilder//XML_Antwort.png, id=566, 603.25375pt x 1185.42876pt>
+ [8]
+<Bilder//XML_Antwort.png, id=593, 603.25375pt x 1185.42876pt>
 File: Bilder//XML_Antwort.png Graphic file (type png)
 <use Bilder//XML_Antwort.png>
-Package pdftex.def Info: Bilder//XML_Antwort.png  used on input line 48.
+Package pdftex.def Info: Bilder//XML_Antwort.png  used on input line 56.
 (pdftex.def)             Requested size: 171.57932pt x 337.16335pt.
-<Bilder//XML_Anfrage.png, id=567, 442.65375pt x 543.02875pt>
+<Bilder//XML_Anfrage.png, id=594, 442.65375pt x 543.02875pt>
 File: Bilder//XML_Anfrage.png Graphic file (type png)
 <use Bilder//XML_Anfrage.png>
-Package pdftex.def Info: Bilder//XML_Anfrage.png  used on input line 53.
+Package pdftex.def Info: Bilder//XML_Anfrage.png  used on input line 61.
 (pdftex.def)             Requested size: 182.09709pt x 223.38895pt.
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 56.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 64.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [8
+ [9
 
  <./Bilder//XML_Antwort.png> <./Bilder//XML_Anfrage.png>] (Anhang/AnhangEntwuerfe.tex
-<Bilder//MockupModules.pdf, id=574, 722.7pt x 542.025pt>
+<Bilder//MockupModules.pdf, id=601, 722.7pt x 542.025pt>
 File: Bilder//MockupModules.pdf Graphic file (type pdf)
 <use Bilder//MockupModules.pdf>
 Package pdftex.def Info: Bilder//MockupModules.pdf  used on input line 5.
 (pdftex.def)             Requested size: 318.67268pt x 239.0045pt.
-<Bilder//MockupModul.pdf, id=575, 722.7pt x 542.025pt>
+<Bilder//MockupModul.pdf, id=602, 722.7pt x 542.025pt>
 File: Bilder//MockupModul.pdf Graphic file (type pdf)
 <use Bilder//MockupModul.pdf>
 Package pdftex.def Info: Bilder//MockupModul.pdf  used on input line 11.
 (pdftex.def)             Requested size: 318.67268pt x 239.0045pt.
-<Bilder//MockupTag.pdf, id=576, 722.7pt x 542.025pt>
+<Bilder//MockupTag.pdf, id=603, 722.7pt x 542.025pt>
 File: Bilder//MockupTag.pdf Graphic file (type pdf)
 <use Bilder//MockupTag.pdf>
 Package pdftex.def Info: Bilder//MockupTag.pdf  used on input line 17.
@@ -1443,20 +1473,20 @@ Package pdftex.def Info: Bilder//MockupTag.pdf  used on input line 17.
 )
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 59.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 67.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [9
+ [10
 
  <./Bilder//MockupModules.pdf>]
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 59.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 67.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [10 <./Bilder//MockupModul.pdf> <./Bilder//MockupTag.pdf
+ [11 <./Bilder//MockupModul.pdf> <./Bilder//MockupTag.pdf
 
 pdfTeX warning: pdflatex (file ./Bilder//MockupTag.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >] (Anhang/AnhangScreenshots.tex
-<Bilder//tagliste.pdf, id=646, 597.432pt x 340.47202pt>
+<Bilder//tagliste.pdf, id=672, 597.432pt x 340.47202pt>
 File: Bilder//tagliste.pdf Graphic file (type pdf)
 <use Bilder//tagliste.pdf>
 Package pdftex.def Info: Bilder//tagliste.pdf  used on input line 5.
@@ -1465,10 +1495,10 @@ File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 8.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [11
+ [12
 
  <./Bilder//tagliste.pdf>]
-<Bilder//modulliste.pdf, id=743, 597.432pt x 505.087pt>
+<Bilder//modulliste.pdf, id=769, 597.432pt x 505.087pt>
 File: Bilder//modulliste.pdf Graphic file (type pdf)
 <use Bilder//modulliste.pdf>
 Package pdftex.def Info: Bilder//modulliste.pdf  used on input line 11.
@@ -1477,15 +1507,15 @@ File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 14.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [12
+ [13
 
  <./Bilder//modulliste.pdf>]) (Anhang/AnhangDoc.tex
-<Bilder//doc.pdf, id=908, page=1, 597.23125pt x 845.1575pt>
+<Bilder//doc.pdf, id=934, page=1, 597.23125pt x 845.1575pt>
 File: Bilder//doc.pdf Graphic file (type pdf)
 <use Bilder//doc.pdf, page 1>
 Package pdftex.def Info: Bilder//doc.pdf , page1 used on input line 4.
 (pdftex.def)             Requested size: 409.71692pt x 579.80634pt.
-<Bilder//doc.pdf, id=909, page=2, 597.23125pt x 845.1575pt>
+<Bilder//doc.pdf, id=935, page=2, 597.23125pt x 845.1575pt>
 File: Bilder//doc.pdf Graphic file (type pdf)
 <use Bilder//doc.pdf, page 2>
 Package pdftex.def Info: Bilder//doc.pdf , page2 used on input line 6.
@@ -1494,24 +1524,24 @@ File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 7.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [13
+ [14
 
  <./Bilder//doc.pdf>])
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 62.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 70.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [14 <./Bilder//doc.pdf>] (Anhang/AnhangTest.tex
+ [15 <./Bilder//doc.pdf>] (Anhang/AnhangTest.tex
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 3.
  (Listings/tests.php)
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 4.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [15
+ [16
 
 ]
-<Bilder//testcase.jpg, id=971, 773.89125pt x 334.24875pt>
+<Bilder//testcase.jpg, id=997, 773.89125pt x 334.24875pt>
 File: Bilder//testcase.jpg Graphic file (type jpg)
 <use Bilder//testcase.jpg>
 Package pdftex.def Info: Bilder//testcase.jpg  used on input line 7.
@@ -1521,29 +1551,29 @@ File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 28.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [16
+ [17
 
  <./Bilder//testcase.jpg>]
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 77.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [17])
+ [18])
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 69.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 77.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [18]
-<Bilder//Klassendiagramm.png, id=1106, 987.69pt x 610.28pt>
+ [19]
+<Bilder//Klassendiagramm.png, id=1132, 987.69pt x 610.28pt>
 File: Bilder//Klassendiagramm.png Graphic file (type png)
 <use Bilder//Klassendiagramm.png>
-Package pdftex.def Info: Bilder//Klassendiagramm.png  used on input line 75.
+Package pdftex.def Info: Bilder//Klassendiagramm.png  used on input line 83.
 (pdftex.def)             Requested size: 455.2321pt x 281.28162pt.
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 78.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 86.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [19
+ [20
 
  <./Bilder//Klassendiagramm.png>] (Anhang/AnhangBenutzerDoku.tex
 File: Bilder//weather-clear.png Graphic file (type png)
@@ -1616,7 +1646,7 @@ File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 94.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [20
+ [21
 
  <./Bilder//weather-clear.png> <./Bilder//weather-clear-night.png> <./Bilder//weather-few-clouds-night.png> <./Bilder//weather-few-clouds.png> <./Bilder//weather-storm.png>] (Projektdokumentation.aux)
 
@@ -1629,17 +1659,17 @@ Package rerunfilecheck Info: File `Projektdokumentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 32931 strings out of 475385
- 641929 string characters out of 2784852
- 1346942 words of memory out of 3000000
- 53236 multiletter control sequences out of 15000+600000
+ 32960 strings out of 475385
+ 641166 string characters out of 2784852
+ 1345942 words of memory out of 3000000
+ 53253 multiletter control sequences out of 15000+600000
  556505 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,25n,113p,10861b,2315s stack positions out of 10000i,1000n,20000p,200000b,80000s
-{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-ts1.enc}{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-ec.enc}{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-rm.enc}<D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmbx10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmbx12.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmcsc10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr12.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr17.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr6.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr8.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr9.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmri10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmss10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmssbx10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmtt10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmtt9.pfb>
-Output written on Projektdokumentation.pdf (42 pages, 2264863 bytes).
+ 108i,25n,113p,10834b,2315s stack positions out of 10000i,1000n,20000p,200000b,80000s
+{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-ts1.enc}{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-ec.enc}{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-mathit.enc}{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-mathsy.enc}{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-rm.enc}<D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmbx10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmbx12.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmcsc10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmmi10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr12.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr17.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr6.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr8.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr9.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmri10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmss10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmssbx10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmsy10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmtt10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmtt9.pfb>
+Output written on Projektdokumentation.pdf (44 pages, 2341310 bytes).
 PDF statistics:
- 1461 PDF objects out of 1728 (max. 8388607)
- 342 named destinations out of 1000 (max. 500000)
- 630 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1503 PDF objects out of 1728 (max. 8388607)
+ 350 named destinations out of 1000 (max. 500000)
+ 643 words of extra memory for PDF output out of 10000 (max. 10000000)
 
