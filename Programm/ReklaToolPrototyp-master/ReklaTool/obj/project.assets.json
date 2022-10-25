@@ -8510,11 +8510,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "U:\\Praktikum\\01_AbschlussProjekt\\Projekt\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
+      "projectUniqueName": "U:\\Praktikum\\AbschlussprojektMASTER\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
       "projectName": "ReklaTool",
-      "projectPath": "U:\\Praktikum\\01_AbschlussProjekt\\Projekt\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
+      "projectPath": "U:\\Praktikum\\AbschlussprojektMASTER\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
       "packagesPath": "C:\\Users\\ingolf.schieck\\.nuget\\packages\\",
-      "outputPath": "U:\\Praktikum\\01_AbschlussProjekt\\Projekt\\ReklaToolPrototyp-master\\ReklaTool\\obj\\",
+      "outputPath": "U:\\Praktikum\\AbschlussprojektMASTER\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

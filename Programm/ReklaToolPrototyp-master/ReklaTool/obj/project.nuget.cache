@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "APaj9y1afiSPE9Qy0jxYx1JTVk9/zC4u3JkCboIy/rs+9KKNlswQ0vNScJLvp7mDibv4KMT5nqXowQjA5PmQHg==",
+  "dgSpecHash": "RWTPyWAlHNpoIZ3DIA6haZQEbMhTBS3rNsrrojlcplXGzZDFCCuOQVMLQbQfy6xfGZgKK5KBLnTJFyiFGLi2Ww==",
   "success": true,
-  "projectFilePath": "U:\\Praktikum\\01_AbschlussProjekt\\Projekt\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
+  "projectFilePath": "U:\\Praktikum\\AbschlussprojektMASTER\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ingolf.schieck\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.0\\microsoft.aspnetcore.antiforgery.2.1.0.nupkg.sha512",
     "C:\\Users\\ingolf.schieck\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.1.0\\microsoft.aspnetcore.authentication.abstractions.2.1.0.nupkg.sha512",

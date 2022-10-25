@@ -1531,6 +1531,7 @@ INPUT Tabellen\ZeitplanungKurz.tex
 INPUT .\Bilder\\ICAM-logo.png
 INPUT Bilder\\ICAM-logo.png
 INPUT .\Bilder\\ICAM-logo.png
+INPUT D:\00_apps\LaTex\MiKTeX\app\fonts\tfm\public\lm\ec-lmri10.tfm
 INPUT .\Inhalt\Analysephase.tex
 INPUT .\Inhalt\Analysephase.tex
 INPUT .\Inhalt\Analysephase.tex
@@ -1571,7 +1572,6 @@ INPUT Inhalt\Entwurfsphase.tex
 INPUT .\Inhalt\Entwurfsphase.tex
 INPUT .\Inhalt\Entwurfsphase.tex
 INPUT Inhalt\Entwurfsphase.tex
-INPUT D:\00_apps\LaTex\MiKTeX\app\fonts\tfm\public\lm\ec-lmri10.tfm
 INPUT .\Bilder\\ICAM-logo.png
 INPUT Bilder\\ICAM-logo.png
 INPUT .\Bilder\\ICAM-logo.png
