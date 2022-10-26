@@ -13,15 +13,16 @@ Wie unter \ref{sec:Projektziel} \nameref{sec:Projektziel} erwähnt, soll eine
 Webanwendung erstellt werden. Aus der IT-Abteilung kamen dazu Informationen zu bereits 
 in anderen Projekten eingesetzten Technologien.\\
 Neue Software wird dort überwiegend in der Programmiersprache C\# umgesetzt. 
-Für diese existiert bereits breites Wissen bei den Mitarbeitern.
-Daher konnten vorhandene Ressourcen und Lizenzen genutzt werden.
+Dadurch existiert für diese bereits umfangreiches Wissen bei den Mitarbeitern.
+Bereits vorhandene Ressourcen und Lizenzen konnten für das Projekt genutzt werden.
 Um das Endprodukt besser im Team wartbar und erweiterbar zu halten, hat sich der Autor 
 ebenfalls für C\# in der .NET-Umgebung von Microsoft entschieden.\\
 Unter weiterer Rücksprache mit der Softwareabteilung wurden verschiedene Ansätze zur
 Umsetzung einer Webanwendung durchgesprochen. Besonders wurde hier zwischen client- und serverbasierten
 Anwendungen unterschieden. Da die Benutzerinteraktion eher gering ausfallen würde, wurde sich
-für die nicht ganz so dynamische Servervariante entschieden.\\
-Die Wahl viel hier auf das Webframework \Fachbegriff{ASP.Net Core MVC}, zu dem es schon gute Erfahrungen im Team gab.
+für die Servervariante entschieden. Diese ist gegenüber einer \ac{SPA} auf einem Client weniger agil und die 
+Reaktionszeit ist eingeschränkt.\\
+Die Wahl fiel hier auf das Webframework \Fachbegriff{ASP.Net Core MVC}, zu dem es schon gute Erfahrungen im Team gab.
 Es bietet bereits Projektvorlagen mit der grundlegenden Programmstruktur und Möglichkeiten zur
 Konfiguration an. 
 
@@ -41,10 +42,12 @@ Dazu bietet das Framework einen Injektor, mit dem das Prinzip der \Fachbegriff{I
 \Fachbegriff{Dependency Injection} umgesetzt wird. Die daraus folgende lose Verbindung der einzelnen Module
 trägt weiter zur besseren Wartbarkeit bei. Dabei müssen sich die Teile des Programms nicht um die Erstellung von
 Instanzen ihrer Abhängigkeiten kümmern, sondern Bekommen diese vom Injektor übergeben. Dieser übernimmt
-das komplette Management der erstellten Objekte und kann diese, je nach Lebensdauer, \ggfs zerstören, sollten sie nicht mehr 
+das komplette Management der erstellten Objekte und kann diese, je nach Lebensdauer, \acs{ggf} entfernen, sollten sie nicht mehr 
 gebraucht werden.\\
-Zur Kommunikation mit dem Datenbankserver ist ein Messagingservice nötig. Um die Performance von
-mehrfach aufgerufenen Vorgängen zu erhöhen, wird dieser um ein \Fachbegriff{Caching}-Modul erweitert.
+Zur Steuerung der Kommunikation mit der Datenbank-API ist ein eigener Service nötig. Um die Performance von
+mehrfach aufgerufenen Vorgängen zu erhöhen, wird dieser um einen \Fachbegriff{Caching}-Service erweitert.
+Beim \Fachbegriff{Caching} werden die erhaltenen Daten in Dateien gespeichert, welche bestimmten Abfragen
+zugeordnet und später wieder eingelesen werden können.
 % Die \Fachbegriff{View} wird mittels des Framework \Fachbegriff{Telerik UI} von \Fachbegriff{Progress} umgesetzt, welches eine gute Integration
 % in das \Fachbegriff{ASP.Net-Core}-Framework bietet.\\
 Das Model wird mittels verhaltensloser Datenklassen erstellt. 
@@ -59,8 +62,8 @@ Das Model wird mittels verhaltensloser Datenklassen erstellt.
 % 	\item \Ggfs Erläuterung von angewendeten Richtlinien zur Usability und Verweis auf Corporate Design.
 % \end{itemize}
 Um den einfachen Zugriff von beliebigen Rechnern im Firmenintranet zu gewährleisten,
-fiel die Entscheidung auf eine Umsetzung mit Weboberfläche. Dies sollte in den gängigsten Browser geöffnet werden können.
-Da die Anwendung lediglich auf Desktopcomputern zum Einsatz kommen sollte, wurde bewusst auf Responsivität verzichtet
+fiel die Entscheidung auf eine Umsetzung mit Weboberfläche. Diese sollte in den gängigsten Browsern angezeigt werden können.
+Da die Anwendung lediglich auf Desktopcomputern zum Einsatz kommen wird, wurde bewusst auf Anpassungen für mobile Geräte verzichtet
 und der Fokus auf eine funktionale Gestaltung gelegt.\\
 Über mehrere Korrekturschleifen wurde zusammen mit der Fachabteilung der Entwurf für eine Benutzeroberfläche
 fertiggestellt. Mithilfe von \Fachbegriff{Mockups} wurden die Bedürfnisse der Endbenutzer so gut wie möglich nachempfunden.
@@ -68,8 +71,11 @@ Diese befinden sich im \Anhang{app:Entwuerfe}.\\
 Die Webseite soll in der Hauptsache aus einer Suchleiste für Nutzeranfragen und einem Bereich zur Darstellung der Vorgangsdaten
 bestehen. Eine Checkbox soll die Möglichkeit geben, den Umfang der Suche einzuschränken.\\
 Die Vorgangsdaten werden nach erfolgreicher Suche in einem Bereich angezeigt, der die einzelnen Daten mittels Registerkarten
-in Kategorien unterteilt. Zur strukturierten Darstellung werden filterbare Tabellen genutzt. Weiterhin soll es möglich sein,
-PDF-Dateien anzuzeigen und zum Download anzubieten.
+in Kategorien unterteilt. Zur strukturierten Darstellung werden filterbare Tabellen genutzt. Diese werden durch das
+Framework \Fachbegriff{TelerikUI} eines Drittanbieters bereitgestellt und bieten vielfältige Einstellungen zum Filtern,
+Sortieren und Gruppieren an. Eine Lizenz ist hierfür bereits im Unternehmen vorhanden.
+Weiterhin soll es möglich sein, eine \acs{PDF}- oder \acs{XML}-Datei mit den Vorgangsdaten anzuzeigen \acs{bzw} diese zum 
+Download anzubieten (siehe \ref{sec:Anwendungsfaelle} \nameref{sec:Anwendungsfaelle}).
 
 
 \subsection{Datenmodell}
@@ -77,8 +83,8 @@ PDF-Dateien anzuzeigen und zum Download anzubieten.
 % \begin{itemize}
 % 	\item Entwurf/Beschreibung der Datenstrukturen (\zB \acs{ERM} und/oder Tabellenmodell, \acs{XML}-Schemas) mit kurzer Beschreibung der wichtigsten (!) verwendeten Entitäten.
 % \end{itemize}
-Die Datenmodelle für sowohl Anfragen, als auch Serverantworten wurden durch Deserialisierung von XML-Dateien erstellt. 
-Diese wurden vom Fachbereich bereitgestellt.\\
+Die Datenmodelle für sowohl Anfragen an die Datenbank-API, als auch deren Antwort basieren auf den versendeten XML-Dateien. 
+Diese wurden vom Fachbereich bereitgestellt und durch Deserialisierung in \acs{DTO}-Klassen überführt.\\
 Im \Anhang{app:Datenmodell} befindet sich dazu eine Übersicht. 
 
 % \paragraph{Beispiel}
