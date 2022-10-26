@@ -1,7 +1,7 @@
 % !TEX root = ../Projektdokumentation.tex
 \section{Implementierungsphase} 
 \label{sec:Implementierungsphase}
-Bei der Implementierung wurden die in \ref{sec:Entwurfsphase} \nameref{sec:Entwurfsphase} beschriebenen Architekturvorgaben
+Bei der Implementierung wurden die in der \nameref{sec:Entwurfsphase} beschriebenen Architekturvorgaben
 und Programmteile umgesetzt. Begonnen wurde mit dem Erstellen des Projekts nach einer vom \Fachbegriff{Telerik-Framework}
 bereitgestellten Vorlage für eine \Fachbegriff{ASP.Net Core MVC}-Anwendung. Diese liefert bereits \Fachbegriff{Boilerplate-Code},
 der \zB die Konfiguration vereinfachen soll.
@@ -15,12 +15,13 @@ dhfg
 % \begin{itemize}
 % 	\item Beschreibung der angelegten Datenbank (\zB Generierung von \acs{SQL} aus Modellierungswerkzeug oder händisches Anlegen), \acs{XML}-Schemas \usw.
 % \end{itemize}
-Zur Erstellung der Einzelnen \acs{DTO}s wurden XML-Dateien aus dem Fachbereich deserialisiert. Diese wurden zur Kommunikation
-mit dem Datenbank-Webservice vorgegeben. Dabei handelt es sich um eine Anfrage- und ein Antwortformat.\\
-Das Anfrage-Model beinhaltet das jeweilig gewünschte Aktenzeichen und eine Information über die Anwendung eines Suchfilters,
+Zur Erstellung der Einzelnen \acs{DTO}s wurden die XML-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-API
+realisiert wird. Dabei handelte es sich um jeweils ein Anfrage- und ein Antwortformat. Diese wurde von der Fachabteilung zur Verfügung
+gestellt.\\
+Das Anfrage-Model beinhaltet das jeweils gewünschte Aktenzeichen und eine Information über die Anwendung eines Suchfilters,
 welcher die zurückgelieferten Daten einschränkt.\\
 Das Antwort-Model wurde bei der automatischen Deserialisierung bereits mit den notwendigen Annotationen versehen,
-um einen reibungslosen Ausstausch mit dem XML-Format zu garantieren. Zur Datenbindung an die einzelnen Komponenten der
+um einen reibungslosen Austausch mit dem XML-Format zu garantieren. Zur Datenbindung an die einzelnen Komponenten der
 Benutzeroberfläche wurden weitere \Fachbegriff{Viewmodels} erstellt, welche das Mapping auf das Antwort-Model ermöglichen.\\
 Für das \Fachbegriff{Caching} wurde ein eigenes \acs{DTO} umgesetzt, welches das Anfrage- und Antwort-Model enthält.
 Dieses wird beim Lesen und Schreiben der \Fachbegriff{Cache}-Dateien serialisiert \bzw deserialisiert.
@@ -35,7 +36,7 @@ Dieses wird beim Lesen und Schreiben der \Fachbegriff{Cache}-Dateien serialisier
 % \end{itemize}
 % \paragraph{Beispiel}
 % Screenshots der Anwendung in der Entwicklungsphase mit Dummy-Daten befinden sich im \Anhang{Screenshots}.
-Bereits in \ref{sec:Benutzeroberflaeche} \nameref{sec:Benutzeroberflaeche} wurde festgelegt, dass die Benutzeroberfläche
+Bereits in \ref{sec:Benutzeroberflaeche}: \nameref{sec:Benutzeroberflaeche} wurde festgelegt, dass die Benutzeroberfläche
 als Webseite in einem Browser ausgeführt werden soll.\\
 Die von \Fachbegriff{TelerikUI} bereitgestellte Vorlage für eine \ac{MVC}-Anwendung verlangt
 die Implementierung der \Fachbegriff{View} mittels spezieller \Fachbegriff{.cshtml}-Dateien.
