@@ -14,7 +14,7 @@ Sie ist Teil eines Firmenverbundes mit \acs{ca} 160 Mitarbeitern. Zu den Kunden 
 anderem Versicherungsunternehmen, Sachverständigenorganisationen, Prüfdienstleister und
 Schadensteuerungsgesellschaften.\\
 Zum Leistungsspektrum gehört die automatisierte Prüfung von Gutachten und
-Kostenvoranschlägen, welche durch Gutachter oder Partnerwerkstätten erstellt wurden.\\
+Kostenvoranschlägen, welche durch Gutachter oder Werkstätten erstellt wurden.\\
 Das Projekt wurde intern durch das Team Reklamationsbearbeitung aus der Abteilung Prozessautomatisierung
 in Auftrag gegeben. Die Fachabteilung setzt unternehmensspezifische Prozesse \acs{ua} mittels
 \ac{BPMS} um.	
@@ -66,15 +66,17 @@ Die Vorgangsprüfung erfolgt über das automatisierte Prüfregelwerk \ac{CG}.
 Darin prüft ein individuell erstelltes Regelwerk die, \acs{zb} von Werkstätten, erstellten
 Kostenvoranschläge und Gutachten. Für die individuellen Parameter jedes Fahrzeugtyps greift
 der \acs{CG} auf die recherchierten Fahrzeugdaten der \ac{VID} zurück. 
-Die \acs{VID} bietet für jedes Kfz-Bauteil Informationen zur Beschaffenheit, Verarbeitung und Lage im Fahrzeug.\\
-Bei der Plausibilitätsprüfung durch den \acs{CG} entsteht ein detaillierter Prüfbericht, in dem die
-angewendeten Prüfregeln gelistet sind und ggf. Diskrepanzen aufgeführt werden.\\
+Die \acs{VID} bietet für jedes Kfz-Bauteil Informationen zur Beschaffenheit, Verarbeitung und Lage im Fahrzeug.
+Dort sind auch die Daten zu den Fahrzeugmodellen insgesamt abgelegt.\\
+Bei der Plausibilitätsprüfung durch den \acs{CG} entsteht ein detaillierter Prüfbericht, in dem 
+Diskrepanzen aufgeführt werden.\\
 Sollte der Kunde das Prüfergebnis beanstanden, so hat er die Möglichkeit eine Reklamation an
 die \acs{Icam} zu senden.\\
 Aktuell können nur die Projektverantwortlichen selbst, mittels des jeweiligen Aktenzeichens der
 Reklamation, eine händische Suche in mehreren Datenbanken und dem Regelwerk des \acs{CG}
-durchführen, um den Vorgang nachzuvollziehen. Es soll für die Bewertung des Vorgangs
-ersichtlich sein, welche Regeln ausgelöst wurden und welche Daten der \acs{VID} einbezogen wurden.\\
+durchführen, um den Vorgang nachzuvollziehen. Es soll für die Bewertung des Vorgangs kompakt
+ersichtlich sein, welche Regeln ausgelöst wurden und welche Daten der \acs{VID} in die Kalkulation 
+einbezogen wurden.\\
 Dieser Prozess ist aufgrund des hohen Anteils manueller Arbeit zeitaufwändig und fehleranfällig.
 Weiterhin kann dieser, wegen der Komplexität der Datenbanksysteme, nur von Experten durchgeführt werden.
 Durch das ReklaTool sollen die Suchanfragen vereinfacht und standardisiert werden, was wiederum 
@@ -89,8 +91,8 @@ eine Erweiterung des Nutzerkreises möglich macht.
 %	\item Wem muss das Ergebnis präsentiert werden?
 %\end{itemize}
 \textbf{Technische Schnittstellen}\\
-In der Abteilung Prozessautomatisierung wurde mittels \acs{BPMS} ein Webservice erstellt.
-Dieser trägt Daten aus Produktiv-, Archiv- und Testdatenbanken zusammen.
+In der Abteilung Prozessautomatisierung wurde mittels \acs{BPMS} eine Datenbank-API erstellt.
+Diese trägt Daten aus Produktiv- und Archivdatenbanken zusammen.
 Die Daten werden mit den fahrzeugspezifischen Daten aus der \acs{VID} ergänzt.
 Hinzu kommen die im Vorgang ausgelösten Regeln des \acs{CG}.
 Dieses Datenpaket wird der Webanwendung in strukturierter Form zur Verfügung gestellt.

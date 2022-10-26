@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.11)  26 OCT 2022 09:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.11)  26 OCT 2022 10:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1253,13 +1253,13 @@ Package acronym Info: Label `acro:VID' newly defined as it shall be overridden
 although it is yet undefined on input line 68.
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 97.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 85.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
  [1
 
 ]
 Package acronym Info: Label `acro:SME' newly defined as it shall be overridden
-although it is yet undefined on input line 103.
+although it is yet undefined on input line 105.
 ) (Inhalt/Projektplanung.tex (Tabellen/ZeitplanungKurz.tex)
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
@@ -1275,30 +1275,30 @@ Package acronym Info: Label `acro:DBMS' newly defined as it shall be overridden
 although it is yet undefined on input line 28.
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 52.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 51.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
  [4]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 85.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 84.
  (D:\00_apps\LaTex\MiKTeX\app\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (Tabellen/Kostenaufstellung.tex)
-Overfull \hbox (21.06123pt too wide) in paragraph at lines 2--93
+Overfull \hbox (21.06123pt too wide) in paragraph at lines 2--92
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--104
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
 
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 104.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 103.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
 [5] (Tabellen/Zeitersparnis.tex)
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 153.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 152.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
  [6]) (Inhalt/Entwurfsphase.tex
 Package acronym Info: Label `acro:SPA' newly defined as it shall be overridden
@@ -1719,7 +1719,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  108i,25n,112p,10834b,2315s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-ts1.enc}{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-ec.enc}{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-mathit.enc}{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-mathsy.enc}{D:/00_apps/LaTex/MiKTeX/app/fonts/enc/dvips/lm/lm-rm.enc}<D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmbx10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmbx12.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmcsc10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmmi10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr12.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr17.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr6.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr8.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmr9.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmri10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmss10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmssbx10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmsy10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmtt10.pfb><D:/00_apps/LaTex/MiKTeX/app/fonts/type1/public/lm/lmtt9.pfb>
-Output written on Projektdokumentation.pdf (44 pages, 2345177 bytes).
+Output written on Projektdokumentation.pdf (44 pages, 2345205 bytes).
 PDF statistics:
  1525 PDF objects out of 1728 (max. 8388607)
  357 named destinations out of 1000 (max. 500000)

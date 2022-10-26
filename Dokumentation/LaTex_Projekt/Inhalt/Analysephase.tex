@@ -1,8 +1,8 @@
 % !TEX root = ../Projektdokumentation.tex
 \section{Analysephase} 
 \label{sec:Analysephase}
-Um die Anforderungen an das ReklaTool zu bestimmen, wurde zusammen mit der Fachabteilung der
-aktuelle Prozess zur Reklamationsbearbeitung erfasst. Aus der Analyse des Vorgangs ergaben sich
+Um die Anforderungen an das ReklaTool zu bestimmen, wurde der aktuelle Prozess zur Reklamationsbearbeitung
+zusammen mit der Fachabteilung erfasst. Aus der Analyse des Vorgangs ergaben sich
 einzelne Anwendungsfälle (Use-Cases) für die zu erstellende Webanwendung.
 Basierend auf dem Umfang der Anwendung wurde eine Wirtschaftlichkeitsanalyse durchgeführt und
 schließlich das Lastenheft erstellt.
@@ -24,15 +24,14 @@ Im Fall, dass die Regelauslösungen für den Kunden nicht nachvollziehbar sind, 
 Möglichkeit eine Reklamation an die \acs{Icam} zu senden. Diese wird firmenintern geprüft
 und an die Fachabteilung Prozessautomatisierung weitergeleitet.\\
 Ein/-e Mitarbeiter/-in des Teams Reklamationsbearbeitung recherchiert anschließend mittels des Aktenzeichens
-des Vorgangs die dazugehörigen Daten. Je nach Zeitpunkt des Vorgangs können die Daten in verschiedenen Datenbanken 
-(Produktiv-, Archiv- und Testdatenbank) abgelegt sein. Der/die Mitarbeiter/-in sucht mittels \ac{DBMS} und selbst 
+des Vorgangs die dazugehörigen Daten. Je nach Zeitpunkt des Vorgangs können die Daten in Produktiv- oder Archivdatenbanken 
+abgelegt sein. Der/die Mitarbeiter/-in sucht mittels \ac{DBMS} und selbst 
 erstellten SQL-Skripten nach allen Daten zum Vorgang.\\
 Mit diesen Daten kann dann die beanstandete Regelauslösung nachvollzogen werden. Dazu bietet der \acs{CG} die 
-Möglichkeit Vorgänge Schritt für Schritt durchzugehen. Fällt dabei eine fehlerhafte Prüfregel auf, so wird diese ergänzt 
-oder angepasst.\\
-In einem weiteren Schritt wird die Reklamation an die Rechercheabteilung gegeben. Diese prüft die Fahrzeugdaten des
-Vorgangs auf Vollständigkeit und Korrektheit. Auch hier werden bei Auffälligkeiten Daten korrigiert oder nachrecherchiert
-und ergänzt.\\
+Möglichkeit Vorgänge Schritt für Schritt durchzugehen. Fällt dabei eine fehlerhafte Prüfregel auf, so wird diese angepasst.\\
+Liegt die Ursache der fehlerhaften Regelauslösung nicht in der Regelimplementierung, wird die Reklamation an die Rechercheabteilung 
+gegeben. Diese prüft die Fahrzeugdaten des Vorgangs auf Vollständigkeit und Korrektheit. Auch hier werden bei Auffälligkeiten Daten 
+korrigiert oder nachrecherchiert und ergänzt.\\
 Der Kunde bekommt Rückmeldung über die angepassten Daten und Prüfregeln. 
 Sind die Daten jedoch nach Prüfung initial richtig gewesen, so bekommt der Kunde auch darüber eine Rückmeldung, 
 inklusive von Quellen (\acs{zb} Herstellerdaten) als Nachweis.
