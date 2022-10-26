@@ -9,57 +9,54 @@
 \contentsline {subsection}{\numberline {1.3}Projektbegründung}{1}{subsection.17}%
 \contentsline {subsection}{\numberline {1.4}Projektschnittstellen}{2}{subsection.20}%
 \contentsline {subsection}{\numberline {1.5}Projektabgrenzung}{2}{subsection.22}%
-\contentsline {section}{\numberline {2}Projektplanung}{2}{section.23}%
-\contentsline {subsection}{\numberline {2.1}Projektphasen}{2}{subsection.24}%
+\contentsline {section}{\numberline {2}Projektplanung}{3}{section.23}%
+\contentsline {subsection}{\numberline {2.1}Projektphasen}{3}{subsection.24}%
 \contentsline {subsection}{\numberline {2.2}Ressourcenplanung}{3}{subsection.26}%
 \contentsline {subsection}{\numberline {2.3}Entwicklungsprozess}{3}{subsection.27}%
-\contentsline {section}{\numberline {3}Analysephase}{4}{section.28}%
-\contentsline {subsection}{\numberline {3.1}Ist-Analyse}{4}{subsection.29}%
-\contentsline {subsection}{\numberline {3.2}Wirtschaftlichkeitsanalyse}{5}{subsection.31}%
-\contentsline {subsubsection}{\numberline {3.2.1}\glqq {}Make or Buy\grqq {}-Entscheidung}{5}{subsubsection.32}%
-\contentsline {subsubsection}{\numberline {3.2.2}Projektkosten}{5}{subsubsection.33}%
-\contentsline {subsubsection}{\numberline {3.2.3}Amortisation}{6}{subsubsection.35}%
-\contentsline {subsection}{\numberline {3.3}Nicht-monetärer Nutzen}{7}{subsection.40}%
-\contentsline {subsection}{\numberline {3.4}Anwendungsfälle}{7}{subsection.41}%
-\contentsline {subsection}{\numberline {3.5}Qualitätsanforderungen}{7}{subsection.42}%
-\contentsline {subsection}{\numberline {3.6}Lastenheft/Fachkonzept}{7}{subsection.43}%
-\contentsline {section}{\numberline {4}Entwurfsphase}{7}{section.44}%
-\contentsline {subsection}{\numberline {4.1}Zielplattform}{8}{subsection.45}%
-\contentsline {subsection}{\numberline {4.2}Architekturdesign}{8}{subsection.47}%
-\contentsline {subsection}{\numberline {4.3}Entwurf der Benutzeroberfläche}{9}{subsection.48}%
-\contentsline {subsection}{\numberline {4.4}Datenmodell}{9}{subsection.49}%
-\contentsline {subsection}{\numberline {4.5}Geschäftslogik}{9}{subsection.50}%
-\contentsline {subsection}{\numberline {4.6}Maßnahmen zur Qualitätssicherung}{10}{subsection.51}%
-\contentsline {subsection}{\numberline {4.7}Pflichtenheft/Datenverarbeitungskonzept}{10}{subsection.52}%
-\contentsline {section}{\numberline {5}Implementierungsphase}{10}{section.53}%
-\contentsline {subsection}{\numberline {5.1}Konfiguration}{10}{subsection.54}%
-\contentsline {subsection}{\numberline {5.2}Implementierung der Datenstrukturen}{10}{subsection.55}%
-\contentsline {subsection}{\numberline {5.3}Implementierung der Benutzeroberfläche}{11}{subsection.56}%
-\contentsline {subsection}{\numberline {5.4}Implementierung der Geschäftslogik}{11}{subsection.58}%
-\contentsline {section}{\numberline {6}Abnahmephase}{11}{section.60}%
-\contentsline {section}{\numberline {7}Einführungsphase}{12}{section.61}%
-\contentsline {section}{\numberline {8}Dokumentation}{12}{section.62}%
-\contentsline {section}{\numberline {9}Fazit}{12}{section.63}%
-\contentsline {subsection}{\numberline {9.1}Soll-/Ist-Vergleich}{12}{subsection.64}%
-\contentsline {subsection}{\numberline {9.2}Lessons Learned}{13}{subsection.66}%
-\contentsline {subsection}{\numberline {9.3}Ausblick}{13}{subsection.67}%
-\contentsline {section}{\nonumberline Literaturverzeichnis}{14}{section*.69}%
-\contentsline {section}{\nonumberline Eidesstattliche Erklärung}{15}{section*.71}%
-\contentsline {section}{\numberline {A}Anhang}{i}{appendix.72}%
-\contentsline {subsection}{\numberline {A.1}Detaillierte Zeitplanung}{i}{subsection.73}%
-\contentsline {subsection}{\numberline {A.2}Ressourcen}{ii}{subsection.74}%
-\contentsline {subsection}{\numberline {A.3}Break-Even-Point}{iii}{subsection.75}%
-\contentsline {subsection}{\numberline {A.4}Lastenheft (Auszug)}{iii}{subsection.77}%
-\contentsline {subsection}{\numberline {A.5}Aktivitätsdiagramm}{v}{subsection.96}%
-\contentsline {subsection}{\numberline {A.6}Use-Case-Diagramm}{vi}{subsection.98}%
-\contentsline {subsection}{\numberline {A.7}Sequenzdiagramm}{vi}{subsection.100}%
-\contentsline {subsection}{\numberline {A.8}Pflichtenheft (Auszug)}{vii}{subsection.102}%
-\contentsline {subsection}{\numberline {A.9}Datenmodell}{ix}{subsection.117}%
-\contentsline {subsection}{\numberline {A.10}Oberflächenentwurf}{x}{subsection.120}%
-\contentsline {subsection}{\numberline {A.11}Screenshots der Anwendung}{xi}{subsection.122}%
-\contentsline {subsection}{\numberline {A.12}Entwicklerdokumentation}{xiii}{subsection.127}%
-\contentsline {subsection}{\numberline {A.13}Testfall und sein Aufruf auf der Konsole}{xv}{subsection.128}%
-\contentsline {subsection}{\numberline {A.14}Klasse: ComparedNaturalModuleInformation}{xvi}{subsection.164}%
-\contentsline {subsection}{\numberline {A.15}Klassendiagramm}{xix}{subsection.288}%
-\contentsline {subsection}{\numberline {A.16}Benutzerdokumentation}{xx}{subsection.290}%
+\contentsline {section}{\numberline {3}Analysephase}{5}{section.28}%
+\contentsline {subsection}{\numberline {3.1}Ist-Analyse}{5}{subsection.29}%
+\contentsline {subsection}{\numberline {3.2}Wirtschaftlichkeitsanalyse}{6}{subsection.31}%
+\contentsline {subsubsection}{\numberline {3.2.1}\glqq {}Make or Buy\grqq {}-Entscheidung}{6}{subsubsection.32}%
+\contentsline {subsubsection}{\numberline {3.2.2}Projektkosten}{6}{subsubsection.33}%
+\contentsline {subsubsection}{\numberline {3.2.3}Amortisation}{7}{subsubsection.35}%
+\contentsline {subsection}{\numberline {3.3}Nicht-monetärer Nutzen}{8}{subsection.40}%
+\contentsline {subsection}{\numberline {3.4}Anwendungsfälle}{8}{subsection.41}%
+\contentsline {subsection}{\numberline {3.5}Qualitätsanforderungen}{8}{subsection.42}%
+\contentsline {subsection}{\numberline {3.6}Lastenheft/Fachkonzept}{8}{subsection.43}%
+\contentsline {section}{\numberline {4}Entwurfsphase}{9}{section.44}%
+\contentsline {subsection}{\numberline {4.1}Zielplattform}{9}{subsection.45}%
+\contentsline {subsection}{\numberline {4.2}Architekturdesign}{9}{subsection.47}%
+\contentsline {subsection}{\numberline {4.3}Entwurf der Benutzeroberfläche}{10}{subsection.48}%
+\contentsline {subsection}{\numberline {4.4}Datenmodell}{10}{subsection.49}%
+\contentsline {subsection}{\numberline {4.5}Geschäftslogik}{10}{subsection.50}%
+\contentsline {subsection}{\numberline {4.6}Maßnahmen zur Qualitätssicherung}{11}{subsection.51}%
+\contentsline {subsection}{\numberline {4.7}Pflichtenheft/Datenverarbeitungskonzept}{11}{subsection.52}%
+\contentsline {section}{\numberline {5}Implementierungsphase}{11}{section.53}%
+\contentsline {subsection}{\numberline {5.1}Konfiguration}{11}{subsection.54}%
+\contentsline {subsection}{\numberline {5.2}Implementierung der Datenstrukturen}{11}{subsection.55}%
+\contentsline {subsection}{\numberline {5.3}Implementierung der Benutzeroberfläche}{12}{subsection.56}%
+\contentsline {subsection}{\numberline {5.4}Implementierung der Geschäftslogik}{12}{subsection.58}%
+\contentsline {section}{\numberline {6}Abnahmephase}{13}{section.60}%
+\contentsline {section}{\numberline {7}Einführungsphase}{13}{section.61}%
+\contentsline {section}{\numberline {8}Dokumentation}{13}{section.62}%
+\contentsline {section}{\numberline {9}Fazit}{13}{section.63}%
+\contentsline {subsection}{\numberline {9.1}Soll-/Ist-Vergleich}{14}{subsection.64}%
+\contentsline {subsection}{\numberline {9.2}Lessons Learned}{14}{subsection.66}%
+\contentsline {subsection}{\numberline {9.3}Ausblick}{14}{subsection.67}%
+\contentsline {section}{\numberline {A}Anhang}{i}{appendix.68}%
+\contentsline {subsection}{\numberline {A.1}Detaillierte Zeitplanung}{i}{subsection.69}%
+\contentsline {subsection}{\numberline {A.2}Ressourcen}{ii}{subsection.70}%
+\contentsline {subsection}{\numberline {A.3}Break-Even-Point}{iii}{subsection.71}%
+\contentsline {subsection}{\numberline {A.4}Lastenheft (Auszug)}{iii}{subsection.73}%
+\contentsline {subsection}{\numberline {A.5}Aktivitätsdiagramm}{v}{subsection.92}%
+\contentsline {subsection}{\numberline {A.6}Use-Case-Diagramm}{vi}{subsection.94}%
+\contentsline {subsection}{\numberline {A.7}Sequenzdiagramm}{vi}{subsection.96}%
+\contentsline {subsection}{\numberline {A.8}Pflichtenheft (Auszug)}{vii}{subsection.98}%
+\contentsline {subsection}{\numberline {A.9}Datenmodell}{ix}{subsection.113}%
+\contentsline {subsection}{\numberline {A.10}Oberflächenentwurf}{x}{subsection.116}%
+\contentsline {subsection}{\numberline {A.11}Screenshots der Anwendung}{xi}{subsection.118}%
+\contentsline {subsection}{\numberline {A.12}Entwicklerdokumentation}{xiii}{subsection.123}%
+\contentsline {subsection}{\numberline {A.13}Testfall und sein Aufruf auf der Konsole}{xv}{subsection.124}%
+\contentsline {subsection}{\numberline {A.14}Klassendiagramm}{xvi}{subsection.160}%
+\contentsline {subsection}{\numberline {A.15}Benutzerdokumentation}{xviii}{subsection.162}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
