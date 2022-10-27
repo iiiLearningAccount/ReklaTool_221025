@@ -13,6 +13,7 @@ namespace ReklaTool.Services
         List<PositionViewModel> GetPositionen(FilterRequest model);
         List<RegelViewModel> GetRegeln(FilterRequest model);
         byte[] GetPdf(FilterRequest model);
+        byte[] GetXml(FilterRequest model);
     }
     public class UiEndpointService : IEndpointService
     {
@@ -165,6 +166,25 @@ namespace ReklaTool.Services
             {
                 pdfViewModel = new PdfViewModel { pdfBase64 = vorgang.Einzelpruefbericht.Base64 };
                 byteData = Convert.FromBase64String(pdfViewModel.pdfBase64);
+            }
+            else
+            {
+                string fileName = "PDFnochNichtVorhanden.pdf";
+                string path = Path.Combine(Environment.CurrentDirectory, @"resources\", fileName);
+                byteData = File.ReadAllBytes(path);
+            }
+            return byteData;
+        }
+
+        public byte[] GetXml(FilterRequest model)
+        {
+            var vorgang = _msgService.GetVorgangByIdAsync(model).Result;
+            XmlViewModel xmlViewModel = new XmlViewModel();
+            byte[] byteData;
+            if (vorgang.Kalkulation != null)
+            {
+                xmlViewModel = new XmlViewModel { xmlBase64 = vorgang.Kalkulation.Base64 };
+                byteData = Convert.FromBase64String(xmlViewModel.xmlBase64);
             }
             else
             {

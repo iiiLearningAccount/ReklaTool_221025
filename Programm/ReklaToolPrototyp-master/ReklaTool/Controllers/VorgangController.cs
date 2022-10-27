@@ -57,5 +57,18 @@ namespace ReklaTool.Controllers
             var output = File(byteData, "application/pdf");
             return output;
         }
+
+        public FileContentResult Xml_Read(string aktenzeichen_typ, string aktenzeichen, bool isSchnellsuche, int vorgangIndex)
+        {
+            FilterRequest model = new FilterRequest()
+            {
+                Aktenzeichen_Typ = aktenzeichen_typ,
+                Aktenzeichen = aktenzeichen,
+                IsSchnellsuche = isSchnellsuche,
+                VorgangIndex = vorgangIndex
+            };
+            byte[] byteData = _uiEndpointService.GetXml(model);
+            return File(byteData, "text/xml", "Kalkulation.xml");
+        }
     }
 }

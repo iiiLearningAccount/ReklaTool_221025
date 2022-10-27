@@ -113,20 +113,20 @@ Im \Anhang{app:Datenmodell} befindet sich dazu eine Übersicht.
 % \caption{Prozess des Einlesens eines Moduls}
 % \label{fig:Modulimport}
 % \end{figure}
-Unter den Anwendungsfällen ist das Abfragen der Daten vom Datenbankwebservice der wichtigste.
+Unter den Anwendungsfällen ist das Abfragen der Daten vom Datenbank-API der wichtigste.
 Anhand diesem wird ein Großteil des Programmablaufs nachvollziehbar und kann im Sequenzdiagramm
 im \Anhang{app:Sequenz} betrachtet werden.\\
 Im gezeigten Fall ruft die Mitarbeiterin der Fachabteilung über ihren Browser das \Fachbegriff{ReklaTool} auf.
 Dort gibt sie über das Suchfeld das Aktenzeichen zum gesuchten Vorgang ein. Da die Aktenzeichen kein festes 
 Format besitzen muss zusätzlich deren Art (Dateiname, Vorgangsnummer, Schadennummer oder Auftragsnummer)
-ausgewählt werden. Um die Suche einzuschränken kann ein Haken gesetzt werden, ob Dokumente zum Vorgang mitgeliefert werden sollen.
+ausgewählt werden. Um die Suche einzuschränken, kann ein Haken gesetzt werden, ob Dokumente zum Vorgang mitgeliefert werden sollen.
 Nach Betätigung der Suchen-Taste wird eine \Fachbegriff{GET}-Anfrage mit Aktenzeichen und Filter an den 
 \Fachbegriff{ReklaTool}-Server gestellt. Dort bietet der \Klasse{VorgangController} Endpunktmethoden für http-Anfragen an.
 Über den \Klasse{UiEndpointService} werden die Anfragen an den \Klasse{HttpMsgService} durchgereicht.
 Dieser erstellt mittels des \Klasse{RequestBuilder} ein Anfrage-Objekt.\\
 Die erzeugte Anfrage wird zunächst durch den \Klasse{ResponseCacheService} mit den bereits zwischengespeicherten
 Vorgängen verglichen. Ist eine Datei zum Aktenzeichen vorhanden, so wird diese an den \Klasse{UiEndpointService} 
-zurückgegeben. Andernfalls wird nun eine Anfrage an den \Fachbegriff{Datenbank-Webservice} gestellt.
+zurückgegeben. Andernfalls wird nun eine Anfrage an die Datenbank-API gestellt.
 Das zurückgelieferte XML-Dokument wird deserialisiert und zusammen mit den Anfrageinformationen im \Fachbegriff{Cache} abgelegt.
 Danach geht auch dieses zurück an den \Klasse{UiEndpointService}.\\
 Hier werden die Daten, je nach Client-Anfrage, vom kompletten Vorgangs-Model auf einzelne \Fachbegriff{View-Models} gemappt.

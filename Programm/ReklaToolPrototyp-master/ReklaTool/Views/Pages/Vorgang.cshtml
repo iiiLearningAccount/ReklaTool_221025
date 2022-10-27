@@ -4,6 +4,7 @@
 @using ReklaTool.Models;
 @using ReklaTool.Models.ViewModels
 @using ReklaTool.Services
+@using Microsoft.AspNetCore.Mvc.Razor.Extensions
 @{
     ViewData["Titel"] = "Vorgang";
 }
@@ -201,8 +202,11 @@
                           </text>);
             tabstrip.Add().Text("Download")
                 .Content(@<text>
-
-                          </text>);
+                             @Html.Kendo().Button().Name("Download").Content("XML Download").Events(builder => { builder.Click("startDownload");})
+                        
+                         </text>)
+                ;
+                @*.Action("Xml_Read", "Vorgang", "");*@
         })
         )
 </div>
@@ -308,6 +312,17 @@
     function VorgangAuswahlGeladen() {
         document.querySelector(".vorgangListe").classList.remove("hidden");
     }
+
+    function startDownload() {
+        var filterModel = getSearchParametersSlow();
+        var url = "/Vorgang/Xml_Read?" 
+            + "aktenzeichen_typ=" + filterModel.aktenzeichen_typ 
+            + "&aktenzeichen=" + filterModel.aktenzeichen 
+            + "&isSchnellsuche=" + filterModel.isSchnellsuche
+            + "&vorgangIndex=" + filterModel.vorgangIndex;
+        window.location = url;
+    }
+
     function VorgangSelected() {
         $("#FahrzeugdatenGrid").data("kendoGrid").dataSource.read();
         $("#KostenList").data("kendoListView").dataSource.read();
@@ -320,6 +335,7 @@
             + "&aktenzeichen=" + filterModel.aktenzeichen 
             + "&isSchnellsuche=" + filterModel.isSchnellsuche
             + "&vorgangIndex=" + filterModel.vorgangIndex);
+        //$("")
     
         var tabStrip = $("#tabstrip").data("kendoTabStrip");
         document.querySelector(".vorgangEinzeln").classList.remove("hidden");

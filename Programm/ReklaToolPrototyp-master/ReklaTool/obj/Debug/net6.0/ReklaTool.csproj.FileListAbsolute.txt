@@ -163,7 +163,6 @@ U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\
 U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\ReklaTool.runtimeconfig.json
 U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\ReklaTool.dll
 U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\ReklaTool.pdb
-U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\documentation.xml
 U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
@@ -222,3 +221,11 @@ U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\
 U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\obj\Debug\net6.0\ReklaTool.pdb
 U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\obj\Debug\net6.0\ReklaTool.genruntimeconfig.cache
 U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\obj\Debug\net6.0\ref\ReklaTool.dll
+U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\documentation.xml
+U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\cache\-245745262.json
+U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\cache\612546484.json
+U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\cache\677292878.json
+U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\cache\898383540.json
+U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\cache\-1426413941.json
+U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\cache\-1530510843.json
+U:\Praktikum\AbschlussprojektMASTER\Programm\ReklaToolPrototyp-master\ReklaTool\bin\Debug\net6.0\cache\1673907017.json
