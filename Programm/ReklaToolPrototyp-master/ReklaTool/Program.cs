@@ -7,14 +7,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews()
                 // Maintain property names during serialization. See:
                 // https://github.com/aspnet/Announcements/issues/194
-                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver());
+                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver 
+                    = new Newtonsoft.Json.Serialization.DefaultContractResolver());
 // Add Kendo UI services to the services container"
 builder.Services.AddKendo();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<IMsgService, HttpMsgService>();
 builder.Services.AddScoped<IEndpointService, UiEndpointService>();
 builder.Services.AddScoped<IRequestBuilder, RequestBuilder>();
-builder.Services.AddSingleton<ICacheService, ResponseCacheService>();
+builder.Services.AddScoped<ICacheService, ResponseCacheService>();
 //builder.Services.AddKeycloakAuthentication(builder.Configuration);
 
 

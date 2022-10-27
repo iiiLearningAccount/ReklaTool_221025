@@ -8,7 +8,15 @@ der \zB die Konfiguration vereinfachen soll.
 
 \subsection{Konfiguration}
 \label{sec:Konfiguration}
-dhfg
+Das \Fachbegriff{ASP.Net Core MVC}-Framework bietet verschiedene Möglichkeiten zur Konfiguration.
+So konnten über die Datei \Datei{appsettings.json} Information wie API-Adresse und Daten für die
+Authentifizierung in die Anwendung gegeben werden. Diese wurden durch das Interface \Klasse{IConfiguration}
+via \acs{DI} den anderen Services zur Verfügung gestellt. \\
+In der Datei \Datei{Program.cs} werden alle Services mit entsprechender Lebensdauer (scoped, transient oder singleton)
+registriert. \footnote{\url{https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection\#service-lifetimes}}
+Für das Projekt wurden diese als \Fachbegriff{Scoped} angemeldet. Das bedeutet, dass der Service immer für die Dauer einer
+API-Anfrage zur Verfügung steht.
+
 
 \subsection{Implementierung der Datenstrukturen}
 \label{sec:ImplementierungDatenstrukturen}
