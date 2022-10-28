@@ -16,7 +16,7 @@ builder.Services.AddScoped<IMsgService, HttpMsgService>();
 builder.Services.AddScoped<IEndpointService, UiEndpointService>();
 builder.Services.AddScoped<IRequestBuilder, RequestBuilder>();
 builder.Services.AddScoped<ICacheService, ResponseCacheService>();
-//builder.Services.AddKeycloakAuthentication(builder.Configuration);
+builder.Services.AddKeycloakAuthentication(builder.Configuration);
 
 var app = builder.Build();
 

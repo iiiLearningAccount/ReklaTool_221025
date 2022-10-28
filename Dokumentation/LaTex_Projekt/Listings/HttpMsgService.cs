@@ -15,8 +15,7 @@ namespace ReklaTool.Services
         private readonly IHttpClientFactory _clientFactory;
         private readonly ICacheService _cache;
         private readonly IRequestBuilder _requestBuilder;
-        public HttpMsgService(IConfiguration config, IHttpClientFactory clientFactory, 
-            ICacheService cache, IRequestBuilder requestBuilder)
+        public HttpMsgService(IConfiguration config, IHttpClientFactory clientFactory, ICacheService cache, IRequestBuilder requestBuilder)
         {
             _configuration = config;
             _clientFactory = clientFactory;

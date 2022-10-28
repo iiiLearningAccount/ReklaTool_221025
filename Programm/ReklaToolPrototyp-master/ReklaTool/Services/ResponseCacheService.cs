@@ -7,7 +7,7 @@ namespace ReklaTool.Services
     {
         void SetElement(CacheElement element);
         bool ElementExists(RequestModel anfrage);
-        Vorgaenge GetElement(RequestModel anfrage);
+        Vorgaenge? GetElement(RequestModel anfrage);
     }
     public class ResponseCacheService : ICacheService
     {
@@ -24,7 +24,7 @@ namespace ReklaTool.Services
             string contentHash = anfrage.GetHashCode().ToString();
             return File.Exists(Path.Combine(cacheLocation, contentHash + ".json")); ;
         }
-        public Vorgaenge GetElement(RequestModel anfrage)
+        public Vorgaenge? GetElement(RequestModel anfrage)
         {
             string filename = anfrage.GetHashCode().ToString();
             string fileContent = File.ReadAllText(cacheLocation + filename + ".json");

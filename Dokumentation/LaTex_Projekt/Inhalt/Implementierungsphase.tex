@@ -13,9 +13,13 @@ So konnten über die Datei \Datei{appsettings.json} Information wie API-Adresse 
 Authentifizierung in die Anwendung gegeben werden. Diese wurden durch das Interface \Klasse{IConfiguration}
 via \acs{DI} den anderen Services zur Verfügung gestellt. \\
 In der Datei \Datei{Program.cs} werden alle Services mit entsprechender Lebensdauer (scoped, transient oder singleton)
-registriert. \footnote{\url{https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection\#service-lifetimes}}
-Für das Projekt wurden diese als \Fachbegriff{Scoped} angemeldet. Das bedeutet, dass der Service immer für die Dauer einer
-API-Anfrage zur Verfügung steht.
+registriert.\footnote{\url{https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection\#service-lifetimes}}
+Für das Projekt wurden diese als \Fachbegriff{scoped} angemeldet. Das bedeutet, dass der Service immer für die Dauer einer
+API-Anfrage zur Verfügung steht. Eine Beschreibung, wie Services in das Programm eingebunden sind, findet sich im 
+\Anhang{app:EntwicklerDoku}.\\
+Weiter unten in der Datei findet sich die Möglichkeit die \Fachbegriff{Middleware} zu konfigurieren.
+Diese dient dazu die Konditionen, zu der die \acs{HTTP}-Kommunikation stattfindet, festzulegen.
+
 
 
 \subsection{Implementierung der Datenstrukturen}
