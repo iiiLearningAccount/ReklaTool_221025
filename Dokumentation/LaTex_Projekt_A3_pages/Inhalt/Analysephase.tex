@@ -1,0 +1,189 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Analysephase} 
+\label{sec:Analysephase}
+Um die Anforderungen an das ReklaTool zu bestimmen, wurde der aktuelle Prozess zur Reklamationsbearbeitung
+zusammen mit der Fachabteilung erfasst. Aus der Analyse des Vorgangs ergaben sich
+einzelne Anwendungsfälle (Use-Cases) für die zu erstellende Webanwendung.
+Basierend auf dem Umfang der Anwendung wurde eine Wirtschaftlichkeitsanalyse durchgeführt und
+schließlich das Lastenheft erstellt.
+
+\subsection{Ist-Analyse} 
+\label{sec:IstAnalyse}
+% \begin{itemize}
+% 	\item Wie ist die bisherige Situation (\zB bestehende Programme, Wünsche der Mitarbeiter)?
+% 	\item Was gilt es zu erstellen/verbessern?
+% \end{itemize}
+Um den im Folgenden beschriebenen Prozess zu verbildlichen, befindet sich ein Schaubild im \Anhang{app:Aktivitaet}.\\
+Zum Leistungsspektrum der \acs{Icam} gehört die automatisierte Prüfung von Gutachten und
+Kostenvoranschlägen, welche durch Gutachter oder Werkstätten erstellt wurden.
+Die Prüfung wird durch die Versicherungen oder Sachverständigenorganisationen (Kunden) veranlasst
+und wird durch den \acs{CG} durchgeführt.
+Als Ergebnis bekommt der Kunde zusätzlich zum Prüfbericht eine Rückmeldung über die ausgelösten Regeln des \acs{CG}.\\
+Im Fall, dass die Regelauslösungen für den Kunden nicht nachvollziehbar sind, hat er die
+Möglichkeit eine Reklamation an die \acs{Icam} zu senden. Diese wird firmenintern geprüft
+und an die Fachabteilung Prozessautomatisierung weitergeleitet.\\
+Ein Mitarbeiter des Teams Reklamationsbearbeitung recherchiert anschließend mittels des Aktenzeichens
+des Vorgangs die dazugehörigen Daten. Je nach Zeitpunkt des Vorgangs können die Daten in Produktiv- oder Archivdatenbanken 
+abgelegt sein. Der Mitarbeiter sucht mittels \ac{DBMS} und selbst 
+erstellten SQL-Skripten nach allen Daten zum Vorgang.\\
+Mit diesen Daten kann dann die beanstandete Regelauslösung nachvollzogen werden. Dazu bietet der \acs{CG} die 
+Möglichkeit die Regelauslösungen des Vorgangs Schritt für Schritt durchzugehen. Fällt dabei eine fehlerhafte Prüfregel auf, so wird diese angepasst.\\
+Liegt die Ursache der fehlerhaften Regelauslösung nicht in der Regelimplementierung, wird die Reklamation an die Rechercheabteilung 
+gegeben. Diese prüft die Fahrzeugdaten des Vorgangs auf Vollständigkeit und Korrektheit. Auch hier werden bei Auffälligkeiten Daten 
+korrigiert oder nachrecherchiert und ergänzt.\\
+Der Kunde bekommt Rückmeldung über die angepassten Daten und Prüfregeln. 
+Sind die Daten jedoch nach Prüfung initial richtig gewesen, so bekommt der Kunde auch darüber eine Rückmeldung, 
+inklusive von Quellen (\acs{zb} Herstellerdaten) als Nachweis.
+Danach ist der Prozess abgeschlossen.
+
+
+\subsection{Wirtschaftlichkeitsanalyse}
+\label{sec:Wirtschaftlichkeitsanalyse}
+% \begin{itemize}
+% 	\item Lohnt sich das Projekt für das Unternehmen?
+% \end{itemize}
+Wie bereits im Abschnitt \ref{sec:IstAnalyse}: \nameref{sec:IstAnalyse} zu erkennen ist, war der vorherige Reklamationsprozess
+mit viel manueller Recherchearbeit verbunden. Im Folgenden wird analysiert, ob das Projekt durch die Zeitersparnis,
+welche mit dem ReklaTool einhergeht, wirtschaftlich sinnvoll ist. 
+
+
+\subsubsection{\gqq{Make or Buy}-Entscheidung}
+\label{sec:MakeOrBuyEntscheidung}
+% \begin{itemize}
+% 	\item Gibt es vielleicht schon ein fertiges Produkt, dass alle Anforderungen des Projekts abdeckt?
+% 	\item Wenn ja, wieso wird das Projekt trotzdem umgesetzt?
+% \end{itemize}
+Das ReklaTool greift mittels der Datenbank-\acs{API} auf sensible Firmendaten zu, mit denen auch Verpflichtungen gegenüber
+Kunden einhergehen. Weiterhin soll die Webanwendung unternehmensspezifischen Anforderungen genügen.
+So liegen Daten zwar im \acs{XML}-Format vor, sind aber je nach Anforderung stark firmenspezifisch strukturiert.
+Aus diesen Gründen ist von dem Beziehen von Software von Dritten abzusehen und die Eigenentwicklung vorzuziehen.
+
+
+\subsubsection{Projektkosten}
+\label{sec:Projektkosten}
+% \begin{itemize}
+% 	\item Welche Kosten fallen bei der Umsetzung des Projekts im Detail an (\zB Entwicklung, Einführung/Schulung, Wartung)?
+% \end{itemize}
+% \paragraph{Beispielrechnung (verkürzt)}
+% Die Kosten für die Durchführung des Projekts setzen sich sowohl aus Personal-, als auch aus Ressourcenkosten zusammen.
+% Laut Tarifvertrag verdient ein Auszubildender im dritten Lehrjahr pro Monat \eur{1000} Brutto. 
+% \begin{eqnarray}
+% 8 \mbox{ h/Tag} \cdot 220 \mbox{ Tage/Jahr} = 1760 \mbox{ h/Jahr}\\
+% \eur{1000}\mbox{/Monat} \cdot 13,3 \mbox{ Monate/Jahr} = \eur{13300} \mbox{/Jahr}\\
+% \frac{\eur{13300} \mbox{/Jahr}}{1760 \mbox{ h/Jahr}} \approx \eur{7,56}\mbox{/h}
+% \end{eqnarray}
+% Es ergibt sich also ein Stundenlohn von \eur{7,56}. 
+% Die Durchführungszeit des Projekts beträgt 70 Stunden. Für die Nutzung von Ressourcen\footnote{Räumlichkeiten, Arbeitsplatzrechner etc.} wird 
+% ein pauschaler Stundensatz von \eur{15} angenommen. Für die anderen Mitarbeiter wird pauschal ein Stundenlohn von \eur{25} angenommen. 
+Dieser Abschnitt betrachtet die Kosten, welche bei der Umsetzung des Projekts entstehen.\\ 
+Diese setzen aus Personalkosten und aus Kosten für die verwendeten Ressourcen
+(siehe Kapitel~\ref{sec:Ressourcenplanung}: \nameref{sec:Ressourcenplanung}) zusammen und 
+können der Tabelle~\ref{tab:Kostenaufstellung} entnommen werden.\\
+Die Personalkosten (brutto) je Projektmitarbeiter wurden durch die Personalabteilung vorgegeben. 
+Für einen Mitarbeiter der IT-Abteilung wurde ein Stundensatz in Höhe von \eur{30,00} angenommen. Mitarbeiter
+der Fachabteilung gehen mit \eur{35,00} pro Stunde in die Berechnung ein. Da der Autor aufgrund seiner Umschulung
+nicht direkt von der Praktikumsfirma bezahlt wird, wird für diesen das Azubigehalt des dritten Lehrjahrs,
+mit \eur{7,50} pro Stunde angenommen.\\
+Die Betriebskosten für die Webanwendung werden mit jährlich \eur{110,00} beziffert und für die Nutzung der Ressourcen 
+gilt ein Pauschalbetrag von \eur{20,00} pro Stunde. \\
+Die Gesamtkosten des Projekts betragen somit \eur{2575,00}. 
+
+\tabelle{Kostenaufstellung}{tab:Kostenaufstellung}{Kostenaufstellung.tex}
+
+
+\subsubsection{Amortisation}
+\label{sec:Amortisations}
+% \begin{itemize}
+% 	\item Welche monetären Vorteile bietet das Projekt (\zB Einsparung von Lizenzkosten, Arbeitszeitersparnis, bessere Usability, Korrektheit)?
+% 	\item Wann hat sich das Projekt amortisiert?
+% \end{itemize}
+Der Wegfall der in Abschnitt \ref{sec:IstAnalyse}:~\nameref{sec:IstAnalyse} beschriebenen Recherchearbeit in mehreren 
+Datenbanken schlägt sich in einer Zeitersparnis nieder, welche sich \ua über die Lohnkosten als finanzieller Vorteil beziffern lässt.\\
+
+\tabelle{Zeitersparnis}{tab:Zeitersparnis}{Zeitersparnis.tex}
+% \paragraph{Beispielrechnung (verkürzt)}
+% Bei einer Zeiteinsparung von 10 Minuten am Tag für jeden der 25 Anwender und 220 Arbeitstagen im Jahr ergibt sich eine gesamte Zeiteinsparung von 
+% \begin{eqnarray}
+% 	25 \cdot 220 \mbox{ Tage/Jahr} \cdot 10 \mbox{ min/Tag} = 55000 \mbox{ min/Jahr} \approx 917 \mbox{ h/Jahr} 
+% \end{eqnarray}
+% Dadurch ergibt sich eine jährliche Einsparung von 
+% \begin{eqnarray}
+% 	917 \mbox{h} \cdot \eur{(25 + 15)}{\mbox{/h}} = \eur{36680}
+% \end{eqnarray}
+% Die Amortisationszeit beträgt also $\frac{\eur{2739,20}}{\eur{36680}\mbox{/Jahr}} \approx 0,07 \mbox{ Jahre} \approx 4 \mbox{ Wochen}$.
+% \subsection{Nutzwertanalyse}
+% \label{sec:Nutzwertanalyse}
+% \begin{itemize}
+% 	\item Darstellung des nicht-monetären Nutzens (\zB Vorher-/Nachher-Vergleich anhand eines Wirtschaftlichkeitskoeffizienten). 
+% \end{itemize}
+% \paragraph{Beispiel}
+% Ein Beispiel für eine Entscheidungsmatrix findet sich in Kapitel~\ref{sec:Architekturdesign}: \nameref{sec:Architekturdesign}.
+
+\subsection*{Berechnung der Amortisationsdauer}
+Die Ermittlung der Amortisationsdauer soll dabei helfen, die Wirtschaftlichkeit des Projekts zu beurteilen.
+Für die Berechnung wird die vorher im Abschnitt  \ref{sec:Projektkosten}:~\nameref{sec:Projektkosten} kalkulierte Gesamtsumme 
+mit den Einsparungen verglichen. 
+Zur Ermittlung der finanziellen Ersparnis wird die jedes Jahr gewonnene Zeit mit dem Stundensatz, plus der Ressourcenpauschale,
+multipliziert. Es ergeben sich somit:
+\begin{eqnarray}
+    \frac{1540 \mbox{ min/Jahr}}{60} \cdot \eur{(35 + 20)}\mbox{/h} \approx \eur{1411,67}\mbox{/Jahr}. 
+\end{eqnarray}
+Um nun die Amortisationsdauer zu berechnen, werden die Projektkosten mit den jährlichen Ersparnissen ins Verhältnis gesetzt.
+Dabei werden auch die Betriebskosten des ReklaTool von \eur{110,00} pro Jahr mit beachtet.
+\begin{eqnarray}
+    \frac{\eur{2575,00}}{\eur{(1411,67 - 110,00)}\mbox{/Jahr}} \approx 1,98 \mbox{ Jahre}.	
+\end{eqnarray}
+In der Abbildung \Anhang{app:BreakEvenPoint} ist die Amortisierung grafisch dargestellt.
+An der Stelle, wo sich Projektkosten und Einsparung nach einer bestimmten Zeit treffen, lässt sich der
+\Fachbegriff{Break-Even-Point} ablesen. Durch diesen hat der Autor eine Aussage darüber, ab welchem Zeitpunkt sich das Projekt amortisiert hat.\\
+Da sich der Arbeitsablauf der Fachabteilung auf absehbare Zeit wenig verändern wird, ist die Amortisierung nach knapp zwei
+Jahren als wirtschaftlich zu betrachten. Hinzu kommen die im folgenden Kapitel beschriebenen Aspekte.
+
+\subsection{Nicht-monetärer Nutzen}
+\label{sec:nichtMonetaererNutzen}
+Der alte Reklamationsprozess (\Vgl Kapitel \ref{sec:IstAnalyse}: \nameref{sec:IstAnalyse}) wurde aufgrund seiner Komplexität
+meist von \ac{SME} durchgeführt. Durch die hohe Priorität der Reklamationen wurde der Arbeitsablauf dieser Mitarbeiter für 
+einen längeren Zeitraum unterbrochen. Diese Unterbrechung wird durch den automatisierten Zugriff auf alle relevanten Quellen mit 
+dem ReklaTool verkürzt. Durch die einfachere Handhabung ist nun auch die Einbeziehung weiterer Mitarbeiter in das 
+Reklamationsmanagement möglich.\\
+Weiterhin wird durch die Vereinheitlichung des Prozesses und die Reduzierung manueller Teilschritte, 
+die Fehlerquote minimiert. 
+
+\subsection{Anwendungsfälle}
+\label{sec:Anwendungsfaelle}
+% \begin{itemize}
+% 	\item Welche Anwendungsfälle soll das Projekt abdecken?
+% 	\item Einer oder mehrere interessante (!) Anwendungsfälle könnten exemplarisch durch ein Aktivitätsdiagramm oder eine \ac{EPK} detailliert beschrieben werden. 
+% \end{itemize}
+% \paragraph{Beispiel}
+% Ein Beispiel für ein Use Case-Diagramm findet sich im \Anhang{app:UseCase}.
+Zusammen mit der Fachabteilung wurden während der Analyse Anforderungen definiert und daraus Anwendungsfälle
+abgeleitet. Im \Anhang{app:UseCase} befindet sich das dabei entstandene Use-Case-Diagramm.\\
+Die Ausdifferenzierung der einzelnen Fälle diente später im Entwurf als Richtlinie für einzelne Features.
+
+\subsection{Qualitätsanforderungen}
+\label{sec:Qualitaetsanforderungen}
+% \begin{itemize}
+% 	\item Welche Qualitätsanforderungen werden an die Anwendung gestellt (\zB hinsichtlich Performance, Usability, Effizienz \etc (siehe \citet{ISO9126}))?
+% \end{itemize}
+Die Software soll eine funktionale und übersichtliche Benutzeroberfläche bieten.
+Diese soll ohne Installation, in Form einer Webanwendung im Browser erreichbar sein.
+Nach einer Nutzeranfrage an die Anwendung soll das Ergebnis in einer festgelegten Zeit erscheinen,
+um den Arbeitsablauf nicht zu sehr zu stören.
+Die Funktionalität und Richtigkeit der Software soll mittels Tests sichergestellt werden.
+
+
+\subsection{Lastenheft/Fachkonzept}
+\label{sec:Lastenheft}
+% \begin{itemize}
+% 	\item Auszüge aus dem Lastenheft/Fachkonzept, wenn es im Rahmen des Projekts erstellt wurde.
+% 	\item Mögliche Inhalte: Funktionen des Programms (Muss/Soll/Wunsch), User Stories, Benutzerrollen
+% \end{itemize}
+
+% \paragraph{Beispiel}
+% Ein Beispiel für ein Lastenheft findet sich im \Anhang{app:Lastenheft}. 
+Aus den zusammengetragenen Anforderungen erstellte der Autor mit der Fachabteilung das Lastenheft. 
+Darin sind alle gewünschten Funktionen und Eigenschaften der zu erstellenden 
+Software festgeschrieben.\\
+Ein Auszug befindet sich im \Anhang{app:Lastenheft}.
+\clearpage

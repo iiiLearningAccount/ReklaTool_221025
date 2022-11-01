@@ -1,0 +1,81 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Implementierungsphase} 
+\label{sec:Implementierungsphase}
+Bei der Implementierung wurden die in der \nameref{sec:Entwurfsphase} beschriebenen Architekturvorgaben
+und Programmteile umgesetzt. Begonnen wurde mit dem Erstellen des Projekts nach einer vom \Fachbegriff{Telerik-Framework}
+bereitgestellten Vorlage für eine \Fachbegriff{ASP.Net Core MVC}-Anwendung. Diese liefert bereits \Fachbegriff{Boilerplate-Code},
+der \zB die Konfiguration vereinfachen soll.
+
+\subsection{Konfiguration}
+\label{sec:Konfiguration}
+Das \Fachbegriff{ASP.Net Core MVC}-Framework bietet verschiedene Möglichkeiten zur Konfiguration.
+So konnten über die Datei \Datei{appsettings.json} Information wie API-Adresse und Daten für die
+Authentifizierung in die Anwendung gegeben werden. Diese wurden durch das Interface \Klasse{IConfiguration}
+via \acs{DI} den anderen Services zur Verfügung gestellt. \\
+In der Datei \Datei{Program.cs} werden alle Services mit entsprechender Lebensdauer (scoped, transient oder singleton)
+registriert.\footnote{\url{https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection\#service-lifetimes}}
+Für das Projekt wurden diese als \Fachbegriff{scoped} angemeldet. Das bedeutet, dass der Service immer für die Dauer einer
+API-Anfrage zur Verfügung steht. Eine Beschreibung, wie Services in das Programm eingebunden sind, findet sich im 
+\Anhang{app:EntwicklerDoku}.\\
+Weiter unten in der Datei findet sich die Möglichkeit die \Fachbegriff{Middleware} zu konfigurieren.
+Diese dient dazu die Konditionen, zu der die \acs{HTTP}-Kommunikation stattfindet, festzulegen.
+
+
+
+\subsection{Implementierung der Datenstrukturen}
+\label{sec:ImplementierungDatenstrukturen}
+% \begin{itemize}
+% 	\item Beschreibung der angelegten Datenbank (\zB Generierung von \acs{SQL} aus Modellierungswerkzeug oder händisches Anlegen), \acs{XML}-Schemas \usw.
+% \end{itemize}
+Zur Erstellung der Einzelnen \acs{DTO}s wurden die XML-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-\acs{API}
+realisiert wird. Dabei handelte es sich um jeweils ein Anfrage- und ein Antwortformat. Diese wurden von der Fachabteilung zur Verfügung
+gestellt.\\
+Das Anfrage-Model beinhaltet das jeweils gewünschte Aktenzeichen und eine Information über die Anwendung eines Suchfilters,
+welcher die zurückgelieferten Daten einschränkt.\\
+Das Antwort-Model wurde bei der automatischen Deserialisierung bereits mit den notwendigen Annotationen versehen,
+um einen reibungslosen Austausch mit dem XML-Format zu garantieren. Zur Datenbindung an die einzelnen Komponenten der
+Benutzeroberfläche wurden weitere \Fachbegriff{Viewmodels} erstellt, welche das Mapping auf das Antwort-Model ermöglichen.\\
+Für das \Fachbegriff{Caching} wurde ein eigenes \acs{DTO} umgesetzt, welches das Anfrage- und Antwort-Model enthält.
+Dieses wird beim Lesen und Schreiben der \Fachbegriff{Cache}-Dateien serialisiert \bzw deserialisiert.
+Über das \Fachbegriff{Hashing} des Anfrage-Objekts sind die Dateien eindeutig identifizierbar.
+
+\subsection{Implementierung der Benutzeroberfläche}
+\label{sec:ImplementierungBenutzeroberflaeche}
+% \begin{itemize}
+% 	\item Beschreibung der Implementierung der Benutzeroberfläche, falls dies separat zur Implementierung der Geschäftslogik erfolgt (\zB bei \acs{HTML}-Oberflächen und Stylesheets).
+% 	\item \Ggfs Beschreibung des Corporate Designs und dessen Umsetzung in der Anwendung.
+% 	\item Screenshots der Anwendung
+% \end{itemize}
+% \paragraph{Beispiel}
+% Screenshots der Anwendung in der Entwicklungsphase mit Dummy-Daten befinden sich im \Anhang{Screenshots}.
+Bereits in \ref{sec:Benutzeroberflaeche}: \nameref{sec:Benutzeroberflaeche} wurde festgelegt, dass die Benutzeroberfläche
+als Webseite in einem Browser ausgeführt werden soll.\\
+Die von \Fachbegriff{TelerikUI} bereitgestellte Vorlage für eine \ac{MVC}-Anwendung verlangt
+die Implementierung der \Fachbegriff{View} mittels spezieller \Fachbegriff{.cshtml}-Dateien.
+Diese erlauben, mittels definierter Schlüsselwörter, das Verwenden von \Fachbegriff{C\#}-Befehlen in einem
+\Fachbegriff{html}-Dokument. Die Oberflächenkomponenten, wie \zB Buttons, Suchfelder oder Tabellen, werden
+daher auch in \Fachbegriff{C\#} bereitgestellt und darüber konfiguriert. Siehe dazu \Anhang{app:ListingView}.\\
+Um die ereignisbasierte Interaktion mit dem Nutzer zu gestalten, wurde, wie bei den meisten Webseiten,
+auf die Verwendung der Programmiersprache \acs{JS} zurückgegriffen.
+
+\subsection{Implementierung der Geschäftslogik}
+\label{sec:ImplementierungGeschaeftslogik}
+% \begin{itemize}
+% 	\item Beschreibung des Vorgehens bei der Umsetzung/Programmierung der entworfenen Anwendung.
+% 	\item \Ggfs interessante Funktionen/Algorithmen im Detail vorstellen, verwendete Entwurfsmuster zeigen.
+% 	\item Quelltextbeispiele zeigen.
+% 	\item Hinweis: Wie in Kapitel~\ref{sec:Einleitung}: \nameref{sec:Einleitung} zitiert, wird nicht ein lauffähiges Programm bewertet, sondern die Projektdurchführung. Dennoch würde ich immer Quelltextausschnitte zeigen, da sonst Zweifel an der tatsächlichen Leistung des Prüflings aufkommen können.
+% \end{itemize}
+% \paragraph{Beispiel}
+% Die Klasse \texttt{Com\-par\-ed\-Na\-tu\-ral\-Mo\-dule\-In\-for\-ma\-tion} findet sich im \Anhang{app:CNMI}.  
+Laut \ref{sec:Anwendungsfaelle} \nameref{sec:Anwendungsfaelle} ist der Hauptanwendungsfall
+das Abfragen der Daten von einer Datenbank-\acs{API}. Anhand dessen wurde in der Entwurfsphase ein
+Sequenz-Diagramm erstellt (\Vgl \Anhang{app:Sequenz}).\\
+Nachdem das Projekt initialisiert wurde, wurden die aus den Diagrammen ersichtlichen Serviceklassen
+und die dazugehörigen Interfaces implementiert. Danach konnten diese in der Datei \Datei{Program.cs}
+über \Klasse{builder.Services} dem Programm-Container hinzugefügt werden und standen somit 
+dem Injektor des Frameworks zur Verfügung. Nach diesem Schritt wurden die Services wie
+im Klassendiagramm \Anhang{app:Klassendiagramm} miteinander verknüpft.
+Dieses passierte über \acs{DI}, speziell Konstruktorinjektion. \footnote{Dependency Injection in der Microsoft-Dokumentation:\\ 
+\url{https://learn.microsoft.com/de-de/dotnet/core/extensions/dependency-injection}}\\
+

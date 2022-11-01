@@ -1,0 +1,212 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using ReklaTool.Models;
+@using ReklaTool.Models.ViewModels
+@using ReklaTool.Services
+@using Microsoft.AspNetCore.Mvc.Razor.Extensions
+@{
+    ViewData["Titel"] = "Vorgang";
+}
+
+
+<pre>
+@ViewBag.a
+</pre>
+
+
+@*<h6 \align="center">546340000000000F7C</h6>*@
+<table width="100%">
+    <tr>
+        <td>
+            @Html.Kendo().Button().Name("btn_submit").Content("Suchen").Events(e => e.Click("loadAuswahl")).Enable(false)
+        </td>
+        <td>
+            @(Html.Kendo().DropDownList().Name("dropDownAktenzeichen")
+                .BindTo(new List<string>()
+                {
+                    "Vorgangsnummer",
+                    "Auftragsnummer",
+                    "Schadennummer",
+                    "Dateiname"
+                })
+                )
+        </td>
+        <td width="100%">
+            <div class="suche">
+                @(Html.Kendo().TextBox()
+                    .Name("txtbox_Suchfeld")
+                    .FillMode(FillMode.None)
+                    .HtmlAttributes(new {@class = "suchfeld"})
+                    .Placeholder("Suchbegriff: Auftragsnummer, Schadennummer, Filename oder Vorgangsnummer")
+                    )
+            </div>
+        </td>
+    </tr>
+</table>
+@Html.Kendo().CheckBox().Name("checkbox_Schnellsuche").Checked(true).Label("Schnellsuche")
+<br/>
+<div class="vorgangListe">
+    <hr/>
+    @(Html.Kendo().Grid<VorgangInfoModel>()
+        .Name("vorgangAuswahl")
+        .AutoBind(false)
+        .NoRecords(true)
+        .Sortable()
+        .Columns(columns =>
+        {
+            columns.Bound(e => e.Aktenzeichen);
+            columns.Bound(e => e.Kalkulationsdatum);
+            columns.Bound(e => e.Kalkulationssystem);
+        })
+        .DataSource(dataSource => dataSource
+            .WebApi()
+            .ServerOperation(false)
+            .PageSize(5)
+            .Read(read => read
+                .Data("getSearchParametersFast")
+                .Action("VorgangAuswahl_Read", "Vorgang")
+            )
+            .Sort(c=>c.Add("Kalkulationsdatum").Descending())
+            .Events(ev=>ev.Error("vorgangNotFound"))
+        )
+        .Pageable()
+        .Selectable(sel => sel.Mode(GridSelectionMode.Single))
+        .Events(ev => ev.Change("VorgangSelected").DataBound("VorgangAuswahlGeladen")
+        ))
+</div>
+<div class="vorgangEinzeln">
+    <br/>
+    <br/>
+    <h2 id="aktuellerVorgang">Aktueller Vorgang</h2>
+    @(Html.Kendo().TabStrip()
+        .Name("tabstrip")
+        .HtmlAttributes(new {@class = "tabs"})
+        .Animation(animation =>
+            animation.Open(effect =>
+                effect.Fade(FadeDirection.In)))
+        .Items(tabstrip =>
+        {
+            tabstrip.Add().Text("Fahrzeugdaten")
+                .Content(@<text>
+                                @(Html.Kendo().Grid<FahrzeugdatenViewModel>().Name("FahrzeugdatenGrid")
+                                 .AutoBind(false)
+                                 .NoRecords(true)
+                                 .Columns(columns =>
+                                 {
+                                     columns.Bound(e => e.HerstellerID);
+                                     columns.Bound(e => e.HerstellerBezeichnung);
+                                     columns.Bound(e => e.HaupttypID);
+                                     columns.Bound(e => e.HaupttypBezeichnung);
+                                     columns.Bound(e => e.UntertypID);
+                                     columns.Bound(e => e.UntertypBezeichnung);
+                                 })
+                                 .DataSource(dataSource => dataSource
+                                     .WebApi()
+                                     .ServerOperation(false)
+                                     .Read(read => read
+                                         .Data("getSearchParametersFast")
+                                         .Action("FahrzeugDaten_Read", "Vorgang")
+                                     )
+                                 ))
+                        </text>);
+            tabstrip.Add().Text("Kosten")
+                .Content(@<text>
+                                @(Html.Kendo().ListView<KostenViewModel>().Name("KostenList")
+                                 .TagName("div")
+                                 .AutoBind(false)
+                                 .ClientTemplateId("kostenListTemplate")
+                                 .DataSource(dataSource => dataSource
+                                     .WebApi()
+                                     .Read(read=>read
+                                        .Data("getSearchParametersFast")
+                                        .Action("Kosten_Read", "Vorgang")
+                                     )
+                                 ))
+                        </text>);
+            tabstrip.Add().Text("Ausstattung")
+                .Content(@<text>
+                                @(Html.Kendo().Grid<AusstattungViewModel>().Name("AustattungGrid")
+                                 .AutoBind(false)
+                                 .NoRecords(true)
+                                 .Columns(columns =>
+                                 {
+                                     columns.Bound(e => e.Code);
+                                     columns.Bound(e => e.Bezeichnung);
+                                 })
+                                 .Sortable()
+                                 .DataSource(dataSource => dataSource
+                                     .WebApi()
+                                     .ServerOperation(false)
+                                     .Read(read => read
+                                         .Data("getSearchParametersFast")
+                                         .Action("Ausstattung_Read", "Vorgang")
+                                     )
+                                 ))
+                        </text>);
+            tabstrip.Add().Text("Kalkulierte Positionen")
+                .Content(@<text>
+                                @(Html.Kendo().Grid<PositionViewModel>()
+                                 .Name("PositionenGrid")
+                                 .AutoBind(false)
+                                 .NoRecords(true)
+                                 .Columns(columns =>
+                                 {
+                                     columns.Bound(e => e.Kategorie);
+                                     columns.Bound(e => e.Leitnummer).Title("Leitnummer").MinResizableWidth(100).Width(100);
+                                     columns.Bound(e => e.Bauart).MinResizableWidth(100).Width(100);
+                                     columns.Bound(e => e.Bezeichnung).Width(200);
+                                     columns.Bound(e => e.Betrag).HeaderHtmlAttributes(new {style = "text-align: center; justify-content: center"});
+                                     columns.Bound(e => e.Materialeigenschaft);
+                                     columns.Bound(e => e.Platzhalter).Title("Platzhalter");
+                                     columns.Bound(e => e.Repart);
+                                     columns.Bound(e => e.Teilenummer);
+                                     columns.Bound(e => e.Stern).Width(50);
+                                 })
+                                 .Resizable(r => r.Columns(true))
+                                 .Sortable()
+                                 .Groupable()
+                                 .DataSource(dataSource => dataSource
+                                     .WebApi()
+                                     .ServerOperation(false)
+                                     .Read(read => read
+                                         .Data("getSearchParametersFast")
+                                         .Action("Positionen_Read", "Vorgang") 
+                                     )
+                                 ))
+                        </text>);
+            tabstrip.Add().Text("ClaimsGuard")
+                .Content(@<text>
+                             @(Html.Kendo().Grid<RegelViewModel>().Name("RegelnGrid")
+                                 .AutoBind(false)
+                                 .NoRecords(true)
+                                 .Columns(columns =>
+                                 {
+                                     columns.Bound(e => e.RegelID);
+                                     columns.Bound(e => e.Name);
+                                     columns.Bound(e => e.Text);
+                                 })
+                                 .Sortable()
+                                 .DataSource(dataSource => dataSource
+                                     .WebApi()
+                                     .ServerOperation(false)
+                                     .Read(read => read
+                                         .Data("getSearchParametersSlow")
+                                         .Action("Regeln_Read", "Vorgang") 
+                                     )
+                                 ))
+                        </text>);
+            tabstrip.Add().Text("PDF")
+                .Content(@<text>
+                             @(Html.Kendo().PDFViewer().Name("PdfViewer"))
+                          </text>);
+            tabstrip.Add().Text("Download")
+                .Content(@<text>
+                             @Html.Kendo().Button().Name("Download").Content("XML Download").Events(builder => { builder.Click("startDownload");})
+                        
+                         </text>)
+                ;
+                @*.Action("Xml_Read", "Vorgang", "");*@
+        })
+        )
+</div>

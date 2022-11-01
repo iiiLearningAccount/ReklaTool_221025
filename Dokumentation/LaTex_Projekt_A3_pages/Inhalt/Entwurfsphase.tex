@@ -1,0 +1,137 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Entwurfsphase} 
+\label{sec:Entwurfsphase}
+Dieser Abschnitt behandelt alle wichtigen Entscheidungen bezüglich der Grundprinzipien, Techniken und Technologien zum
+Erstellen der Webanwendung.
+
+\subsection{Zielplattform}
+\label{sec:Zielplattform}
+% \begin{itemize}
+% 	\item Beschreibung der Kriterien zur Auswahl der Zielplattform (\ua Programmiersprache, Datenbank, Client/Server, Hardware).
+% \end{itemize}
+Wie unter \ref{sec:Projektziel}: \nameref{sec:Projektziel} erwähnt, soll eine
+Webanwendung erstellt werden. Aus der IT-Abteilung kamen dazu Informationen zu bereits 
+in anderen Projekten eingesetzten Technologien.\\
+Neue Software wird dort überwiegend in der Programmiersprache C\# umgesetzt. 
+Dadurch existiert für diese bereits umfangreiches Wissen bei den Mitarbeitern.
+Bereits vorhandene Ressourcen und Lizenzen konnten für das Projekt genutzt werden.
+Um das Endprodukt besser im Team wartbar und erweiterbar zu halten, hat sich der Autor 
+ebenfalls für C\# in der .NET-Umgebung von Microsoft entschieden.\\
+Unter weiterer Rücksprache mit der Softwareabteilung wurden verschiedene Ansätze zur
+Umsetzung einer Webanwendung durchgesprochen. Besonders wurde hier zwischen client- und serverbasierten
+Anwendungen unterschieden. Da die Benutzerinteraktion eher gering ausfallen würde, wurde sich
+für die Servervariante entschieden. Diese ist gegenüber einer \ac{SPA} auf einem Client weniger agil und die 
+Reaktionszeit ist eingeschränkt. Durch Nutzung des \Fachbegriff{TelerikUI}-Framework und der damit
+verbundenen Bindung der Daten an die Komponenten der Oberfläche entsteht eine Art Mischform der zuvor genannten Varianten.\\
+Die Wahl des Webframework fiel auf \Fachbegriff{ASP.Net Core MVC}, zu dem es schon gute Erfahrungen im Team gab.
+Es bietet bereits Projektvorlagen mit der grundlegenden Programmstruktur und Möglichkeiten zur
+Konfiguration an. 
+
+\subsection{Architekturdesign}
+\label{sec:Architekturdesign}
+% \begin{itemize}
+% 	\item Beschreibung und Begründung der gewählten Anwendungsarchitektur (\zB \acs{MVC}).
+% 	\item \Ggfs Bewertung und Auswahl von verwendeten Frameworks sowie \ggfs eine kurze Einführung in die Funktionsweise des verwendeten Frameworks.
+% \end{itemize}
+Wie bereits an der Wahl des Webframworks erkennbar ist, basiert die Anwendung auf dem \acs{MVC}-Entwurfsmuster.
+Dieses beinhaltet die Teile \textbf{M}odel, \textbf{V}iew und \textbf{C}ontroller -- also Datenabbildung, 
+Benutzeroberfläche und Vermittlung. Durch die klare Trennung in diese drei Bereiche vermindern sich
+die Abhängigkeiten untereinander. Implementierungen dieser Teile können leichter verändert oder sogar ausgetauscht werden.
+Ein weiterer Vorteil ist der gut nachvollziehbare Datenfluss innerhalb der Anwendung.\\
+Dieser Kern des Programms wird durch Services erweitert, welche jeweils eine spezielle Aufgabe haben.
+Dazu bietet das Framework einen Injektor, mit dem das Prinzip der \Fachbegriff{Inversion of Controll} via 
+\Fachbegriff{Dependency Injection} umgesetzt wird. Dabei müssen sich die Teile des Programms nicht um die Erstellung von
+Instanzen ihrer Abhängigkeiten kümmern, sondern Bekommen diese vom Injektor übergeben. Dieser übernimmt
+das komplette Management der erstellten Objekte und kann diese, je nach Lebensdauer, \acs{ggf} entfernen, sollten sie nicht mehr 
+gebraucht werden. Die daraus folgende lose Verbindung der einzelnen Module trägt weiter zur besseren Wartbarkeit bei.\\
+Zur Steuerung der Kommunikation mit der Datenbank-API ist ein eigener Service nötig. Um die Performance von
+mehrfach aufgerufenen Vorgängen zu erhöhen, wird dieser um einen \Fachbegriff{Caching}-Service erweitert.
+Beim \Fachbegriff{Caching} werden die erhaltenen Daten in Dateien gespeichert, welche bestimmten Abfragen
+zugeordnet und später wieder eingelesen werden können.
+Das Model wird mittels verhaltensloser Datenklassen (\acs{DTO}s) erstellt. 
+
+\subsection{Entwurf der Benutzeroberfläche}
+\label{sec:Benutzeroberflaeche} 
+% \begin{itemize}
+% 	\item Entscheidung für die gewählte Benutzeroberfläche (\zB GUI, Webinterface).
+% 	\item Beschreibung des visuellen Entwurfs der konkreten Oberfläche (\zB Mockups, Menüführung).
+% 	\item \Ggfs Erläuterung von angewendeten Richtlinien zur Usability und Verweis auf Corporate Design.
+% \end{itemize}
+Um den einfachen Zugriff von beliebigen Rechnern im Firmenintranet zu gewährleisten,
+fiel die Entscheidung auf eine Umsetzung mit Weboberfläche. Diese sollte in den gängigsten Browsern angezeigt werden können.
+Da die Anwendung lediglich auf Desktopcomputern zum Einsatz kommen wird, wurde bewusst auf Anpassungen für mobile Geräte verzichtet
+und der Fokus auf eine funktionale Gestaltung gelegt.\\
+Über mehrere Korrekturschleifen wurde zusammen mit der Fachabteilung der Entwurf für eine Benutzeroberfläche
+fertiggestellt. Mithilfe von \Fachbegriff{Mockups} wurden die Bedürfnisse der Endbenutzer so gut wie möglich nachempfunden.
+Diese befinden sich im \Anhang{app:Entwuerfe}.\\
+Die Webseite soll in der Hauptsache aus einer Suchleiste für Nutzeranfragen und einem Bereich zur Darstellung der Vorgangsdaten
+bestehen. Eine Checkbox soll die Möglichkeit geben, den Umfang der Suche einzuschränken.\\
+Die Vorgangsdaten werden nach erfolgreicher Suche in einem Bereich angezeigt, der die einzelnen Daten mittels Registerkarten
+in Kategorien unterteilt. Zur strukturierten Darstellung werden filterbare Tabellen genutzt. Diese werden durch das
+Framework \Fachbegriff{TelerikUI} eines Drittanbieters bereitgestellt und bieten vielfältige Einstellungen zum Filtern,
+Sortieren und Gruppieren an. Eine Lizenz ist hierfür bereits im Unternehmen vorhanden.
+Weiterhin soll es möglich sein, eine \acs{PDF}- oder \acs{XML}-Datei mit den Vorgangsdaten anzuzeigen \acs{bzw} diese zum 
+Download anzubieten (siehe \ref{sec:Anwendungsfaelle}: \nameref{sec:Anwendungsfaelle}).
+
+\subsection{Datenmodell}
+\label{sec:Datenmodell}
+% \begin{itemize}
+% 	\item Entwurf/Beschreibung der Datenstrukturen (\zB \acs{ERM} und/oder Tabellenmodell, \acs{XML}-Schemas) mit kurzer Beschreibung der wichtigsten (!) verwendeten Entitäten.
+% \end{itemize}
+Die Datenmodelle für sowohl Anfragen an die Datenbank-API, als auch deren Antwort basieren auf den versendeten XML-Dateien. 
+Diese wurden vom Fachbereich bereitgestellt und durch Deserialisierung in \acs{DTO}-Klassen überführt.\\
+Im \Anhang{app:Datenmodell} befindet sich dazu eine Übersicht. 
+
+\subsection{Geschäftslogik}
+\label{sec:Geschaeftslogik}
+% \begin{itemize}
+% 	\item Modellierung und Beschreibung der wichtigsten (!) Bereiche der Geschäftslogik (\zB mit Kom\-po\-nen\-ten-, Klassen-, Sequenz-, Datenflussdiagramm, Programmablaufplan, Struktogramm, \ac{EPK}).
+% 	\item Wie wird die erstellte Anwendung in den Arbeitsfluss des Unternehmens integriert?
+% \end{itemize}
+Unter den Anwendungsfällen ist das Abfragen der Daten von der Datenbank-\acs{API} der wichtigste.
+Anhand diesem wird ein Großteil des Programmablaufs nachvollziehbar und kann im Sequenzdiagramm
+im \Anhang{app:Sequenz} betrachtet werden.\\
+Im gezeigten Fall ruft die Mitarbeiterin der Fachabteilung über ihren Browser das \Fachbegriff{ReklaTool} auf.
+Dort gibt sie über das Suchfeld das Aktenzeichen zum gesuchten Vorgang ein. Da die Aktenzeichen kein festes 
+Format besitzen muss zusätzlich deren Art (Dateiname, Vorgangsnummer, Schadennummer oder Auftragsnummer)
+ausgewählt werden. Um die Suche einzuschränken, kann ein Haken gesetzt werden, ob Dokumente zum Vorgang mitgeliefert werden sollen.
+Nach Betätigung der Suchen-Taste wird eine \Fachbegriff{GET}-Anfrage mit Aktenzeichen und Filter an den 
+\Fachbegriff{ReklaTool}-Server gestellt. Dort bietet der \Klasse{VorgangController} Endpunktmethoden für \acs{HTTP}-Anfragen an.
+Über den \Klasse{UiEndpointService} werden die Anfragen an den \Klasse{HttpMsgService} durchgereicht.
+Dieser erstellt mittels des \Klasse{RequestBuilder} ein Anfrage-Objekt.\\
+Die erzeugte Anfrage wird zunächst durch den \Klasse{ResponseCacheService} mit den bereits zwischengespeicherten
+Vorgängen verglichen. Ist eine Datei zum Aktenzeichen vorhanden, so wird diese an den \Klasse{UiEndpointService} 
+zurückgegeben. Andernfalls wird nun eine Anfrage an die Datenbank-API gestellt.
+Das zurückgelieferte XML-Dokument wird deserialisiert und zusammen mit den Anfrageinformationen im \Fachbegriff{Cache} abgelegt.
+Danach geht auch dieses zurück an den \Klasse{UiEndpointService}.\\
+Hier werden die Daten, je nach Client-Anfrage, vom kompletten Vorgangs-Model auf einzelne \Fachbegriff{View-Models} gemappt.
+Zurück im \Klasse{VorgangController} wird nun die Server-Response zurück an den Client gesendet und die Daten
+an die entsprechenden Komponenten gebunden, wo sie für den Nutzer sichtbar werden.
+
+\subsection{Maßnahmen zur Qualitätssicherung}
+\label{sec:Qualitaetssicherung}
+% \begin{itemize}
+% 	\item Welche Maßnahmen werden ergriffen, um die Qualität des Projektergebnisses (siehe Kapitel~\ref{sec:Qualitaetsanforderungen}: \nameref{sec:Qualitaetsanforderungen}) zu sichern (\zB automatische Tests, Anwendertests)?
+% 	\item \Ggfs Definition von Testfällen und deren Durchführung (durch Programme/Benutzer).
+% \end{itemize}
+Um die einzelnen Schritte während der Implementierung nachvollziehbar zu halten,
+wird das Projekt in die Versionsverwaltung für Quellcode via \Fachbegriff{Git} integriert.
+Dazu werden Änderungen im lokalen Projektverzeichnis mit dem Clientprogramm SmartGit überwacht.
+Bei Fertigstellung einer Implementierungseinheit wird das lokale Projekt in das 
+Remote-Repository im Firmennetz gepusht. Die Versionsverwaltung in der Firma erfolgt über eine lokal gehostete Instanz
+von GitLab. Zum Zweck des Codereview werden Mitarbeiter der IT-Abteilung zum GitLab-Projekt hinzugefügt.\\
+Die Qualitätssicherung während der Entwicklung der Webanwendung wurde ursprünglich durch Unit-Tests geplant
+(siehe Seite~\pageref{Projektantrag}: Projektantrag).
+Da die einzelnen Services nur auf Basisfunktionen des Frameworks zurückgreifen und die Komplexität des Programms 
+überwiegend durch die Verbindung der Module untereinander entsteht, hat sich der Autor auf die Durchführung von
+Integrationstests beschränkt. Diese werden in Form von \Fachbegriff{Whitebox-Tests} umgesetzt.
+
+\subsection{Pflichtenheft}
+\label{sec:Pflichtenheft}
+% \begin{itemize}
+% 	\item Auszüge aus dem Pflichtenheft/Datenverarbeitungskonzept, wenn es im Rahmen des Projekts erstellt wurde.
+% \end{itemize}
+% \paragraph{Beispiel}
+% Ein Beispiel für das auf dem Lastenheft (siehe Kapitel~\ref{sec:Lastenheft}: \nameref{sec:Lastenheft}) aufbauende Pflichtenheft ist im \Anhang{app:Pflichtenheft} zu finden.
+
+\clearpage

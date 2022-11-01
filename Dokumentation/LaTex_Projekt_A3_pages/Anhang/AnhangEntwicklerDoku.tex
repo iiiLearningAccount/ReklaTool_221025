@@ -1,0 +1,42 @@
+\subsection{Entwicklerdokumentation (Auszug)}
+\label{app:EntwicklerDoku}
+\subsection*{Einbindung von Services}
+In der \Datei{Program.cs} werden die Services beim \Fachbegriff{Servicecontainer} des Frameworks registriert (siehe Codezeilen 7-18).
+Dazu wird der Servicebuilder mit \Klasse{builder.Services} aufgerufen. Dessen Methode \Methode{.AddScoped<T>}
+fügt dem Container den Service direkt, oder über ein Interface hinzu.
+
+\includegraphicsKeepAspectRatio{ProgramCs.png}{1}
+\clearpage
+
+\subsection*{Aufbau des HttpMsgService}
+Die Datei \Datei{HttpMsgService.cs} beinhaltet das Interface \Klasse{IMsgService}. 
+Die Injektion der Services über den Konstruktor wird ab Zeile 18 umgesetzt. Diese werden automatisch vom Injektor des Framework 
+bereitgestellt. Services werden durch private Felder gehalten (Zeilen 14-17).
+
+\includegraphicsKeepAspectRatio{MsgServiceKonstruktor.png}{1}\\
+
+Die Anfragen an die Datenbank-API werden über die Methode \Methode{GetVorgaengeAsync} gestellt.
+Das \Klasse{RequestModel} für die Anfrage wird über den \Klasse{\_requestBuilder} erstellt.
+Dieser kann über ein \Fachbegriff{Fluent-Interface} konfiguriert werden.
+
+\includegraphicsKeepAspectRatio{MsgServiceRequestBuilder.png}{1}\\
+\clearpage
+Das Anfrage-Object wird zunächst an den \Klasse{\_cache} geleitet.
+Findet dieser ein entsprechendes Element, so gibt die Methode dieses zurück.
+
+\includegraphicsKeepAspectRatio{MsgServiceCacheResponse.png}{1}\\
+
+
+Falls kein Element im Cache vorhanden ist, wird zunächst eine Instanz eines \acs{HTTP}-Clients
+erstellt(Zeile 38). Danach wird das Anfrage-Objekt serialisiert und zusammen mit der API-Adresse
+und dem Typ der Anfrage in ein \Klasse{HttpRequestMessage}-Objekt verpackt (Zeilen 41-44). 
+Dieses wird dem Client übergeben und an die API versendet.
+
+\includegraphicsKeepAspectRatio{MsgServiceSendRequest.png}{1}\\
+
+Der Inhalt der empfangenen Antwort wird deserialisiert(Zeile 55). Danach wird
+das Antwort-Ojekt zusammen mit Anfrage-Objekt direkt in den Cache geschrieben (Zeile 58).
+Abschließend gibt die Methode \Methode{GetVorgaengeAsync} ein Objekt mit den
+angefragten Vorgängen zurück.
+
+\includegraphicsKeepAspectRatio{MsgServiceReturn.png}{1}
