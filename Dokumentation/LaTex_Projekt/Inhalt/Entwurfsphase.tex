@@ -21,8 +21,9 @@ Unter weiterer Rücksprache mit der Softwareabteilung wurden verschiedene Ansät
 Umsetzung einer Webanwendung durchgesprochen. Besonders wurde hier zwischen client- und serverbasierten
 Anwendungen unterschieden. Da die Benutzerinteraktion eher gering ausfallen würde, wurde sich
 für die Servervariante entschieden. Diese ist gegenüber einer \ac{SPA} auf einem Client weniger agil und die 
-Reaktionszeit ist eingeschränkt.\\
-Die Wahl fiel hier auf das Webframework \Fachbegriff{ASP.Net Core MVC}, zu dem es schon gute Erfahrungen im Team gab.
+Reaktionszeit ist eingeschränkt. Durch Nutzung des \Fachbegriff{TelerikUI}-Framework und der damit
+verbundenen Bindung der Daten an die Komponenten der Oberfläche entsteht eine Art Mischform der zuvor genannten Varianten.\\
+Die Wahl des Webframework fiel auf \Fachbegriff{ASP.Net Core MVC}, zu dem es schon gute Erfahrungen im Team gab.
 Es bietet bereits Projektvorlagen mit der grundlegenden Programmstruktur und Möglichkeiten zur
 Konfiguration an. 
 
@@ -39,20 +40,15 @@ die Abhängigkeiten untereinander. Implementierungen dieser Teile können leicht
 Ein weiterer Vorteil ist der gut nachvollziehbare Datenfluss innerhalb der Anwendung.\\
 Dieser Kern des Programms wird durch Services erweitert, welche jeweils eine spezielle Aufgabe haben.
 Dazu bietet das Framework einen Injektor, mit dem das Prinzip der \Fachbegriff{Inversion of Controll} via 
-\Fachbegriff{Dependency Injection} umgesetzt wird. Die daraus folgende lose Verbindung der einzelnen Module
-trägt weiter zur besseren Wartbarkeit bei. Dabei müssen sich die Teile des Programms nicht um die Erstellung von
+\Fachbegriff{Dependency Injection} umgesetzt wird. Dabei müssen sich die Teile des Programms nicht um die Erstellung von
 Instanzen ihrer Abhängigkeiten kümmern, sondern Bekommen diese vom Injektor übergeben. Dieser übernimmt
 das komplette Management der erstellten Objekte und kann diese, je nach Lebensdauer, \acs{ggf} entfernen, sollten sie nicht mehr 
-gebraucht werden.\\
+gebraucht werden. Die daraus folgende lose Verbindung der einzelnen Module trägt weiter zur besseren Wartbarkeit bei.\\
 Zur Steuerung der Kommunikation mit der Datenbank-API ist ein eigener Service nötig. Um die Performance von
 mehrfach aufgerufenen Vorgängen zu erhöhen, wird dieser um einen \Fachbegriff{Caching}-Service erweitert.
 Beim \Fachbegriff{Caching} werden die erhaltenen Daten in Dateien gespeichert, welche bestimmten Abfragen
 zugeordnet und später wieder eingelesen werden können.
-% Die \Fachbegriff{View} wird mittels des Framework \Fachbegriff{Telerik UI} von \Fachbegriff{Progress} umgesetzt, welches eine gute Integration
-% in das \Fachbegriff{ASP.Net-Core}-Framework bietet.\\
-Das Model wird mittels verhaltensloser Datenklassen erstellt. 
-% Diese ergeben sich aus der (De-)Serialisierung von XML-Dateien, über die die
-% Kommunikation mit dem Datenbank-Webservice erfolgt. 
+Das Model wird mittels verhaltensloser Datenklassen (\acs{DTO}s) erstellt. 
 
 \subsection{Entwurf der Benutzeroberfläche}
 \label{sec:Benutzeroberflaeche} 
@@ -77,7 +73,6 @@ Sortieren und Gruppieren an. Eine Lizenz ist hierfür bereits im Unternehmen vor
 Weiterhin soll es möglich sein, eine \acs{PDF}- oder \acs{XML}-Datei mit den Vorgangsdaten anzuzeigen \acs{bzw} diese zum 
 Download anzubieten (siehe \ref{sec:Anwendungsfaelle}: \nameref{sec:Anwendungsfaelle}).
 
-
 \subsection{Datenmodell}
 \label{sec:Datenmodell}
 % \begin{itemize}
@@ -87,33 +82,13 @@ Die Datenmodelle für sowohl Anfragen an die Datenbank-API, als auch deren Antwo
 Diese wurden vom Fachbereich bereitgestellt und durch Deserialisierung in \acs{DTO}-Klassen überführt.\\
 Im \Anhang{app:Datenmodell} befindet sich dazu eine Übersicht. 
 
-% \paragraph{Beispiel}
-% In \Abbildung{ER} wird ein \ac{ERM} dargestellt, welches lediglich Entitäten, Relationen und die dazugehörigen Kardinalitäten enthält. 
-
-% \begin{figure}[htb]
-% \centering
-% \includegraphicsKeepAspectRatio{ERDiagramm.pdf}{0.6}
-% \caption{Vereinfachtes ER-Modell}
-% \label{fig:ER}
-% \end{figure} 
-
-
 \subsection{Geschäftslogik}
 \label{sec:Geschaeftslogik}
 % \begin{itemize}
 % 	\item Modellierung und Beschreibung der wichtigsten (!) Bereiche der Geschäftslogik (\zB mit Kom\-po\-nen\-ten-, Klassen-, Sequenz-, Datenflussdiagramm, Programmablaufplan, Struktogramm, \ac{EPK}).
 % 	\item Wie wird die erstellte Anwendung in den Arbeitsfluss des Unternehmens integriert?
 % \end{itemize}
-% \paragraph{Beispiel}
-% Ein Klassendiagramm, welches die Klassen der Anwendung und deren Beziehungen untereinander darstellt kann im \Anhang{app:Klassendiagramm} eingesehen werden.
-% \Abbildung{Modulimport} zeigt den grundsätzlichen Programmablauf beim Einlesen eines Moduls als \ac{EPK}.
-% \begin{figure}[htb]
-% \centering
-% \includegraphicsKeepAspectRatio{modulimport.pdf}{0.9}
-% \caption{Prozess des Einlesens eines Moduls}
-% \label{fig:Modulimport}
-% \end{figure}
-Unter den Anwendungsfällen ist das Abfragen der Daten vom Datenbank-API der wichtigste.
+Unter den Anwendungsfällen ist das Abfragen der Daten von der Datenbank-\acs{API} der wichtigste.
 Anhand diesem wird ein Großteil des Programmablaufs nachvollziehbar und kann im Sequenzdiagramm
 im \Anhang{app:Sequenz} betrachtet werden.\\
 Im gezeigten Fall ruft die Mitarbeiterin der Fachabteilung über ihren Browser das \Fachbegriff{ReklaTool} auf.
@@ -151,10 +126,12 @@ Da die einzelnen Services nur auf Basisfunktionen des Frameworks zurückgreifen 
 überwiegend durch die Verbindung der Module untereinander entsteht, hat sich der Autor auf die Durchführung von
 Integrationstests beschränkt. Diese werden in Form von \Fachbegriff{Whitebox-Tests} umgesetzt.
 
-\subsection{Pflichtenheft/Datenverarbeitungskonzept}
+\subsection{Pflichtenheft}
 \label{sec:Pflichtenheft}
 % \begin{itemize}
 % 	\item Auszüge aus dem Pflichtenheft/Datenverarbeitungskonzept, wenn es im Rahmen des Projekts erstellt wurde.
 % \end{itemize}
 % \paragraph{Beispiel}
 % Ein Beispiel für das auf dem Lastenheft (siehe Kapitel~\ref{sec:Lastenheft}: \nameref{sec:Lastenheft}) aufbauende Pflichtenheft ist im \Anhang{app:Pflichtenheft} zu finden.
+
+\clearpage

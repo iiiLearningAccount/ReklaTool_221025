@@ -15,16 +15,16 @@ schließlich das Lastenheft erstellt.
 % \end{itemize}
 Um den im Folgenden beschriebenen Prozess zu verbildlichen, befindet sich ein Schaubild im \Anhang{app:Aktivitaet}.\\
 Zum Leistungsspektrum der \acs{Icam} gehört die automatisierte Prüfung von Gutachten und
-Kostenvoranschlägen, welche durch Gutachter oder Partnerwerkstätten erstellt wurden.
+Kostenvoranschlägen, welche durch Gutachter oder Werkstätten erstellt wurden.
 Die Prüfung wird durch die Versicherungen oder Sachverständigenorganisationen (Kunden) veranlasst
 und wird durch den \acs{CG} durchgeführt.
 Als Ergebnis bekommt der Kunde zusätzlich zum Prüfbericht eine Rückmeldung über die ausgelösten Regeln des \acs{CG}.\\
 Im Fall, dass die Regelauslösungen für den Kunden nicht nachvollziehbar sind, hat er die
 Möglichkeit eine Reklamation an die \acs{Icam} zu senden. Diese wird firmenintern geprüft
 und an die Fachabteilung Prozessautomatisierung weitergeleitet.\\
-Ein/-e Mitarbeiter/-in des Teams Reklamationsbearbeitung recherchiert anschließend mittels des Aktenzeichens
+Ein Mitarbeiter des Teams Reklamationsbearbeitung recherchiert anschließend mittels des Aktenzeichens
 des Vorgangs die dazugehörigen Daten. Je nach Zeitpunkt des Vorgangs können die Daten in Produktiv- oder Archivdatenbanken 
-abgelegt sein. Der/die Mitarbeiter/-in sucht mittels \ac{DBMS} und selbst 
+abgelegt sein. Der Mitarbeiter sucht mittels \ac{DBMS} und selbst 
 erstellten SQL-Skripten nach allen Daten zum Vorgang.\\
 Mit diesen Daten kann dann die beanstandete Regelauslösung nachvollzogen werden. Dazu bietet der \acs{CG} die 
 Möglichkeit die Regelauslösungen des Vorgangs Schritt für Schritt durchzugehen. Fällt dabei eine fehlerhafte Prüfregel auf, so wird diese angepasst.\\
@@ -53,7 +53,7 @@ welche mit dem ReklaTool einhergeht, wirtschaftlich sinnvoll ist.
 % 	\item Gibt es vielleicht schon ein fertiges Produkt, dass alle Anforderungen des Projekts abdeckt?
 % 	\item Wenn ja, wieso wird das Projekt trotzdem umgesetzt?
 % \end{itemize}
-Das ReklaTool greift mittels des Webservice auf sensible Firmendaten zu, mit denen auch Verpflichtungen gegenüber
+Das ReklaTool greift mittels der Datenbank-\acs{API} auf sensible Firmendaten zu, mit denen auch Verpflichtungen gegenüber
 Kunden einhergehen. Weiterhin soll die Webanwendung unternehmensspezifischen Anforderungen genügen.
 So liegen Daten zwar im \acs{XML}-Format vor, sind aber je nach Anforderung stark firmenspezifisch strukturiert.
 Aus diesen Gründen ist von dem Beziehen von Software von Dritten abzusehen und die Eigenentwicklung vorzuziehen.
@@ -159,7 +159,7 @@ die Fehlerquote minimiert.
 % Ein Beispiel für ein Use Case-Diagramm findet sich im \Anhang{app:UseCase}.
 Zusammen mit der Fachabteilung wurden während der Analyse Anforderungen definiert und daraus Anwendungsfälle
 abgeleitet. Im \Anhang{app:UseCase} befindet sich das dabei entstandene Use-Case-Diagramm.\\
-Die Ausdifferenzierung der einzelnen Fälle diente dann später im Entwurf als Richtlinie für einzelne Features.
+Die Ausdifferenzierung der einzelnen Fälle diente später im Entwurf als Richtlinie für einzelne Features.
 
 \subsection{Qualitätsanforderungen}
 \label{sec:Qualitaetsanforderungen}

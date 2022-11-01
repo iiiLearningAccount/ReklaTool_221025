@@ -27,8 +27,8 @@ Diese dient dazu die Konditionen, zu der die \acs{HTTP}-Kommunikation stattfinde
 % \begin{itemize}
 % 	\item Beschreibung der angelegten Datenbank (\zB Generierung von \acs{SQL} aus Modellierungswerkzeug oder händisches Anlegen), \acs{XML}-Schemas \usw.
 % \end{itemize}
-Zur Erstellung der Einzelnen \acs{DTO}s wurden die XML-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-API
-realisiert wird. Dabei handelte es sich um jeweils ein Anfrage- und ein Antwortformat. Diese wurde von der Fachabteilung zur Verfügung
+Zur Erstellung der Einzelnen \acs{DTO}s wurden die XML-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-\acs{API}
+realisiert wird. Dabei handelte es sich um jeweils ein Anfrage- und ein Antwortformat. Diese wurden von der Fachabteilung zur Verfügung
 gestellt.\\
 Das Anfrage-Model beinhaltet das jeweils gewünschte Aktenzeichen und eine Information über die Anwendung eines Suchfilters,
 welcher die zurückgelieferten Daten einschränkt.\\
@@ -37,7 +37,7 @@ um einen reibungslosen Austausch mit dem XML-Format zu garantieren. Zur Datenbin
 Benutzeroberfläche wurden weitere \Fachbegriff{Viewmodels} erstellt, welche das Mapping auf das Antwort-Model ermöglichen.\\
 Für das \Fachbegriff{Caching} wurde ein eigenes \acs{DTO} umgesetzt, welches das Anfrage- und Antwort-Model enthält.
 Dieses wird beim Lesen und Schreiben der \Fachbegriff{Cache}-Dateien serialisiert \bzw deserialisiert.
-Über das \Fachbegriff{Hashing} des gesamten Cache-Objekts sind die Dateien eindeutig identifizierbar.
+Über das \Fachbegriff{Hashing} des Anfrage-Objekts sind die Dateien eindeutig identifizierbar.
 
 \subsection{Implementierung der Benutzeroberfläche}
 \label{sec:ImplementierungBenutzeroberflaeche}
@@ -69,13 +69,13 @@ auf die Verwendung der Programmiersprache \acs{JS} zurückgegriffen.
 % \paragraph{Beispiel}
 % Die Klasse \texttt{Com\-par\-ed\-Na\-tu\-ral\-Mo\-dule\-In\-for\-ma\-tion} findet sich im \Anhang{app:CNMI}.  
 Laut \ref{sec:Anwendungsfaelle} \nameref{sec:Anwendungsfaelle} ist der Hauptanwendungsfall
-das Abfragen der Daten von einer Datenbank-API. Anhand dessen wurde in der Entwurfsphase ein
+das Abfragen der Daten von einer Datenbank-\acs{API}. Anhand dessen wurde in der Entwurfsphase ein
 Sequenz-Diagramm erstellt (\Vgl \Anhang{app:Sequenz}).\\
-Nachdem das Projekt erstellt wurde, wurden nun die aus den Diagrammen ersichtlichen Serviceklassen
-und die dazugehörigen Interfaces erstellt. Danach konnten diese in der Datei \Datei{Program.cs}
-über \Klasse{builder.Sercices} dem Programm-Container hinzugefügt werden und standen somit 
-dem Injektor des Frameworks zur Verfügung. Nach diesem Schritt wurden nun die Services wie
+Nachdem das Projekt initialisiert wurde, wurden die aus den Diagrammen ersichtlichen Serviceklassen
+und die dazugehörigen Interfaces implementiert. Danach konnten diese in der Datei \Datei{Program.cs}
+über \Klasse{builder.Services} dem Programm-Container hinzugefügt werden und standen somit 
+dem Injektor des Frameworks zur Verfügung. Nach diesem Schritt wurden die Services wie
 im Klassendiagramm \Anhang{app:Klassendiagramm} miteinander verknüpft.
-Dies geschieht über \acs{DI}, speziell Konstruktorinjektion. \footnote{Dependency Injection in der Microsoft-Dokumentation:\\ 
+Dieses passierte über \acs{DI}, speziell Konstruktorinjektion. \footnote{Dependency Injection in der Microsoft-Dokumentation:\\ 
 \url{https://learn.microsoft.com/de-de/dotnet/core/extensions/dependency-injection}}\\
 
