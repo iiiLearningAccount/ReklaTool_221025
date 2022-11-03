@@ -45,9 +45,13 @@
 %     \includegraphicsKeepAspectRatio{Sequenzdiagramm.png}{0.9}
 %     \caption{Sequenzdiagramm}
 % \end{figure}
+% \fakesubsection{Sequenzdiagramm}
+% \label{app:Sequenz}
 \thispagestyle{empty}
-\includepdf[fitpaper=true,pages=2]{Bilder/AnhangA3.pdf}
+\includepdf[fitpaper=true,pages=2,addtolist={2,figure,Sequenzdiagramm,app:Sequenzdiagramm},
+addtotoc={2,subsection,1,Sequenzdiagramm,app:Sequenzdiagramm}]{Bilder/Anhang_A3.pdf}
 \clearpage
+\setcounter{subsection}{7}
 \input{Anhang/AnhangPflichtenheft.tex}
 \clearpage
 
@@ -60,8 +64,11 @@
 % \end{figure}
 % \clearpage
 \thispagestyle{empty}
-\includepdf[fitpaper=true,pages=3]{Bilder/AnhangA3.pdf}
-
+% \fakesubsection{Klassendiagramm}
+% \label{app:Klassendiagramm}
+\includepdf[fitpaper=true,pages=3,addtolist={3,figure,Klassendiagramm,app:Klassendiagramm},
+addtotoc={3,subsection,1,Klassendiagramm,app:Klassendiagramm}]{Bilder/Anhang_A3.pdf}
+\setcounter{subsection}{9}
 \subsection{Datenmodell}
 \label{app:Datenmodell}
 \begin{figure}[h]
