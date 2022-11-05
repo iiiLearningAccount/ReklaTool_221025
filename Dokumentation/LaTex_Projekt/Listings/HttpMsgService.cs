@@ -42,18 +42,14 @@ namespace ReklaTool.Services
                     Content = new StringContent(anfrage.ToXML())
                 };
 
-                //async send request to X4-server
                 HttpResponseMessage response = await client.SendAsync(requestMsg);
 
-                //string from response
                 var content = await response.Content.ReadAsStringAsync();
 
-                //Deserialize Object from String 
                 var serializer = new XmlSerializer(typeof(Vorgaenge));
                 using TextReader reader = new StringReader(content);
                 Vorgaenge? vorgaenge = (Vorgaenge)serializer.Deserialize(reader);
 
-                //Write Object to Cachefile
                 _cache.SetElement(new CacheElement { Anfrage = anfrage, Vorgang = vorgaenge });
 
                 return vorgaenge;

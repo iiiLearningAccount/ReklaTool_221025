@@ -4,39 +4,54 @@
 In der \Datei{Program.cs} werden die Services beim \Fachbegriff{Servicecontainer} des Frameworks registriert (siehe Codezeilen 7-18).
 Dazu wird der Servicebuilder mit \Klasse{builder.Services} aufgerufen. Dessen Methode \Methode{.AddScoped<T>}
 fügt dem Container den Service direkt, oder über ein Interface hinzu.
+\lstinputlisting[language=cs, firstline=5 ,lastline=21 ,consecutivenumbers=false,
+title={Program.cs -- Services}]{Listings/Program.cs}
 
-\includegraphicsKeepAspectRatio{ProgramCs.png}{1}
+Einbindung der Middleware.
+\lstinputlisting[language=cs, firstline=31 ,lastline=36 ,consecutivenumbers=false, 
+title={Program.cs -- Middleware}]{Listings/Program.cs}
 \clearpage
 
 \subsection*{Aufbau des HttpMsgService}
 Die Datei \Datei{HttpMsgService.cs} beinhaltet das Interface \Klasse{IMsgService}. 
-Die Injektion der Services über den Konstruktor wird ab Zeile 18 umgesetzt. Diese werden automatisch vom Injektor des Framework 
-bereitgestellt. Services werden durch private Felder gehalten (Zeilen 14-17).
+\lstinputlisting[language=cs, firstline=7 ,lastline=11 ,consecutivenumbers=false, 
+title={HttpMsgService.cs -- Interface}]{Listings/HttpMsgService.cs}
 
-\includegraphicsKeepAspectRatio{MsgServiceKonstruktor.png}{1}\\
+Die Injektion der Services über den Konstruktor. Diese werden automatisch vom Injektor des Framework 
+bereitgestellt. 
+\lstinputlisting[language=cs, firstline=18 ,lastline=24 ,consecutivenumbers=false, 
+title={HttpMsgService.cs -- Konstruktorinjektion}]{Listings/HttpMsgService.cs}
+
+Services werden durch private Felder gehalten.
+\lstinputlisting[language=cs, firstline=14 ,lastline=17 ,consecutivenumbers=false, 
+title={HttpMsgService.cs -- Services}]{Listings/HttpMsgService.cs}
 
 Die Anfragen an die Datenbank-API werden über die Methode \Methode{GetVorgaengeAsync} gestellt.
 Das \Klasse{RequestModel} für die Anfrage wird über den \Klasse{\_requestBuilder} erstellt.
 Dieser kann über ein \Fachbegriff{Fluent-Interface} konfiguriert werden.
-
-\includegraphicsKeepAspectRatio{MsgServiceRequestBuilder.png}{1}\\
+\lstinputlisting[language=cs, firstline=25 ,lastline=30 ,consecutivenumbers=false, 
+title={GetVorgaengeAsync -- Anfrage-Model}]{Listings/HttpMsgService.cs}
 \clearpage
+
 Das Anfrage-Object wird zunächst an den \Klasse{\_cache} geleitet.
 Findet dieser ein entsprechendes Element, so gibt die Methode dieses zurück.
-
-\includegraphicsKeepAspectRatio{MsgServiceCacheResponse.png}{1}\\
-
+\lstinputlisting[language=cs, firstline=31 ,lastline=34 ,consecutivenumbers=false, 
+title={GetVorgaengeAsync -- Cache-Abfrage}]{Listings/HttpMsgService.cs}
 
 Falls kein Element im Cache vorhanden ist, wird zunächst eine Instanz eines \acs{HTTP}-Clients
-erstellt(Zeile 38). Danach wird das Anfrage-Objekt serialisiert und zusammen mit der API-Adresse
-und dem Typ der Anfrage in ein \Klasse{HttpRequestMessage}-Objekt verpackt (Zeilen 41-44). 
+erstellt. 
+\lstinputlisting[language=cs, firstline=35 ,lastline=38 ,consecutivenumbers=false, 
+title={GetVorgaengeAsync -- HTTP-Client}]{Listings/HttpMsgService.cs}
+
+Danach wird das Anfrage-Objekt serialisiert und zusammen mit der \acs{API}-Adresse
+und dem Typ der Anfrage in ein \Klasse{HttpRequestMessage}-Objekt verpackt. 
 Dieses wird dem Client übergeben und an die API versendet.
+\lstinputlisting[language=cs, firstline=39 ,lastline=46 ,consecutivenumbers=false, 
+title={GetVorgaengeAsync -- \acs{API}-Anfrage}]{Listings/HttpMsgService.cs}
 
-\includegraphicsKeepAspectRatio{MsgServiceSendRequest.png}{1}\\
-
-Der Inhalt der empfangenen Antwort wird deserialisiert(Zeile 55). Danach wird
-das Antwort-Ojekt zusammen mit Anfrage-Objekt direkt in den Cache geschrieben (Zeile 58).
+Der Inhalt der empfangenen Antwort wird deserialisiert. Danach wird
+das Antwort-Ojekt zusammen mit Anfrage-Objekt direkt in den Cache geschrieben.
 Abschließend gibt die Methode \Methode{GetVorgaengeAsync} ein Objekt mit den
 angefragten Vorgängen zurück.
-
-\includegraphicsKeepAspectRatio{MsgServiceReturn.png}{1}
+\lstinputlisting[language=cs, firstline=47 ,lastline=57 ,consecutivenumbers=false, 
+title={GetVorgaengeAsync -- Antwort der API}]{Listings/HttpMsgService.cs}

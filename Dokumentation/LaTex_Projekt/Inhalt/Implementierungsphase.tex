@@ -9,30 +9,40 @@ der \zB die Konfiguration vereinfachen soll.
 \subsection{Konfiguration}
 \label{sec:Konfiguration}
 Das \Fachbegriff{ASP.Net Core MVC}-Framework bietet verschiedene Möglichkeiten zur Konfiguration.
-So konnten über die Datei \Datei{appsettings.json} Information wie API-Adresse und Daten für die
+So konnten über die Datei \Datei{appsettings.json} Information wie \acs{API}-Adresse und Daten für die
 Authentifizierung in die Anwendung gegeben werden. Diese wurden durch das Interface \Klasse{IConfiguration}
 via \acs{DI} den anderen Services zur Verfügung gestellt. \\
 In der Datei \Datei{Program.cs} werden alle Services mit entsprechender Lebensdauer (scoped, transient oder singleton)
 registriert.\footnote{\url{https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection\#service-lifetimes}}
 Für das Projekt wurden diese als \Fachbegriff{scoped} angemeldet. Das bedeutet, dass der Service immer für die Dauer einer
-API-Anfrage zur Verfügung steht. Eine Beschreibung, wie Services in das Programm eingebunden sind, findet sich im 
+\acs{API}-Anfrage zur Verfügung steht. Eine Beschreibung, wie Services in das Programm eingebunden sind, findet sich im 
 \Anhang{app:EntwicklerDoku}.\\
-Weiter unten in der Datei findet sich die Möglichkeit die \Fachbegriff{Middleware} zu konfigurieren.
-Diese dient dazu die Konditionen, zu der die \acs{HTTP}-Kommunikation stattfindet, festzulegen.
+Nach der Registrierung der Dienste wurden in der \Datei{Program.cs} verschiedene \Fachbegriff{Middleware}-Anwendungen 
+registriert und konfiguriert. Diese können vor \acs{bzw} nach dem Programmcode die Anfrage oder die Antwort auswerten 
+und bearbeiten. Ein Typisches Beispiel ist die Autorisierung eines Benutzers.
 
-
+\subsection{Authentifizierung}
+\label{sec:Authentifizierung}
+Für die Authentifizierung und Autorisierung setzt die \acs{Icam} auf den Standard \Fachbegriff{OAuth2}.
+Zur Umsetzung wurde dabei auf die Software Keycloak zurückgegriffen. Dazu hat die IT-Abteilung einen Client 
+angelegt. Die Zugangsdaten mussten dann nur der Anwendung mitgeteilt werden. Durch diverse Softwarebibliotheken 
+wurde der Authentifizierungsprozess in die \Fachbegriff{Middleware} von ASP.NET eingefügt. Durch das Attribut 
+\Methode{[Authorize]} wurde der \Klasse{VorgangController} vor unberechtigtem Zugriff geschützt. Die Verwendung 
+des Keycloak und OAuth2 sorgte für eine schnellere Entwicklung, da die Benutzerveraltung nicht mehr implementiert
+werden musste. Diese wird extern von der IT-Abteilung über das, an den Keycloak angeschlossene 
+\Fachbegriff{Active Directory} verwaltet.
 
 \subsection{Implementierung der Datenstrukturen}
 \label{sec:ImplementierungDatenstrukturen}
 % \begin{itemize}
 % 	\item Beschreibung der angelegten Datenbank (\zB Generierung von \acs{SQL} aus Modellierungswerkzeug oder händisches Anlegen), \acs{XML}-Schemas \usw.
 % \end{itemize}
-Zur Erstellung der Einzelnen \acs{DTO}s wurden die XML-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-\acs{API}
+Zur Erstellung der einzelnen \acs{DTO}s wurden die XML-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-\acs{API}
 realisiert wird. Dabei handelte es sich um jeweils ein Anfrage- und ein Antwortformat. Diese wurden von der Fachabteilung zur Verfügung
 gestellt.\\
 Das Anfrage-Model beinhaltet das jeweils gewünschte Aktenzeichen und eine Information über die Anwendung eines Suchfilters,
 welcher die zurückgelieferten Daten einschränkt.\\
-Das Antwort-Model wurde bei der automatischen Deserialisierung bereits mit den notwendigen Annotationen versehen,
+Das Antwort-Model wurde bei der Deserialisierung bereits automatisch mit den notwendigen Annotationen versehen,
 um einen reibungslosen Austausch mit dem XML-Format zu garantieren. Zur Datenbindung an die einzelnen Komponenten der
 Benutzeroberfläche wurden weitere \Fachbegriff{Viewmodels} erstellt, welche das Mapping auf das Antwort-Model ermöglichen.\\
 Für das \Fachbegriff{Caching} wurde ein eigenes \acs{DTO} umgesetzt, welches das Anfrage- und Antwort-Model enthält.
@@ -52,11 +62,13 @@ Bereits in \ref{sec:Benutzeroberflaeche}: \nameref{sec:Benutzeroberflaeche} wurd
 als Webseite in einem Browser ausgeführt werden soll.\\
 Die von \Fachbegriff{TelerikUI} bereitgestellte Vorlage für eine \ac{MVC}-Anwendung verlangt
 die Implementierung der \Fachbegriff{View} mittels spezieller \Fachbegriff{.cshtml}-Dateien.
-Diese erlauben, mittels definierter Schlüsselwörter, das Verwenden von \Fachbegriff{C\#}-Befehlen in einem
-\Fachbegriff{html}-Dokument. Die Oberflächenkomponenten, wie \zB Buttons, Suchfelder oder Tabellen, werden
-daher auch in \Fachbegriff{C\#} bereitgestellt und darüber konfiguriert. Siehe dazu \Anhang{app:ListingView}.\\
+Diese erlauben, mittels definierter Schlüsselwörter, das Verwenden von \Fachbegriff{C\#}-Syntax in einem
+\Fachbegriff{html}-Dokument. Beides zusammen wird innerhalb des ASP.NET-Ökosystems als \Fachbegriff{Razor}-Syntax
+bezeichnet.\footnote{\url{https://learn.microsoft.com/de-de/aspnet/core/mvc/views/razor?view=aspnetcore-6.0}}\\ 
+Die Oberflächenkomponenten, \zB Buttons, Suchfelder oder Tabellen, werden daher auch in \Fachbegriff{C\#} 
+definiert und konfiguriert. Siehe dazu \Anhang{app:ListingView}.\\
 Um die ereignisbasierte Interaktion mit dem Nutzer zu gestalten, wurde, wie bei den meisten Webseiten,
-auf die Verwendung der Programmiersprache \acs{JS} zurückgegriffen.
+auf die Verwendung der Programmiersprache \acs{JS} im Zusammenspiel mit \acs{AJAX} zurückgegriffen.\footnote{\url{https://de.wikipedia.org/wiki/Ajax_(Programmierung)}}
 
 \subsection{Implementierung der Geschäftslogik}
 \label{sec:ImplementierungGeschaeftslogik}
@@ -69,13 +81,15 @@ auf die Verwendung der Programmiersprache \acs{JS} zurückgegriffen.
 % \paragraph{Beispiel}
 % Die Klasse \texttt{Com\-par\-ed\-Na\-tu\-ral\-Mo\-dule\-In\-for\-ma\-tion} findet sich im \Anhang{app:CNMI}.  
 Laut \ref{sec:Anwendungsfaelle} \nameref{sec:Anwendungsfaelle} ist der Hauptanwendungsfall
-das Abfragen der Daten von einer Datenbank-\acs{API}. Anhand dessen wurde in der Entwurfsphase ein
-Sequenz-Diagramm erstellt (\Vgl \Anhang{app:Sequenz}).\\
+das Abfragen der Daten der Datenbank-\acs{API}. Anhand dessen wurde in der Entwurfsphase ein
+Sequenz-Diagramm erstellt (\Vgl \Anhang{app:Sequenzdiagramm}).\\
 Nachdem das Projekt initialisiert wurde, wurden die aus den Diagrammen ersichtlichen Serviceklassen
 und die dazugehörigen Interfaces implementiert. Danach konnten diese in der Datei \Datei{Program.cs}
-über \Klasse{builder.Services} dem Programm-Container hinzugefügt werden und standen somit 
-dem Injektor des Frameworks zur Verfügung. Nach diesem Schritt wurden die Services wie
-im Klassendiagramm \Anhang{app:Klassendiagramm} miteinander verknüpft.
-Dieses passierte über \acs{DI}, speziell Konstruktorinjektion. \footnote{Dependency Injection in der Microsoft-Dokumentation:\\ 
+über den Aufruf \Methode{AddScoped} der \Klasse{builder.Services}-Instanz dem \acs{IOC}-Container 
+hinzugefügt werden und standen somit dem Injektor des Frameworks zur Verfügung. \\Nach diesem Schritt 
+wurden die Services wie im Klassendiagramm \Anhang{app:Klassendiagramm} miteinander verknüpft.
+Dieses passierte über \acs{DI}, speziell Konstruktorinjektion. Die Implementierung von .NET Core 
+sieht ein Injizieren mittels Konstruktorparameter vor. Dieses hat, gegenüber der Property-Injektion 
+den Vorteil, dass beim Instantiieren der Klasse bereits fehlende Abhängigkeiten auffallen würden.\footnote{Dependency Injection in der Microsoft-Dokumentation:\\ 
 \url{https://learn.microsoft.com/de-de/dotnet/core/extensions/dependency-injection}}\\
 

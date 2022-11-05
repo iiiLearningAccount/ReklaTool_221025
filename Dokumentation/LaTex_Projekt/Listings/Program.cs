@@ -30,12 +30,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseKeycloakAuthentication();
 app.UseFrontendToken(); // Induziert am Ende den Token auf die Seite
-
 app.UseAuthorization();
 
 /*
