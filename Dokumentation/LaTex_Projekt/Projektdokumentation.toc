@@ -22,7 +22,7 @@
 \contentsline {subsection}{\numberline {3.3}Nicht-monetärer Nutzen}{7}{subsection.44}%
 \contentsline {subsection}{\numberline {3.4}Anwendungsfälle}{7}{subsection.45}%
 \contentsline {subsection}{\numberline {3.5}Qualitätsanforderungen}{7}{subsection.46}%
-\contentsline {subsection}{\numberline {3.6}Lastenheft/Fachkonzept}{7}{subsection.47}%
+\contentsline {subsection}{\numberline {3.6}Lastenheft}{7}{subsection.47}%
 \contentsline {section}{\numberline {4}Entwurfsphase}{8}{section.48}%
 \contentsline {subsection}{\numberline {4.1}Zielplattform}{8}{subsection.49}%
 \contentsline {subsection}{\numberline {4.2}Architekturdesign}{8}{subsection.51}%
