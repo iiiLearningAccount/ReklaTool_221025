@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.15)  3 NOV 2022 17:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.15)  7 NOV 2022 21:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1087,43 +1087,43 @@ Overfull \vbox (23.69112pt too high) has occurred while \output is active []
 <Bilder//Sequenzdiagramm.png, id=19, 1438.37375pt x 1085.05376pt>
 File: Bilder//Sequenzdiagramm.png Graphic file (type png)
 <use Bilder//Sequenzdiagramm.png>
-Package pdftex.def Info: Bilder//Sequenzdiagramm.png  used on input line 9.
+Package pdftex.def Info: Bilder//Sequenzdiagramm.png  used on input line 11.
 (pdftex.def)             Requested size: 804.54007pt x 606.91403pt.
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
-Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 12.
+Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 14.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [6
+ [7
 
  <./Bilder//Sequenzdiagramm.png>]
 <Bilder//Klassendiagramm.pdf, id=27, 1021.89775pt x 523.9575pt>
 File: Bilder//Klassendiagramm.pdf Graphic file (type pdf)
 <use Bilder//Klassendiagramm.pdf>
-Package pdftex.def Info: Bilder//Klassendiagramm.pdf  used on input line 19.
+Package pdftex.def Info: Bilder//Klassendiagramm.pdf  used on input line 23.
 (pdftex.def)             Requested size: 1052.76917pt x 539.7862pt.
 )
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 101.
 (pdftex.def)             Requested size: 99.16873pt x 50.1866pt.
- [8
+ [9
 
  <./Bilder//Klassendiagramm.pdf>] (Projektdokumentation.aux)
 Package rerunfilecheck Info: File `Projektdokumentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 31303 strings out of 475385
- 614272 string characters out of 2784879
+ 31304 strings out of 475385
+ 614247 string characters out of 2784879
  1099949 words of memory out of 3000000
- 52089 multiletter control sequences out of 15000+600000
+ 52090 multiletter control sequences out of 15000+600000
  509695 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,24n,108p,10885b,591s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {D:/04_Apps/LaTeX/MiKTeX/app/fonts/enc/dvips/lm/lm-ec.enc}<D:/04_Apps/LaTeX/MiKTeX/app/fonts/type1/public/lm/lmcsc10.pfb><D:/04_Apps/LaTeX/MiKTeX/app/fonts/type1/public/lm/lmr10.pfb><D:/04_Apps/LaTeX/MiKTeX/app/fonts/type1/public/lm/lmri10.pfb><D:/04_Apps/LaTeX/MiKTeX/app/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on Projektdokumentation.pdf (3 pages, 231351 bytes).
+Output written on Projektdokumentation.pdf (3 pages, 231969 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
+ 79 PDF objects out of 1000 (max. 8388607)
  9 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 52 words of extra memory for PDF output out of 10000 (max. 10000000)
 

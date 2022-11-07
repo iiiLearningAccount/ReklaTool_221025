@@ -60,14 +60,16 @@
 \includepdf[fitpaper=true,pages=2,addtolist={2,figure,Sequenzdiagramm,app:Sequenzdiagramm},
 addtotoc={2,subsection,1,Sequenzdiagramm,app:Sequenzdiagramm}]{Bilder/Anhang_A3.pdf}
 \clearpage
-\setcounter{subsection}{7}
+
+\setcounter{subsection}{9}
 \input{Anhang/AnhangPflichtenheft.tex}
 \clearpage
 
 \thispagestyle{empty}
 \includepdf[fitpaper=true,pages=3,addtolist={3,figure,Klassendiagramm,app:Klassendiagramm},
 addtotoc={3,subsection,1,Klassendiagramm,app:Klassendiagramm}]{Bilder/Anhang_A3.pdf}
-\setcounter{subsection}{9}
+
+\setcounter{subsection}{11}
 \subsection{Datenmodell}
 \label{app:Datenmodell}
 \begin{figure}[h]
@@ -80,6 +82,11 @@ addtotoc={3,subsection,1,Klassendiagramm,app:Klassendiagramm}]{Bilder/Anhang_A3.
     \includegraphicsKeepAspectRatio{XML_Anfrage.png}{0.4}
     \caption{XML-Modell für Anfrage}
 \end{figure}
+\clearpage
+
+\subsection{\acs{DTO} (Ausschnitt)}
+\lstinputlisting[language=cs, firstline=3 ,lastline=33 ,consecutivenumbers=false, 
+caption={ResponseModel.cs -- XML-Annotationen}]{Listings/ResponseModel.cs}
 \clearpage
 
 \input{Anhang/AnhangEntwuerfe.tex}

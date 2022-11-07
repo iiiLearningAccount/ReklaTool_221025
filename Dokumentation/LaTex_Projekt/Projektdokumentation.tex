@@ -35,11 +35,11 @@
 %\pagestyle{scrheadings}
 % ---------------------------------------------------------------------------
 
-\phantomsection
-\thispagestyle{empty}
-\pdfbookmark[1]{Eidesstattliche Erklärung}{ihkdeckblatt}
-\includegraphicsKeepAspectRatio{DeckblattIHK}{1}
-\cleardoublepage
+% \phantomsection
+% \thispagestyle{empty}
+% \pdfbookmark[1]{Eidesstattliche Erklärung}{ihkdeckblatt}
+% \includegraphicsKeepAspectRatio{DeckblattIHK}{1}
+% \cleardoublepage
 
 \phantomsection
 \thispagestyle{plain}
@@ -52,6 +52,20 @@
 \pdfbookmark[1]{Projektantrag}{projektantrag}
 \label{Projektantrag}
 \includepdf[pages=-]{Projektantrag_genehmigt.pdf}
+\cleardoublepage
+
+\phantomsection
+\thispagestyle{empty}
+\pdfbookmark[1]{Durchführungsnachweis}{durchführungsnachweis}
+\label{Nachweis}
+\includepdf[pages=-]{NachweisUeberDieDurchfuehrung.pdf}
+\cleardoublepage
+
+\phantomsection
+\thispagestyle{empty}
+\pdfbookmark[1]{Erklärung des Prüfungsteilnehmers}{teilnehmererklaerung}
+\label{Erklaerung}
+\includepdf[pages=-]{ErklaerungDesPruefungsteilnehmers.pdf}
 \cleardoublepage
 
 % Preface --------------------------------------------------------------------
