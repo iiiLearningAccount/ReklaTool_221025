@@ -105,17 +105,26 @@
 
 % zum Einbinden von Programmcode -----------------------------------------------
 \usepackage{listings}
+\usepackage{xpatch}%Remove Indent of lol
+\makeatletter%Remove Indent of lol
+\xpatchcmd\l@lstlisting{1.5em}{0em}{}{}%Remove Indent of lol
+\makeatother%Remove Indent of lol
 \usepackage{xcolor}
 \definecolor{hellgelb}{rgb}{1,1,0.9}
+\definecolor{colClass}{rgb}{0,0.5,1}
 \definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colType}{rgb}{0,0.7,0.7}
+\definecolor{colMethod}{rgb}{0.60,0.50,0.00}
 \definecolor{colIdentifier}{rgb}{0,0,0}
 \definecolor{colComments}{rgb}{0,0.5,0}
-\definecolor{colString}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0.9,0.5,0}
 \lstset{
     float=hbp,
-	basicstyle=\footnotesize,
+	basicstyle=\footnotesize\sffamily,
     identifierstyle=\color{colIdentifier},
     keywordstyle=\color{colKeys},
+    keywordstyle=[2]\color{colType},
+    keywordstyle=[3]\color{colMethod},
     stringstyle=\color{colString},
     commentstyle=\color{colComments},
     backgroundcolor=\color{hellgelb},
@@ -132,46 +141,67 @@
 	captionpos=b,
 }
 \lstdefinelanguage{cs}{
-	sensitive=false,
+	sensitive=true,
 	morecomment=[l]{//},
 	morecomment=[s]{/*}{*/},
 	morestring=[b]",
-	morekeywords={
+    morekeywords={
 		abstract,event,new,struct,as,explicit,null,switch
 		base,extern,object,this,bool,false,operator,throw,
 		break,finally,out,true,byte,fixed,override,try,
 		case,float,params,typeof,catch,for,private,uint,
-		char,foreach,protected,ulong,checked,goto,public,unchecked,
+		char,foreach,protected,ulong,goto,public,unchecked,
 		class,if,readonly,unsafe,const,implicit,ref,ushort,
 		continue,in,return,using,decimal,int,sbyte,virtual,
 		default,interface,sealed,volatile,delegate,internal,short,void,
 		do,is,sizeof,while,double,lock,stackalloc,
-		else,long,static,enum,namespace,string},
+		else,long,static,enum,namespace,string,get,set,var},
+    morekeywords=[2]{%Types
+        IKategorie,List,Position,XmlRoot,XmlElement,Vorgaenge,Vorgang,
+        GridSelectionMode,WebApplication,DefaultContractResolver,IMsgService,
+        HttpMsgService,IEndpointService,UiEndpointService,IRequestBuilder,
+        RequestBuilder,ICacheService,ResponseCacheService,FilterRequest,
+        IConfiguration,IHttpClientFactory,RequestModel,HttpClient,HttpRequestMessage,
+        HttpMethod,StringContent,HttpResponseMessage,XmlSerializer,TextReader,
+        StringReader,CacheElement,Anfrage,VorgangInfoModel   
+        },
+    morekeywords=[3]{%Methods
+        Kendo,Button,Name,Content,Events,Click,Enable,DropDownList,BindTo,TextBox,
+        FillMode,HtmlAttributes,Placeholder,CheckBox,Checked,Label,Grid,AutoBind,
+        NoRecords,Columns,Bound,Sortable,DataSource,WebApi,ServerOperation,PageSize,
+        Read,Data,Action,Sort,Error,Pageable,Selectable,Mode,Change,DataBound,Add,
+        Descending,CreateBuilder,AddControllersWithViews,AddNewtonsoftJson,AddKendo,
+        AddHttpClient,AddScoped,AddSingleton,AddKeycloakAuthentication,Build,
+        UseHttpsRedirection,UseStaticFiles,UseRouting,UseKeycloakAuthentication,
+        UseFrontendToken,UseAuthorization,WithAnwendbar,WithEinzelpruefbericht,
+        ElementExists,GetElement,CreateClient,ToXML,SendAsync,ReadAsStringAsync,
+        Deserialize,SetElement 
+        }
 }
-\lstdefinelanguage{natural}{
-	sensitive=false,
-	morecomment=[l]{/*},
-	morestring=[b]",
-	morestring=[b]',
-	alsodigit={-,*},
-	morekeywords={
-		DEFINE,DATA,LOCAL,END-DEFINE,WRITE,CALLNAT,PARAMETER,USING,
-		IF,NOT,END-IF,ON,*ERROR-NR,ERROR,END-ERROR,ESCAPE,ROUTINE,
-		PERFORM,SUBROUTINE,END-SUBROUTINE,CONST,END-FOR,END,FOR,RESIZE,
-		ARRAY,TO,BY,VALUE,RESET,COMPRESS,INTO,EQ},
-}
-\lstdefinelanguage{php}{
-	sensitive=false,
-	morecomment=[l]{/*},
-	morestring=[b]",
-	morestring=[b]',
-	alsodigit={-,*},
-	morekeywords={
-		abstract,and,array,as,break,case,catch,cfunction,class,clone,const,
-		continue,declare,default,do,else,elseif,enddeclare,endfor,endforeach,
-		endif,endswitch,endwhile,extends,final,for,foreach,function,global,
-		goto,if,implements,interface,instanceof,namespace,new,old_function,or,
-		private,protected,public,static,switch,throw,try,use,var,while,xor
-		die,echo,empty,exit,eval,include,include_once,isset,list,require,
-		require_once,return,print,unset},
-}
+% \lstdefinelanguage{natural}{
+% 	sensitive=false,
+% 	morecomment=[l]{/*},
+% 	morestring=[b]",
+% 	morestring=[b]',
+% 	alsodigit={-,*},
+% 	morekeywords={
+% 		DEFINE,DATA,LOCAL,END-DEFINE,WRITE,CALLNAT,PARAMETER,USING,
+% 		IF,NOT,END-IF,ON,*ERROR-NR,ERROR,END-ERROR,ESCAPE,ROUTINE,
+% 		PERFORM,SUBROUTINE,END-SUBROUTINE,CONST,END-FOR,END,FOR,RESIZE,
+% 		ARRAY,TO,BY,VALUE,RESET,COMPRESS,INTO,EQ},
+% }
+% \lstdefinelanguage{php}{
+% 	sensitive=false,
+% 	morecomment=[l]{/*},
+% 	morestring=[b]",
+% 	morestring=[b]',
+% 	alsodigit={-,*},
+% 	morekeywords={
+% 		abstract,and,array,as,break,case,catch,cfunction,class,clone,const,
+% 		continue,declare,default,do,else,elseif,enddeclare,endfor,endforeach,
+% 		endif,endswitch,endwhile,extends,final,for,foreach,function,global,
+% 		goto,if,implements,interface,instanceof,namespace,new,old_function,or,
+% 		private,protected,public,static,switch,throw,try,use,var,while,xor
+% 		die,echo,empty,exit,eval,include,include_once,isset,list,require,
+% 		require_once,return,print,unset},
+% }

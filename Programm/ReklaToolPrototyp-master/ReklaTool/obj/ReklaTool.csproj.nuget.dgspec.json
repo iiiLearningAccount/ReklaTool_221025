@@ -1,25 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "U:\\Praktikum\\AbschlussprojektMASTER\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj": {}
+    "D:\\00_Onedrive\\OneDrive\\02_Projekte\\VisualStudio\\IcamSystems\\ReklaTool_221025\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj": {}
   },
   "projects": {
-    "U:\\Praktikum\\AbschlussprojektMASTER\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj": {
+    "D:\\00_Onedrive\\OneDrive\\02_Projekte\\VisualStudio\\IcamSystems\\ReklaTool_221025\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "U:\\Praktikum\\AbschlussprojektMASTER\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
+        "projectUniqueName": "D:\\00_Onedrive\\OneDrive\\02_Projekte\\VisualStudio\\IcamSystems\\ReklaTool_221025\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
         "projectName": "ReklaTool",
-        "projectPath": "U:\\Praktikum\\AbschlussprojektMASTER\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
-        "packagesPath": "C:\\Users\\ingolf.schieck\\.nuget\\packages\\",
-        "outputPath": "U:\\Praktikum\\AbschlussprojektMASTER\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\obj\\",
+        "projectPath": "D:\\00_Onedrive\\OneDrive\\02_Projekte\\VisualStudio\\IcamSystems\\ReklaTool_221025\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
+        "packagesPath": "C:\\Users\\ingol\\.nuget\\packages\\",
+        "outputPath": "D:\\00_Onedrive\\OneDrive\\02_Projekte\\VisualStudio\\IcamSystems\\ReklaTool_221025\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "D:\\00_apps\\Telerik\\app\\ToolboxNuGetPackages"
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ingolf.schieck\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ingol\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config"
         ],
@@ -28,9 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nexus.icamsystems.de/repository/nuget-group/": {},
           "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
@@ -84,8 +80,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -97,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
