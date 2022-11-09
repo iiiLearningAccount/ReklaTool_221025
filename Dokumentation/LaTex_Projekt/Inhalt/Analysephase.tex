@@ -47,36 +47,22 @@ mit viel manueller Recherchearbeit verbunden. Im Folgenden wird analysiert, ob d
 welche mit dem ReklaTool einhergeht, wirtschaftlich sinnvoll ist. 
 
 
-\subsubsection{\gqq{Make or Buy}-Entscheidung}
+\subsubsection{\gqq{Make-or-Buy}-Entscheidung}
 \label{sec:MakeOrBuyEntscheidung}
 % \begin{itemize}
 % 	\item Gibt es vielleicht schon ein fertiges Produkt, dass alle Anforderungen des Projekts abdeckt?
 % 	\item Wenn ja, wieso wird das Projekt trotzdem umgesetzt?
 % \end{itemize}
-Das ReklaTool greift mittels der Datenbank-\acs{API} auf sensible Firmendaten zu, mit denen auch Verpflichtungen gegenüber
-Kunden einhergehen. Weiterhin soll die Webanwendung unternehmensspezifischen Anforderungen genügen.
+Das ReklaTool greift mittels der Datenbank-\acs{API} auf sensible Firmendaten zu, mit denen auch Verpflichtungen 
+gegenüber Kunden verbunden sind. Weiterhin soll die Webanwendung unternehmensspezifischen Anforderungen genügen.
 So liegen Daten zwar im \acs{XML}-Format vor, sind aber je nach Anforderung stark firmenspezifisch strukturiert.
 Aus diesen Gründen ist von dem Beziehen von Software von Dritten abzusehen und die Eigenentwicklung vorzuziehen.
 
 
 \subsubsection{Projektkosten}
 \label{sec:Projektkosten}
-% \begin{itemize}
-% 	\item Welche Kosten fallen bei der Umsetzung des Projekts im Detail an (\zB Entwicklung, Einführung/Schulung, Wartung)?
-% \end{itemize}
-% \paragraph{Beispielrechnung (verkürzt)}
-% Die Kosten für die Durchführung des Projekts setzen sich sowohl aus Personal-, als auch aus Ressourcenkosten zusammen.
-% Laut Tarifvertrag verdient ein Auszubildender im dritten Lehrjahr pro Monat \eur{1000} Brutto. 
-% \begin{eqnarray}
-% 8 \mbox{ h/Tag} \cdot 220 \mbox{ Tage/Jahr} = 1760 \mbox{ h/Jahr}\\
-% \eur{1000}\mbox{/Monat} \cdot 13,3 \mbox{ Monate/Jahr} = \eur{13300} \mbox{/Jahr}\\
-% \frac{\eur{13300} \mbox{/Jahr}}{1760 \mbox{ h/Jahr}} \approx \eur{7,56}\mbox{/h}
-% \end{eqnarray}
-% Es ergibt sich also ein Stundenlohn von \eur{7,56}. 
-% Die Durchführungszeit des Projekts beträgt 70 Stunden. Für die Nutzung von Ressourcen\footnote{Räumlichkeiten, Arbeitsplatzrechner etc.} wird 
-% ein pauschaler Stundensatz von \eur{15} angenommen. Für die anderen Mitarbeiter wird pauschal ein Stundenlohn von \eur{25} angenommen. 
 Dieser Abschnitt betrachtet die Kosten, welche bei der Umsetzung des Projekts entstehen.\\ 
-Diese setzen aus Personalkosten und aus Kosten für die verwendeten Ressourcen
+Diese setzen sich aus Personalkosten und aus Kosten für die verwendeten Ressourcen
 (siehe Kapitel~\ref{sec:Ressourcenplanung}: \nameref{sec:Ressourcenplanung}) zusammen und 
 können der Tabelle~\ref{tab:Kostenaufstellung} entnommen werden.\\
 Die Personalkosten (brutto) je Projektmitarbeiter wurden durch die Personalabteilung vorgegeben. 
@@ -123,8 +109,9 @@ Datenbanken schlägt sich in einer Zeitersparnis nieder, welche sich \ua über d
 Die Ermittlung der Amortisationsdauer soll dabei helfen, die Wirtschaftlichkeit des Projekts zu beurteilen.
 Für die Berechnung wird die vorher im Abschnitt  \ref{sec:Projektkosten}:~\nameref{sec:Projektkosten} kalkulierte Gesamtsumme 
 mit den Einsparungen verglichen. 
-Zur Ermittlung der finanziellen Ersparnis wird die jedes Jahr gewonnene Zeit mit dem Stundensatz, plus der Ressourcenpauschale,
-multipliziert. Es ergeben sich somit:
+Zur Ermittlung der finanziellen Ersparnis wird die Ressourcenpauschale zum Stundensatz eines Mitarbeiters der Fachabteilung 
+addiert. Die Summe wird mit der jedes Jahr gewonnenen Zeit multipliziert. \\
+Es ergeben sich somit:
 \begin{eqnarray}
     \frac{1.540 \mbox{ min/Jahr}}{60} \cdot \eur{(35 + 20)}\mbox{/h} \approx \eur{1.411,67}\mbox{/Jahr}. 
 \end{eqnarray}
