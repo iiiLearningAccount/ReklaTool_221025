@@ -40,15 +40,15 @@ verkürzt (siehe dazu \ref{sec:SollIstVergleich} \nameref{sec:SollIstVergleich})
 % \begin{itemize}
 % 	\item Beschreibung der angelegten Datenbank (\zB Generierung von \acs{SQL} aus Modellierungswerkzeug oder händisches Anlegen), \acs{XML}-Schemas \usw.
 % \end{itemize}
-Zur Erstellung der einzelnen \acs{DTO}s wurden die XML-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-\acs{API}
+Zur Erstellung der einzelnen \acs{DTO}s wurden die \acs{XML}-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-\acs{API}
 realisiert wird. Dabei handelte es sich um jeweils ein Anfrage- und ein Antwortformat. Diese wurden von der Fachabteilung zur Verfügung
 gestellt.\\
-Das Anfrage-Model beinhaltet das jeweils gewünschte Aktenzeichen und eine Information über die Anwendung eines Suchfilters,
+Das Anfrage-\Fachbegriff{Model} beinhaltet das jeweils gewünschte Aktenzeichen und eine Information über die Anwendung eines Suchfilters,
 welcher die zurückgelieferten Daten einschränkt.\\
-Das Antwort-Model wurde bei der Deserialisierung bereits automatisch mit den notwendigen Annotationen versehen,
-um einen reibungslosen Austausch mit dem XML-Format zu garantieren. Zur Datenbindung an die einzelnen Komponenten der
-Benutzeroberfläche wurden weitere \Fachbegriff{Viewmodels} erstellt, welche das Mapping auf das Antwort-Model ermöglichen.\\
-Für das \Fachbegriff{Caching} wurde ein eigenes \acs{DTO} umgesetzt, welches das Anfrage- und Antwort-Model enthält.
+Das Antwort-\Fachbegriff{Model} wurde bei der Deserialisierung bereits automatisch mit den notwendigen Annotationen versehen,
+um einen reibungslosen Austausch mit dem \acs{XML}-Format zu garantieren (siehe \Anhang{app:DTO}). Zur Datenbindung an die einzelnen Komponenten der
+Benutzeroberfläche wurden weitere \Fachbegriff{Viewmodels} erstellt, welche das Mapping auf das Antwort-\Fachbegriff{Model} ermöglichen.\\
+Für das \Fachbegriff{Caching} wurde ein eigenes \acs{DTO} umgesetzt, welches das Anfrage- und Antwort-\Fachbegriff{Model} enthält.
 Dieses wird beim Lesen und Schreiben der \Fachbegriff{Cache}-Dateien serialisiert \bzw deserialisiert.
 Über das \Fachbegriff{Hashing} des Anfrage-Objekts sind die Dateien eindeutig identifizierbar.
 
@@ -66,13 +66,17 @@ als Webseite in einem Browser ausgeführt werden soll.\\
 Die von \Fachbegriff{TelerikUI} bereitgestellte Vorlage für eine \acs{MVC}-Anwendung verlangt
 die Implementierung der \Fachbegriff{View} mittels spezieller \Fachbegriff{.cshtml}-Dateien.
 Diese erlauben, durch definierte Schlüsselwörter, das Verwenden von \Fachbegriff{C\#}-Syntax in einem
-\acs{HTML}-Dokument. Beides zusammen wird innerhalb des ASP.NET-Ökosystems als \Fachbegriff{Razor}-Syntax
-bezeichnet.\footnote{\url{https://learn.microsoft.com/de-de/aspnet/core/mvc/views/razor?view=aspnetcore-6.0}}\\ 
+\acs{HTML}-Dokument. Beides zusammen wird innerhalb des \Fachbegriff{ASP.NET}-Ökosystems als \Fachbegriff{Razor}-Syntax
+bezeichnet.\footnote{Razor-Syntax in der Microsoft-Dokumentation:
+\url{https://learn.microsoft.com/de-de/aspnet/core/mvc/views/razor?view=aspnetcore-6.0}, \\
+letzter Zugriff: 28.10.2022}\\ 
 Die Oberflächenkomponenten, \zB Buttons, Suchfelder oder Tabellen, werden daher auch in \Fachbegriff{C\#} 
 definiert und konfiguriert. Siehe dazu \Anhang{app:ListingView}.\\
 Wie bei den meisten Webseiten wurde auf die Verwendung der Programmiersprache \acs{JS} im Zusammenspiel mit \acs{AJAX} 
 zurückgegriffen, um die ereignisbasierte Interaktion mit dem Nutzer zu gestalten.
-\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX}, letzter Zugriff: }
+\footnote{AJAX in der Mozilla-Dokumentation:
+\url{https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX},\\
+letzter Zugriff: 28.10.2022}
 
 \subsection{Implementierung der Geschäftslogik}
 \label{sec:ImplementierungGeschaeftslogik}
@@ -88,13 +92,14 @@ Laut \ref{sec:Anwendungsfaelle} \nameref{sec:Anwendungsfaelle} ist der Hauptanwe
 das Abfragen der Datenbank-\acs{API} mithilfe des \Fachbegriff{ReklaTool}. Aus diesem wurde in 
 der Entwurfsphase ein Sequenz-Diagramm erstellt (\Vgl \Anhang{app:Sequenzdiagramm}).\\
 Nach der Initialisierung der Projektdateien, wurden die aus den Diagrammen ersichtlichen Serviceklassen
-und die dazugehörigen Interfaces implementiert. Danach konnten diese in der Datei \Datei{Program.cs}
+und die dazugehörigen Interfaces implementiert. \\Danach konnten diese in der Datei \Datei{Program.cs}
 über den Aufruf \Methode{AddScoped} der \Klasse{builder.Services}-Instanz dem \acs{IOC}-Container 
 hinzugefügt werden und standen somit dem Injektor des Frameworks zur Verfügung. \\Nach diesem Schritt 
 wurden die Services wie im Klassendiagramm \Anhang{app:Klassendiagramm} miteinander verknüpft.
-Dieses passierte über \Fachbegriff{Konstruktorinjektion}. Die Implementierung von .NET Core 
-sieht ein Injizieren mittels Konstruktorparameter vor. Gegenüber der Property-Injektion gibt es
+Dieses passierte über \Fachbegriff{Konstruktor-Injektion}. Die Implementierung von .NET Core 
+sieht ein Injizieren mittels Konstruktorparameter vor. Gegenüber der \Fachbegriff{Property-Injektion} gibt es
 den Vorteil, dass beim Instantiieren der Klasse bereits fehlende Abhängigkeiten auffallen.
 \footnote{Dependency Injection in der Microsoft-Dokumentation:\\ 
-\url{https://learn.microsoft.com/de-de/dotnet/core/extensions/dependency-injection}, letzter Zugriff: }\\
+\url{https://learn.microsoft.com/de-de/dotnet/core/extensions/dependency-injection}, \\
+letzter Zugriff: 28.10.2022}
 

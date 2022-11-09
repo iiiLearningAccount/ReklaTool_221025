@@ -12,11 +12,11 @@ Erstellen der Webanwendung.
 Wie unter \ref{sec:Projektziel}: \nameref{sec:Projektziel} erwähnt, 
 soll eine Webanwendung erstellt werden. Aus der IT-Abteilung kamen dazu Informationen zu  
 Technologien, die in anderen Projekten eingesetzt wurden.\\
-Neue Software wird dort überwiegend in der Programmiersprache C\# umgesetzt. 
+Neue Software wird dort überwiegend in der Programmiersprache \Fachbegriff{C\#} umgesetzt. 
 Dadurch existiert für diese umfangreiches Wissen bei den Mitarbeitern.
 Vorhandene Ressourcen und Lizenzen konnten für das Projekt genutzt werden.
 Um das Endprodukt besser im Team wartbar und erweiterbar zu halten, hat sich der Autor 
-ebenfalls für C\# in der .NET-Umgebung von Microsoft entschieden.\\
+ebenfalls für \Fachbegriff{C\#} in der \Fachbegriff{.NET}-Umgebung von Microsoft entschieden.\\
 Unter weiterer Rücksprache mit der Softwareabteilung wurden verschiedene Ansätze zur
 Umsetzung einer Webanwendung durchgesprochen. Besonders wurde hier zwischen client- und serverbasierten
 Anwendungen unterschieden. Da die Benutzerinteraktion eher gering ausfallen würde, wurde sich
@@ -105,7 +105,7 @@ Dieser erstellt mittels des \Klasse{RequestBuilder} ein Anfrage-Objekt.\\
 Die erzeugte Anfrage wird zunächst durch den \Klasse{ResponseCacheService} mit den bereits zwischengespeicherten
 Vorgängen verglichen. Ist eine Datei zum Aktenzeichen vorhanden, so wird diese an den \Klasse{UiEndpointService} 
 zurückgegeben. Andernfalls wird nun eine Anfrage an die Datenbank-API gestellt.
-Das zurückgelieferte XML-Dokument wird deserialisiert und zusammen mit den Anfrageinformationen im \Fachbegriff{Cache} abgelegt.
+Das zurückgelieferte \acs{XML}-Dokument wird deserialisiert und zusammen mit den Anfrageinformationen im \Fachbegriff{Cache} abgelegt.
 Danach geht auch dieses zurück an den \Klasse{UiEndpointService}.\\
 Hier werden die Daten, je nach Client-Anfrage, vom kompletten Vorgangs-Model auf einzelne \Fachbegriff{View-Models} gemappt.
 Zurück im \Klasse{VorgangController} wird nun die Server-Response in Form einer \acs{JSON}-Datei zurück an den Client gesendet und die Daten
@@ -123,7 +123,7 @@ Zur Vereinfachten Handhabung von \Fachbegriff{Git} wird im Unternehmen auf die S
 Diese zeigt Änderungen im Projekt an und beherrscht alle typischen Funktionen und Workflows im Zusammenhang
 mit der Versionskontrolle. Bei Fertigstellung einer Implementierungseinheit wird das lokale Projekt in das 
 Projekt-Repository im Firmennetz gepusht. Zur Verwaltung der Projekte setzt die \acs{Icam} hierbei auf \Fachbegriff{GitLab} 
-als on-premises Installation. Zum Zweck des Codereview werden Mitarbeiter der IT-Abteilung zum \Fachbegriff{GitLab}-Projekt hinzugefügt.\\
+als on-premises Installation. Zum Zweck des Code-Review werden Mitarbeiter der IT-Abteilung zum \Fachbegriff{GitLab}-Projekt hinzugefügt.\\
 Die Qualitätssicherung während der Entwicklung der Webanwendung wurde ursprünglich durch Unit-Tests geplant
 (siehe Seite~\pageref{Projektantrag}: Projektantrag).
 Da die einzelnen Services nur auf Basisfunktionen des Frameworks zurückgreifen und die Komplexität des Programms 

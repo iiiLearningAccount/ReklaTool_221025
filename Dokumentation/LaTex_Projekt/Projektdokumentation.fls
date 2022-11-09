@@ -1722,6 +1722,7 @@ INPUT Inhalt\Einleitung.tex
 INPUT .\Inhalt\Einleitung.tex
 INPUT .\Inhalt\Einleitung.tex
 INPUT Inhalt\Einleitung.tex
+INPUT D:\04_Apps\LaTeX\MiKTeX\app\fonts\tfm\public\lm\ec-lmri10.tfm
 INPUT .\Bilder\\ICAM-logo.png
 INPUT Bilder\\ICAM-logo.png
 INPUT .\Bilder\\ICAM-logo.png
@@ -1772,7 +1773,6 @@ INPUT .\Tabellen\Zeitersparnis.tex
 INPUT Tabellen\Zeitersparnis.tex
 INPUT .\Tabellen\Zeitersparnis.tex
 INPUT Tabellen\Zeitersparnis.tex
-INPUT D:\04_Apps\LaTeX\MiKTeX\app\fonts\tfm\public\lm\ec-lmri10.tfm
 INPUT .\Bilder\\ICAM-logo.png
 INPUT Bilder\\ICAM-logo.png
 INPUT .\Bilder\\ICAM-logo.png

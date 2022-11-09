@@ -31,31 +31,6 @@ einem Backend-Service abfragt, um diese strukturiert und übersichtlich darzuste
 Der Prozess der Reklamationsbearbeitung soll so schneller bearbeitet werden können und die händische Suche nach
 allen Teilinformationen überflüssig machen.
 
-% Projektanforderungen
-% \begin{itemize}
-% \item Eingabe von vorgangsspezifischen Aktenzeichen als Suchwörter
-% \item Möglichkeit einer Schnellsuche ohne Einzelprüfbericht und Regelauslösungen
-% \item Abfrage von externen Datenbanken und Aufbereitung der Daten zum Vorgang
-% \item Auswahl eines Vorgangs zum gesuchten Aktenzeichen
-% \item Aufbereitung und Anzeige des ausgewählten Vorgangs in folgende Bereiche:
-% 	\begin{itemize}
-% 		\item Allgemeine Übersicht zur Kalkulation
-% 		\item Übersicht der kalkulierten Positionen
-% 		\item Informationen aus der Fahrzeugdatenbank VID
-% 		\item Ausgelöste Regeln für den Vorgang
-% 	\end{itemize}
-% \end{itemize}
-% \begin{itemize}
-% \item Download des Einzelprüfberichts zum Vorgang
-% \item Download der Kalkulation als strukturierte Datei
-% \item Authentifizierung per Identity Server mittels OAuth2
-% \item Suche darf nicht länger als 7 Sekunden ohne Reaktion bleiben
-% 	\begin{itemize}
-% 		\item Abfrage aller Daten dauert in der Regel über 30 Sekunden
-% 		\item Lösungsansatz: Bereitstellen von Teilergebnissen
-% 	\end{itemize}
-% \end{itemize}
-
 \subsection{Projektbegründung} 
 \label{sec:Projektbegruendung}
 %\begin{itemize}
@@ -71,16 +46,15 @@ Dort sind auch die Daten zu den Fahrzeugmodellen insgesamt abgelegt.\\
 Bei der Plausibilitätsprüfung durch den \acs{CG} entsteht ein detaillierter Prüfbericht, in dem 
 Diskrepanzen aufgeführt werden.\\
 Sollte der Kunde das Prüfergebnis beanstanden, so hat er die Möglichkeit eine Reklamation an
-die \acs{Icam} zu senden.\\
+die \acs{Icam} zu senden.
 Aktuell können nur die Projektverantwortlichen selbst, mittels des jeweiligen Aktenzeichens der
 Reklamation, eine händische Suche in mehreren Datenbanken und dem Regelwerk des \acs{CG}
-durchführen, um den Vorgang nachzuvollziehen. Es soll für die Bewertung des Vorgangs kompakt
-ersichtlich sein, welche Regeln ausgelöst wurden und welche Daten der \acs{VID} in die Kalkulation 
-einbezogen wurden.\\
-
-Dieser Prozess ist aufgrund des hohen Anteils manueller Arbeit zeitaufwändig und fehleranfällig.
-Weiterhin kann dieser, wegen der Komplexität der Datenbanksysteme, nur von Experten durchgeführt werden.
-Durch das ReklaTool sollen die Suchanfragen vereinfacht und standardisiert werden, was wiederum 
+durchführen, um den Vorgang nachzuvollziehen. Dieser Prozess ist aufgrund des hohen Anteils manueller 
+Arbeit zeitaufwändig und fehleranfällig. Weiterhin kann dieser, wegen der Komplexität der Datenbanksysteme, 
+nur von Experten durchgeführt werden.\\ 
+Es soll zukünftig für die Bewertung eines Vorgangs kompakt ersichtlich sein, 
+welche Regeln ausgelöst wurden und welche Daten der \acs{VID} in die Kalkulation einbezogen wurden.\\
+Durch das \Fachbegriff{ReklaTool} sollen die Suchanfragen vereinfacht und standardisiert werden, was wiederum 
 eine Erweiterung des Nutzerkreises möglich macht.
 
 \subsection{Projektschnittstellen} 
