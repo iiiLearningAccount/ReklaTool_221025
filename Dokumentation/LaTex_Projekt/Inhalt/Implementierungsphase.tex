@@ -32,7 +32,7 @@ angelegt. Die Zugangsdaten mussten dann der Anwendung mitgeteilt werden. Durch d
 wurde der Authentifizierungsprozess in die \Fachbegriff{Middleware} von \Fachbegriff{ASP.NET Core} eingefügt. Durch das Attribut 
 \Methode{[Authorize]} wurde der \Klasse{VorgangController} vor unberechtigtem Zugriff geschützt. Die Verwendung 
 des \Fachbegriff{Keycloak} und \Fachbegriff{OAuth2} sorgte für eine schnellere Entwicklung, da die Benutzerveraltung nicht mehr implementiert
-werden musste. Diese wird extern von der IT-Abteilung über das, an den \Fachbegriff{Keycloak} angeschlossene 
+werden musste. Diese wird extern von der IT-Abteilung über das an den \Fachbegriff{Keycloak} angeschlossene 
 \Fachbegriff{Active Directory} verwaltet. Durch diesen Vorgang wurde die Implementierung der Nutzerauthentifizierung 
 verkürzt (siehe dazu \ref{sec:SollIstVergleich} \nameref{sec:SollIstVergleich}).
 
@@ -96,7 +96,7 @@ der Entwurfsphase ein Sequenz-Diagramm erstellt (\Vgl \Anhang{app:Sequenzdiagram
 Nach der Initialisierung der Projektdateien, wurden die aus den Diagrammen ersichtlichen Serviceklassen
 und die dazugehörigen Interfaces implementiert. \\Danach konnten diese in der Datei \Datei{Program.cs}
 über den Aufruf \Methode{AddScoped} der \Klasse{builder.Services}-Instanz dem \acs{IOC}-Container 
-hinzugefügt werden und standen somit dem Injektor des Frameworks zur Verfügung. \\Nach diesem Schritt 
+hinzugefügt werden und standen somit dem Injektor des Frameworks zur Verfügung. \\Danach 
 wurden die Services wie im Klassendiagramm \Anhang{app:Klassendiagramm} miteinander verknüpft.
 Dieses passierte über \Fachbegriff{Konstruktor-Injektion}. Die Implementierung von .NET Core 
 sieht ein Injizieren mittels Konstruktorparameter vor. Gegenüber der \Fachbegriff{Property-Injektion} gibt es
