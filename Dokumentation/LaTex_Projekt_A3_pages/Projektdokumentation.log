@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.15)  7 NOV 2022 21:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.10.15)  9 NOV 2022 23:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1084,11 +1084,11 @@ Overfull \vbox (23.69112pt too high) has occurred while \output is active []
  [1{C:/Users/ingol/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
  <./Bilder//ICAM-logo.png>]
-<Bilder//Sequenzdiagramm.png, id=19, 1438.37375pt x 1085.05376pt>
+<Bilder//Sequenzdiagramm.png, id=19, 5753.495pt x 4340.215pt>
 File: Bilder//Sequenzdiagramm.png Graphic file (type png)
 <use Bilder//Sequenzdiagramm.png>
 Package pdftex.def Info: Bilder//Sequenzdiagramm.png  used on input line 11.
-(pdftex.def)             Requested size: 804.54007pt x 606.91403pt.
+(pdftex.def)             Requested size: 804.43033pt x 606.83125pt.
 File: Bilder//ICAM-logo.png Graphic file (type png)
 <use Bilder//ICAM-logo.png>
 Package pdftex.def Info: Bilder//ICAM-logo.png  used on input line 14.
@@ -1121,7 +1121,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  108i,24n,108p,10885b,591s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {D:/04_Apps/LaTeX/MiKTeX/app/fonts/enc/dvips/lm/lm-ec.enc}<D:/04_Apps/LaTeX/MiKTeX/app/fonts/type1/public/lm/lmcsc10.pfb><D:/04_Apps/LaTeX/MiKTeX/app/fonts/type1/public/lm/lmr10.pfb><D:/04_Apps/LaTeX/MiKTeX/app/fonts/type1/public/lm/lmri10.pfb><D:/04_Apps/LaTeX/MiKTeX/app/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on Projektdokumentation.pdf (3 pages, 231969 bytes).
+Output written on Projektdokumentation.pdf (3 pages, 541207 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  9 named destinations out of 1000 (max. 500000)

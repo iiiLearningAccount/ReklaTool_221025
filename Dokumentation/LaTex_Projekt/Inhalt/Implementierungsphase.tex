@@ -14,7 +14,9 @@ So konnten über die Datei \Datei{appsettings.json} Information wie \acs{API}-Ad
 Authentifizierung in die Anwendung gegeben werden. Diese wurden durch das Interface \Klasse{IConfiguration}
 via \acs{DI} den anderen Services zur Verfügung gestellt. \\
 In der Datei \Datei{Program.cs} werden alle Services mit entsprechender Lebensdauer (scoped, transient oder singleton)
-registriert.\footnote{\url{https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection\#service-lifetimes} (Stand: 27.08.2022)}
+registriert.\footnote{Service-Lifetimes in der Microsoft-Dokumentation:\\
+\url{https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection\#service-lifetimes},\\
+letzter Zugriff: 28.10.2022}
 Für das Projekt wurden diese als \Fachbegriff{scoped} angemeldet. Das bedeutet, dass der Service immer für die Dauer einer
 \acs{API}-Anfrage zur Verfügung steht. Eine Beschreibung, wie Services in das Programm eingebunden sind, findet sich im 
 \Anhang{app:EntwicklerDoku}.\\
@@ -67,14 +69,14 @@ Die von \Fachbegriff{TelerikUI} bereitgestellte Vorlage für eine \acs{MVC}-Anwe
 die Implementierung der \Fachbegriff{View} mittels spezieller \Fachbegriff{.cshtml}-Dateien.
 Diese erlauben, durch definierte Schlüsselwörter, das Verwenden von \Fachbegriff{C\#}-Syntax in einem
 \acs{HTML}-Dokument. Beides zusammen wird innerhalb des \Fachbegriff{ASP.NET}-Ökosystems als \Fachbegriff{Razor}-Syntax
-bezeichnet.\footnote{Razor-Syntax in der Microsoft-Dokumentation:
+bezeichnet.\footnote{Razor-Syntax in der Microsoft-Dokumentation:\\
 \url{https://learn.microsoft.com/de-de/aspnet/core/mvc/views/razor?view=aspnetcore-6.0}, \\
 letzter Zugriff: 28.10.2022}\\ 
 Die Oberflächenkomponenten, \zB Buttons, Suchfelder oder Tabellen, werden daher auch in \Fachbegriff{C\#} 
 definiert und konfiguriert. Siehe dazu \Anhang{app:ListingView}.\\
 Wie bei den meisten Webseiten wurde auf die Verwendung der Programmiersprache \acs{JS} im Zusammenspiel mit \acs{AJAX} 
 zurückgegriffen, um die ereignisbasierte Interaktion mit dem Nutzer zu gestalten.
-\footnote{AJAX in der Mozilla-Dokumentation:
+\footnote{AJAX in der Mozilla-Dokumentation:\\
 \url{https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX},\\
 letzter Zugriff: 28.10.2022}
 
