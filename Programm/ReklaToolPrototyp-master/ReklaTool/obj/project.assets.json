@@ -8083,13 +8083,11 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Icamsystems.Identityserver.Infrastructure >= 1.0.1",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 6.0.9",
       "Newtonsoft.Json >= 13.0.1",
       "Serilog >= 2.11.0",
       "Serilog.Sinks.Console >= 4.0.1",
-      "Telerik.UI.for.AspNet.Core >= 2022.3.913",
-      "identityserver.aspnetcoreconfigurator.client >= 3.0.1"
+      "Telerik.UI.for.AspNet.Core >= 2022.3.913"
     ]
   },
   "packageFolders": {
@@ -8137,10 +8135,6 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
-          "Icamsystems.Identityserver.Infrastructure": {
-            "target": "Package",
-            "version": "[1.0.1, )"
-          },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
             "version": "[6.0.9, )"
@@ -8160,10 +8154,6 @@
           "Telerik.UI.for.AspNet.Core": {
             "target": "Package",
             "version": "[2022.3.913, )"
-          },
-          "identityserver.aspnetcoreconfigurator.client": {
-            "target": "Package",
-            "version": "[3.0.1, )"
           }
         },
         "imports": [
@@ -8187,25 +8177,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Unable to find package Icamsystems.Identityserver.Infrastructure. No packages exist with this id in source(s): Microsoft Visual Studio Offline Packages, nuget.org, TelerikNuGetV3",
-      "libraryId": "Icamsystems.Identityserver.Infrastructure",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Unable to find package identityserver.aspnetcoreconfigurator.client. No packages exist with this id in source(s): Microsoft Visual Studio Offline Packages, nuget.org, TelerikNuGetV3",
-      "libraryId": "identityserver.aspnetcoreconfigurator.client",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "W6R1z76IDsNWrT2hQ1nnWzjfTEEXE0YhXw+TIpK/5VvhGZeDqESHFPWYxGhuX9m/NJUnP2YTDt88gQWbzphplw==",
-  "success": false,
+  "dgSpecHash": "ILkJdM+S4TVYb/dFiGbCBcfJGK26zjx6rb7CARtUJfFujsmTSnsrofJSzyGgfhUWX4YiwOFv4MDHuWC4kVLejg==",
+  "success": true,
   "projectFilePath": "D:\\00_Onedrive\\OneDrive\\02_Projekte\\VisualStudio\\IcamSystems\\ReklaTool_221025\\Programm\\ReklaToolPrototyp-master\\ReklaTool\\ReklaTool.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ingol\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.0\\microsoft.aspnetcore.antiforgery.2.1.0.nupkg.sha512",
@@ -175,24 +175,5 @@
     "C:\\Users\\ingol\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\ingol\\.nuget\\packages\\telerik.ui.for.aspnet.core\\2022.3.913\\telerik.ui.for.aspnet.core.2022.3.913.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Unable to find package Icamsystems.Identityserver.Infrastructure. No packages exist with this id in source(s): Microsoft Visual Studio Offline Packages, nuget.org, TelerikNuGetV3",
-      "libraryId": "Icamsystems.Identityserver.Infrastructure",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Unable to find package identityserver.aspnetcoreconfigurator.client. No packages exist with this id in source(s): Microsoft Visual Studio Offline Packages, nuget.org, TelerikNuGetV3",
-      "libraryId": "identityserver.aspnetcoreconfigurator.client",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

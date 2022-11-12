@@ -1,4 +1,4 @@
-﻿using Icamsystems.Identityserver.AspNetCoreConfigurator.Client;
+﻿//using Icamsystems.Identityserver.AspNetCoreConfigurator.Client;
 using Microsoft.Extensions.DependencyInjection;
 using ReklaTool.Services;
 
@@ -33,8 +33,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseKeycloakAuthentication();
-app.UseFrontendToken(); // Induziert am Ende den Token auf die Seite
+//app.UseKeycloakAuthentication();
+//app.UseFrontendToken(); // Induziert am Ende den Token auf die Seite
 
 app.UseAuthorization();
 
