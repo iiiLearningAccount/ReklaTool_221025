@@ -2,7 +2,8 @@
 \section{Entwurfsphase} 
 \label{sec:Entwurfsphase}
 Dieser Abschnitt behandelt alle wichtigen Entscheidungen bezüglich der Grundprinzipien, Techniken und Technologien zum
-Erstellen der Webanwendung.
+Erstellen der Webanwendung. Ein Überblick über die Einbettung des ReklaTool in seine
+Umgebung befindet sich im Anhang \Anhang{app:Systemkontext}.
 
 \subsection{Zielplattform}
 \label{sec:Zielplattform}
@@ -39,14 +40,14 @@ Benutzeroberfläche und Vermittlung (siehe \Anhang{app:MVC}). Durch die klare Tr
 die Abhängigkeiten untereinander. Implementierungen dieser Teile können leichter verändert oder sogar ausgetauscht werden.
 Ein weiterer Vorteil ist der gut nachvollziehbare Datenfluss innerhalb der Anwendung.\\
 Dieser Kern des Programms wird durch Services erweitert, welche jeweils eine spezielle Aufgabe haben.
-Dazu bietet das Framework einen Injektor, mit dem das Prinzip der \Fachbegriff{Inversion of Controll} via 
-\Fachbegriff{Dependency Injection} umgesetzt wird. Dabei müssen sich die Teile des Programms nicht um die Erstellung von
+Dazu bietet das Framework einen Injektor, mit dem das Prinzip der \ac{IOC} via 
+\ac{DI} umgesetzt wird. Dabei müssen sich die Teile des Programms nicht um die Erstellung von
 Instanzen ihrer Abhängigkeiten kümmern, sondern Bekommen diese vom Injektor übergeben. Dieser übernimmt
 das komplette Management der erstellten Objekte und kann diese, je nach Lebensdauer, \acs{ggf} entfernen, sollten sie nicht mehr 
-gebraucht werden. \\
-
-Die daraus folgende lose Verbindung der einzelnen Module trägt weiter zur besseren Wartbarkeit der Anwendung bei.\\
-Zur Steuerung der Kommunikation mit der Datenbank-API wird ein eigener Service entwickelt. Dieser übermittelt
+gebraucht werden.\\ 
+Die daraus folgende lose Verbindung der einzelnen Module trägt 
+weiter zur besseren Wartbarkeit der Anwendung bei.\\
+Zur Steuerung der Kommunikation mit der Datenbank-\acs{API} wird ein eigener Service entwickelt. Dieser übermittelt
 Anfragen und stellt die Antworten der Anwendung zur Verfügung. Um die Performance von
 mehrfach aufgerufenen Vorgängen zu erhöhen, wird der Dienst um einen \Fachbegriff{Caching}-Service erweitert.
 Beim \Fachbegriff{Caching} werden die erhaltenen Daten in Dateien gespeichert, welche bestimmten Abfragen
@@ -104,7 +105,7 @@ Nach Betätigung der Suchen-Taste wird eine Anfrage mit Aktenzeichen und Filter 
 Dieser erstellt mittels des \Klasse{RequestBuilder} ein Anfrage-Objekt.\\
 Die erzeugte Anfrage wird zunächst durch den \Klasse{ResponseCacheService} mit den bereits zwischengespeicherten
 Vorgängen verglichen. Ist eine Datei zum Aktenzeichen vorhanden, so wird diese an den \Klasse{UiEndpointService} 
-zurückgegeben. Andernfalls wird nun eine Anfrage an die Datenbank-API gestellt.
+zurückgegeben. Andernfalls wird nun eine Anfrage an die Datenbank-\acs{API} gestellt.
 Das zurückgelieferte \acs{XML}-Dokument wird deserialisiert und zusammen mit den Anfrageinformationen im \Fachbegriff{Cache} abgelegt.
 Danach geht auch dieses zurück an den \Klasse{UiEndpointService}.\\
 Hier werden die Daten, je nach Client-Anfrage, vom kompletten Vorgangs-Model auf einzelne \Fachbegriff{View-Models} gemappt.

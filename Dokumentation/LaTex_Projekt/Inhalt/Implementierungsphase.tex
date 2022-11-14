@@ -36,13 +36,12 @@ werden musste. Diese wird extern von der IT-Abteilung über das an den \Fachbegr
 \Fachbegriff{Active Directory} verwaltet. Durch diesen Vorgang wurde die Implementierung der Nutzerauthentifizierung 
 verkürzt (siehe dazu \ref{sec:SollIstVergleich} \nameref{sec:SollIstVergleich}).
 
-
 \subsection{Implementierung der Datenstrukturen}
 \label{sec:ImplementierungDatenstrukturen}
 % \begin{itemize}
 % 	\item Beschreibung der angelegten Datenbank (\zB Generierung von \acs{SQL} aus Modellierungswerkzeug oder händisches Anlegen), \acs{XML}-Schemas \usw.
 % \end{itemize}
-Zur Erstellung der einzelnen \acs{DTO}s wurden die \acs{XML}-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-\acs{API}
+Zur Erstellung der einzelnen \ac{DTO}s wurden die \acs{XML}-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-\acs{API}
 realisiert wird. Dabei handelte es sich um jeweils ein Anfrage- und ein Antwortformat. Diese wurden von der Fachabteilung zur Verfügung
 gestellt.\\
 Das Anfrage-\Fachbegriff{Model} beinhaltet das jeweils gewünschte Aktenzeichen und eine Information über die Anwendung eines Suchfilters,
@@ -53,6 +52,49 @@ Benutzeroberfläche wurden weitere \Fachbegriff{Viewmodels} erstellt, welche das
 Für das \Fachbegriff{Caching} wurde ein eigenes \acs{DTO} umgesetzt, welches das Anfrage- und Antwort-\Fachbegriff{Model} enthält.
 Dieses wird beim Lesen und Schreiben der \Fachbegriff{Cache}-Dateien serialisiert \bzw deserialisiert.
 Über das \Fachbegriff{Hashing} des Anfrage-Objekts sind die Dateien eindeutig identifizierbar.
+
+\subsection{Implementierung der Geschäftslogik}
+\label{sec:ImplementierungGeschaeftslogik}
+% \begin{itemize}
+% 	\item Beschreibung des Vorgehens bei der Umsetzung/Programmierung der entworfenen Anwendung.
+% 	\item \Ggfs interessante Funktionen/Algorithmen im Detail vorstellen, verwendete Entwurfsmuster zeigen.
+% 	\item Quelltextbeispiele zeigen.
+% 	\item Hinweis: Wie in Kapitel~\ref{sec:Einleitung}: \nameref{sec:Einleitung} zitiert, wird nicht ein lauffähiges Programm bewertet, sondern die Projektdurchführung. Dennoch würde ich immer Quelltextausschnitte zeigen, da sonst Zweifel an der tatsächlichen Leistung des Prüflings aufkommen können.
+% \end{itemize}
+% \paragraph{Beispiel}
+% Die Klasse \texttt{Com\-par\-ed\-Na\-tu\-ral\-Mo\-dule\-In\-for\-ma\-tion} findet sich im \Anhang{app:CNMI}.  
+Laut \ref{sec:Anwendungsfaelle} \nameref{sec:Anwendungsfaelle} ist der Hauptanwendungsfall
+das Abfragen der Datenbank-\acs{API} mithilfe des \Fachbegriff{ReklaTool}. Aus diesem wurde in 
+der Entwurfsphase ein Sequenz-Diagramm erstellt (\Vgl \Anhang{app:Sequenzdiagramm}).\\
+Nach der Initialisierung der Projektdateien, wurden die aus den Diagrammen ersichtlichen Serviceklassen
+und die dazugehörigen Interfaces implementiert. \\Danach konnten diese in der Datei \Datei{Program.cs}
+über den Aufruf \Methode{AddScoped} der \Klasse{builder.Services}-Instanz dem \acs{IOC}-Container 
+hinzugefügt werden und standen somit dem Injektor des Frameworks zur Verfügung. \\Danach 
+wurden die Services wie im Klassendiagramm \Anhang{app:Klassendiagramm} miteinander verknüpft.
+Dieses passierte über \Fachbegriff{Konstruktor-Injektion}. Die Implementierung von \Fachbegriff{.NET Core} 
+sieht ein Injizieren mittels Konstruktorparameter vor. Gegenüber der \Fachbegriff{Property-Injektion} gibt es
+den Vorteil, dass beim Instantiieren der Klasse bereits fehlende Abhängigkeiten auffallen.
+\footnote{Dependency Injection in der Microsoft-Dokumentation:\\ 
+\url{https://learn.microsoft.com/de-de/dotnet/core/extensions/dependency-injection}, \\
+letzter Zugriff: 28.10.2022}
+\clearpage
+
+\subsection{Exception Handling}
+\label{sec:ExceptionHandling}
+Zum Abfangen möglicher Fehler, die \zB bei der Deserialisierung der Antwortdaten 
+der \acs{API} entstehen können, wurde so nah wie möglich am Einstiegspunkt in das 
+Programm das \Fachbegriff{Exception Handling} implementiert. Der Code der Methoden 
+innerhalb des Controllers \Datei{VorgangController.cs} wurde jeweils durch einen
+\Fachbegriff{try/catch}-Block umschlossen (siehe \Anhang{app:ExceptionHandling}). 
+Die Fehlermeldung der Ausnahme (\Fachbegriff{Exception}) wird an die Programmkonsole ausgegeben 
+und kann dort zur Fehleranalyse genutzt werden. Die Methode gibt eine Fehlernachricht an den 
+\Fachbegriff{Client} zurück. Das \Fachbegriff{Frontend-Framework} informiert danach
+den Anwender darüber, dass seine Anfrage nicht erfolgreich war.\\
+Nach der Übergabe wurde die Verarbeitung von Log-Meldungen und Ausnahmefehlern
+durch die IT-Abteilung konfiguriert. Dazu wurde mit der Software \Fachbegriff{Sentry.io}
+die zentrale Verwaltung des \Fachbegriff{Logs} angelegt. Daraus ergibt sich die 
+Möglichkeit, Nachrichten zu versenden, sobald Fehler oder unerwartetes Verhalten
+in der Anwendung auftreten.
 
 \subsection{Implementierung der Benutzeroberfläche}
 \label{sec:ImplementierungBenutzeroberflaeche}
@@ -79,29 +121,4 @@ zurückgegriffen, um die ereignisbasierte Interaktion mit dem Nutzer zu gestalte
 \footnote{AJAX in der Mozilla-Dokumentation:\\
 \url{https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX},\\
 letzter Zugriff: 28.10.2022}
-
-\subsection{Implementierung der Geschäftslogik}
-\label{sec:ImplementierungGeschaeftslogik}
-% \begin{itemize}
-% 	\item Beschreibung des Vorgehens bei der Umsetzung/Programmierung der entworfenen Anwendung.
-% 	\item \Ggfs interessante Funktionen/Algorithmen im Detail vorstellen, verwendete Entwurfsmuster zeigen.
-% 	\item Quelltextbeispiele zeigen.
-% 	\item Hinweis: Wie in Kapitel~\ref{sec:Einleitung}: \nameref{sec:Einleitung} zitiert, wird nicht ein lauffähiges Programm bewertet, sondern die Projektdurchführung. Dennoch würde ich immer Quelltextausschnitte zeigen, da sonst Zweifel an der tatsächlichen Leistung des Prüflings aufkommen können.
-% \end{itemize}
-% \paragraph{Beispiel}
-% Die Klasse \texttt{Com\-par\-ed\-Na\-tu\-ral\-Mo\-dule\-In\-for\-ma\-tion} findet sich im \Anhang{app:CNMI}.  
-Laut \ref{sec:Anwendungsfaelle} \nameref{sec:Anwendungsfaelle} ist der Hauptanwendungsfall
-das Abfragen der Datenbank-\acs{API} mithilfe des \Fachbegriff{ReklaTool}. Aus diesem wurde in 
-der Entwurfsphase ein Sequenz-Diagramm erstellt (\Vgl \Anhang{app:Sequenzdiagramm}).\\
-Nach der Initialisierung der Projektdateien, wurden die aus den Diagrammen ersichtlichen Serviceklassen
-und die dazugehörigen Interfaces implementiert. \\Danach konnten diese in der Datei \Datei{Program.cs}
-über den Aufruf \Methode{AddScoped} der \Klasse{builder.Services}-Instanz dem \acs{IOC}-Container 
-hinzugefügt werden und standen somit dem Injektor des Frameworks zur Verfügung. \\Danach 
-wurden die Services wie im Klassendiagramm \Anhang{app:Klassendiagramm} miteinander verknüpft.
-Dieses passierte über \Fachbegriff{Konstruktor-Injektion}. Die Implementierung von .NET Core 
-sieht ein Injizieren mittels Konstruktorparameter vor. Gegenüber der \Fachbegriff{Property-Injektion} gibt es
-den Vorteil, dass beim Instantiieren der Klasse bereits fehlende Abhängigkeiten auffallen.
-\footnote{Dependency Injection in der Microsoft-Dokumentation:\\ 
-\url{https://learn.microsoft.com/de-de/dotnet/core/extensions/dependency-injection}, \\
-letzter Zugriff: 28.10.2022}
-
+\clearpage

@@ -155,7 +155,8 @@
 		continue,in,return,using,decimal,int,sbyte,virtual,
 		default,interface,sealed,volatile,delegate,internal,short,void,
 		do,is,sizeof,while,double,lock,stackalloc,
-		else,long,static,enum,namespace,string,get,set,var},
+		else,long,static,enum,namespace,string,get,set,var,async,await
+        },
     morekeywords=[2]{%Types
         IKategorie,List,Position,XmlRoot,XmlElement,Vorgaenge,Vorgang,
         GridSelectionMode,WebApplication,DefaultContractResolver,IMsgService,
@@ -163,7 +164,8 @@
         RequestBuilder,ICacheService,ResponseCacheService,FilterRequest,
         IConfiguration,IHttpClientFactory,RequestModel,HttpClient,HttpRequestMessage,
         HttpMethod,StringContent,HttpResponseMessage,XmlSerializer,TextReader,
-        StringReader,CacheElement,Anfrage,VorgangInfoModel,Task   
+        StringReader,CacheElement,Anfrage,VorgangInfoModel,Task,VorgangController,
+        Controller,Authorize,ActionResult,DataSourceRequest,Exception,Console
         },
     morekeywords=[3]{%Methods
         Kendo,Button,Name,Content,Events,Click,Enable,DropDownList,BindTo,TextBox,
@@ -175,7 +177,8 @@
         UseHttpsRedirection,UseStaticFiles,UseRouting,UseKeycloakAuthentication,
         UseFrontendToken,UseAuthorization,WithAnwendbar,WithEinzelpruefbericht,
         ElementExists,GetElement,CreateClient,ToXML,SendAsync,ReadAsStringAsync,
-        Deserialize,SetElement 
+        Deserialize,SetElement,GetVorgangInfos,ToDataSourceResultAsync,WriteLine,
+        BadRequest,GetFahrzeugDaten 
         }
 }
 % \lstdefinelanguage{natural}{
