@@ -20,7 +20,7 @@ letzter Zugriff: 28.10.2022}
 Für das Projekt wurden diese als \Fachbegriff{scoped} angemeldet. Das bedeutet, dass der Service immer für die Dauer einer
 \acs{API}-Anfrage zur Verfügung steht. Eine Beschreibung, wie Services in das Programm eingebunden sind, findet sich im 
 \Anhang{app:EntwicklerDoku}.\\
-Nach der Registrierung der Dienste wurden in der \Datei{Program.cs} verschiedene \Fachbegriff{Middleware}-Anwendungen 
+Nach der Registrierung der Dienste wurden in der \Datei{Program.cs} verschiedene \Fachbegriff{Middleware}-An\-wen\-dung\-en 
 registriert und konfiguriert. Diese können vor \acs{bzw} nach dem Programmcode die Anfrage oder die Antwort auswerten 
 und bearbeiten. Ein Typisches Beispiel ist die Autorisierung eines Benutzers.
 
@@ -41,17 +41,22 @@ verkürzt (siehe dazu \ref{sec:SollIstVergleich} \nameref{sec:SollIstVergleich})
 % \begin{itemize}
 % 	\item Beschreibung der angelegten Datenbank (\zB Generierung von \acs{SQL} aus Modellierungswerkzeug oder händisches Anlegen), \acs{XML}-Schemas \usw.
 % \end{itemize}
-Zur Erstellung der einzelnen \ac{DTO}s wurden die \acs{XML}-Dateien deserialisiert, über die der Informationsaustausch mit der Datenbank-\acs{API}
-realisiert wird. Dabei handelte es sich um jeweils ein Anfrage- und ein Antwortformat. Diese wurden von der Fachabteilung zur Verfügung
-gestellt.\\
-Das Anfrage-\Fachbegriff{Model} beinhaltet das jeweils gewünschte Aktenzeichen und eine Information über die Anwendung eines Suchfilters,
-welcher die zurückgelieferten Daten einschränkt.\\
-Das Antwort-\Fachbegriff{Model} wurde bei der Deserialisierung bereits automatisch mit den notwendigen Annotationen versehen,
-um einen reibungslosen Austausch mit dem \acs{XML}-Format zu garantieren (siehe \Anhang{app:DTO}). Zur Datenbindung an die einzelnen Komponenten der
-Benutzeroberfläche wurden weitere \Fachbegriff{Viewmodels} erstellt, welche das Mapping auf das Antwort-\Fachbegriff{Model} ermöglichen.\\
-Für das \Fachbegriff{Caching} wurde ein eigenes \acs{DTO} umgesetzt, welches das Anfrage- und Antwort-\Fachbegriff{Model} enthält.
-Dieses wird beim Lesen und Schreiben der \Fachbegriff{Cache}-Dateien serialisiert \bzw deserialisiert.
-Über das \Fachbegriff{Hashing} des Anfrage-Objekts sind die Dateien eindeutig identifizierbar.
+Zur Erstellung der einzelnen \ac{DTO}s wurden die \acs{XML}-Dateien deserialisiert, 
+über die der Informationsaustausch mit der Datenbank-\acs{API} realisiert wird. 
+Dabei handelte es sich um jeweils ein Anfrage- und ein Antwortformat. Diese wurden 
+von der Fachabteilung zur Verfügung gestellt.\\
+Das Anfrage-\Fachbegriff{Model} beinhaltet das jeweils gewünschte Aktenzeichen und 
+eine Information über die Anwendung eines Suchfilters, welcher die zurückgelieferten 
+Daten einschränkt.\\
+Das Antwort-\Fachbegriff{Model} wurde bei der Deserialisierung bereits automatisch 
+mit den notwendigen Annotationen versehen, um einen reibungslosen Austausch mit 
+dem \acs{XML}-Format zu garantieren (siehe \Anhang{app:DTO}). Zur Datenbindung an 
+die einzelnen Komponenten der Benutzeroberfläche wurden weitere \Fachbegriff{Viewmodels} 
+erstellt, welche das Mapping auf das Antwort-\Fachbegriff{Model} ermöglichen.\\
+Für das \Fachbegriff{Caching} wurde ein eigenes \acs{DTO} umgesetzt, welches das 
+Anfrage- und Antwort-\Fachbegriff{Model} enthält. Dieses wird beim Lesen und Schreiben 
+der \Fachbegriff{Cache}-Dateien serialisiert \bzw deserialisiert. Über das \Fachbegriff{Hashing} 
+des Anfrage-Objekts sind die Dateien eindeutig identifizierbar.
 
 \subsection{Implementierung der Geschäftslogik}
 \label{sec:ImplementierungGeschaeftslogik}
