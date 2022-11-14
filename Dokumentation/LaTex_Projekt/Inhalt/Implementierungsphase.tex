@@ -90,11 +90,11 @@ Die Fehlermeldung der Ausnahme (\Fachbegriff{Exception}) wird an die Programmkon
 und kann dort zur Fehleranalyse genutzt werden. Die Methode gibt eine Fehlernachricht an den 
 \Fachbegriff{Client} zurück. Das \Fachbegriff{Frontend-Framework} informiert danach
 den Anwender darüber, dass seine Anfrage nicht erfolgreich war.\\
-Nach der Übergabe wurde die Verarbeitung von Log-Meldungen und Ausnahmefehlern
-durch die IT-Abteilung konfiguriert. Dazu wurde mit der Software \Fachbegriff{Sentry.io}
-die zentrale Verwaltung des \Fachbegriff{Logs} angelegt. Daraus ergibt sich die 
-Möglichkeit, Nachrichten zu versenden, sobald Fehler oder unerwartetes Verhalten
-in der Anwendung auftreten.
+Im Rahmen der Abgrenzung des Projekts wurde das \Fachbegriff{Logging} nur rudimentär
+implementiert. Für spätere Weiterentwicklungen ist vorgesehen, die Fehlernachrichten
+an die hausinterne Instanz der Software \Fachbegriff{Sentry.io} weiterzuleiten.
+Dadurch bietet sich die Möglichkeit der Benachrichtigung von Administratoren und
+\Fachbegriff{DevOps}.
 
 \subsection{Implementierung der Benutzeroberfläche}
 \label{sec:ImplementierungBenutzeroberflaeche}
